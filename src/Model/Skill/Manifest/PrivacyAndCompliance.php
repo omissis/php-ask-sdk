@@ -51,12 +51,12 @@ final class PrivacyAndCompliance
     /**
      * Object that contains <locale> objects for each supported locale.
      *
-     * @var array<Locale>
+     * @var array<string, Locale>
      */
     private $locales;
 
     /**
-     * @param array<Locale> $locales
+     * @param array<string, Locale> $locales
      */
     public function __construct(
         bool $allowsPurchases,
@@ -100,7 +100,7 @@ final class PrivacyAndCompliance
     }
 
     /**
-     * @return array<Locale>
+     * @return array<string, Locale>
      */
     public function getLocales(): array
     {
