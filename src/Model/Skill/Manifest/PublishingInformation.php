@@ -1,0 +1,109 @@
+<?php
+
+namespace Omissis\AlexaSdk\Model\Skill\Manifest;
+
+use Omissis\AlexaSdk\Model\Skill\Manifest\PublishingInformation\Category;
+use Omissis\AlexaSdk\Model\Skill\Manifest\PublishingInformation\DistributionCountry;
+use Omissis\AlexaSdk\Model\Skill\Manifest\PublishingInformation\DistributionMode;
+use Omissis\AlexaSdk\Model\Skill\Manifest\PublishingInformation\Locale;
+
+final class PublishingInformation
+{
+    /**
+     * Object that contains <locale> objects for each supported locale.
+     *
+     * @var array<Locale>
+     */
+    private $locales;
+
+    /**
+     * Array specifying distribution country/region strings in ISO 3166-1 alpha-2 format, for example US, GB or DE. This array should only contain values if availableWorldwide is false.
+     *
+     * @var array<DistributionCountry>
+     */
+    private $distributionCountries;
+
+    /**
+     * true to indicate the skill is available worldwide; otherwise, false. If false, countries must be listed for distributionCountries.
+     *
+     * @var bool
+     */
+    private $isAvailableWorldwide;
+
+    /**
+     * PUBLIC if the skill is distributed without restriction. PRIVATE if the skill is available only to a private distribution list.
+     *
+     * @var null|DistributionMode
+     */
+    private $distributionMode;
+
+    /**
+     * Indicates any special instructions for testing the skill, such as a test account.
+     *
+     * @var string
+     */
+    private $testingInstructions;
+
+    /**
+     * Indicates the filter category for the skill in the Alexa App such as NEWS or SMART_HOME. See Category enumeration.
+     *
+     * @var Category
+     */
+    private $category;
+
+    /**
+     * @param array<Locale> $locales
+     * @param array<DistributionCountry> $distributionCountries
+     */
+    public function __construct(
+        array $locales,
+        array $distributionCountries,
+        bool $isAvailableWorldwide,
+        ?DistributionMode $distributionMode,
+        string $testingInstructions,
+        Category $category
+    ) {
+        $this->locales = $locales;
+        $this->distributionCountries = $distributionCountries;
+        $this->isAvailableWorldwide = $isAvailableWorldwide;
+        $this->distributionMode = $distributionMode;
+        $this->testingInstructions = $testingInstructions;
+        $this->category = $category;
+    }
+
+    /**
+     * @return array<Locale>
+     */
+    public function getLocales(): array
+    {
+        return $this->locales;
+    }
+
+    /**
+     * @return array<DistributionCountry>
+     */
+    public function getDistributionCountries(): array
+    {
+        return $this->distributionCountries;
+    }
+
+    public function isAvailableWorldwide(): bool
+    {
+        return $this->isAvailableWorldwide;
+    }
+
+    public function getDistributionMode(): ?DistributionMode
+    {
+        return $this->distributionMode;
+    }
+
+    public function getTestingInstructions(): string
+    {
+        return $this->testingInstructions;
+    }
+
+    public function getCategory(): Category
+    {
+        return $this->category;
+    }
+}

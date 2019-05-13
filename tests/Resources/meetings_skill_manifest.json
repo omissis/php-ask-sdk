@@ -1,0 +1,76 @@
+{
+  "manifest": {
+    "apis": {
+      "alexaForBusiness": {
+        "endpoint": {
+          "uri": "arn:aws:lambda:us-east-1:123456789:function:myFunctionName1"
+        },
+        "regions": {
+          "NA": {
+            "endpoint": {
+              "uri": "arn:aws:lambda:us-east-1:123456789:function:myFunctionName1"
+            }
+          }
+        },
+        "interfaces": [
+          {
+            "namespace": "Alexa.Business.Reservation.Room",
+            "version": "1.0",
+            "requests": [
+              {
+                "name": "Search"
+              },
+              {
+                "name": "Create"
+              },
+              {
+                "name": "Update"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "manifestVersion": "1.0",
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "usesPersonalInfo": false,
+      "isChildDirected": false,
+      "isExportCompliant": true,
+      "containsAds": false,
+      "locales": {
+        "en-US": {
+          "privacyPolicyUrl": "http://www.myprivacypolicy.sampleskill.com",
+          "termsOfUseUrl": "http://www.termsofuse.sampleskill.com"
+        }
+      }
+    },
+    "publishingInformation": {
+      "locales": {
+        "en-US": {
+          "name": "Room Booking Skill",
+          "summary": "This is a sample Alexa skill.",
+          "description": "This skill has Alexa for Business reservations features.",
+          "smallIconUri": "https://smallUri.example.com/small1.png",
+          "largeIconUri": "https://largeUri.example.com/large1.png",
+          "examplePhrases": [
+            "Alexa, book this room.",
+            "Alexa, find a room at 3pm tomorrow."
+          ],
+          "keywords": [
+            "Meetings",
+            "Booking",
+            "Alexa For Business"
+          ],
+          "updatesDescription": "This skill has updates that fix feature bugs."
+        }
+      },
+      "distributionCountries": [
+        "US"
+      ],
+      "isAvailableWorldwide": false,
+      "testingInstructions": "1) Say 'Alexa, Book this room'",
+      "category": "CALENDARS_AND_REMINDERS"
+    }
+  }
+}

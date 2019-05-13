@@ -1,0 +1,40 @@
+{
+    "name": "omissis/php-ask-sdk",
+    "description": "PHP SDK for Amazon Alexa Skills Kit",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Claudio Beatrice",
+            "email": "claudi0.beatric3@gmail.com"
+        }
+    ],
+    "config": {
+        "bin-dir": "bin"
+    },
+    "require": {
+        "ext-json": "*",
+        "psr/http-client": "^1.0",
+        "psr/http-factory": "^1.0",
+        "symfony/serializer": "^4.2",
+        "symfony/property-access": "^4.2",
+        "symfony/property-info": "^4.2",
+        "doctrine/common": "^2.10"
+    },
+    "autoload": {
+        "psr-4": {
+            "Omissis\\AlexaSdk\\": "src/"
+        }
+    },
+    "require-dev": {
+        "vimeo/psalm": "^3.2",
+        "phpstan/phpstan": "^0.11",
+        "object-calisthenics/phpcs-calisthenics-rules": "^3.5",
+        "phpunit/phpunit": "^8.1"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Omissis\\AlexaSdk\\Tests\\": "tests/"
+        }
+    }
+}
