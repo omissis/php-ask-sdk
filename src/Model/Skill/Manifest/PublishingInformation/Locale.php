@@ -56,7 +56,7 @@ final class Locale
     /**
      * Description of the skill's new features and fixes in the version. Should describe changes in the revisions of the skill.
      *
-     * @var string
+     * @var null|string
      */
     private $updatesDescription;
 
@@ -72,7 +72,7 @@ final class Locale
         string $largeIconUri,
         array $examplePhrases,
         array $keywords,
-        string $updatesDescription
+        ?string $updatesDescription = null
     ) {
         $this->name = $name;
         $this->summary = $summary;
@@ -125,7 +125,7 @@ final class Locale
         return $this->keywords;
     }
 
-    public function getUpdatesDescription(): string
+    public function getUpdatesDescription(): ?string
     {
         return $this->updatesDescription;
     }

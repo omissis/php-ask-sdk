@@ -30,9 +30,52 @@ final class SymfonyDeserializerAdapterTest extends TestCase
 
     public function deserializationProvider(): Generator
     {
-        // Testcase: Alexa for business
-        {
+//        // Testcase: Baby activity
+//        {
+//            $schema = new SkillManifestSchema(
+//                new Manifest()
+//            );
+//
+//            $serialized = Resources::getContent('baby_activity_skill_manifest.json');
+//
+//            yield [$schema, $serialized, Format::json(), Type::skillManifestSchema()];
+//        }
+//
+//        // Testcase: Custom
+//        {
+//            $schema = new SkillManifestSchema(
+//                new Manifest()
+//            );
+//
+//            $serialized = Resources::getContent('custom_skill_manifest.json');
+//
+//            yield [$schema, $serialized, Format::json(), Type::skillManifestSchema()];
+//        }
+//
+//        // Testcase: Flash briefing
+//        {
+//            $schema = new SkillManifestSchema(
+//                new Manifest()
+//            );
+//
+//            $serialized = Resources::getContent('flash_briefing_skill_manifest.json');
+//
+//            yield [$schema, $serialized, Format::json(), Type::skillManifestSchema()];
+//        }
+//
+//        // Testcase: List with no custom component
+//        {
+//            $schema = new SkillManifestSchema(
+//                new Manifest()
+//            );
+//
+//            $serialized = Resources::getContent('list_skill_manifest_with_no_custom_component.json');
+//
+//            yield [$schema, $serialized, Format::json(), Type::skillManifestSchema()];
+//        }
 
+        // Testcase: Meetings
+        {
             $schema = new SkillManifestSchema(
                 new Manifest(
                     ['alexaForBusiness' => new AlexaForBusiness(
@@ -90,5 +133,27 @@ final class SymfonyDeserializerAdapterTest extends TestCase
 
             yield [$schema, $serialized, Format::json(), Type::skillManifestSchema()];
         }
+
+//        // Testcase: Smart home
+//        {
+//            $schema = new SkillManifestSchema(
+//                new Manifest()
+//            );
+//
+//            $serialized = Resources::getContent('smart_home_skill_manifest.json');
+//
+//            yield [$schema, $serialized, Format::json(), Type::skillManifestSchema()];
+//        }
+//
+//        // Testcase: Video
+//        {
+//            $schema = new SkillManifestSchema(
+//                new Manifest()
+//            );
+//
+//            $serialized = Resources::getContent('video_skill_manifest.json');
+//
+//            yield [$schema, $serialized, Format::json(), Type::skillManifestSchema()];
+//        }
     }
 }

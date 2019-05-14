@@ -20,7 +20,7 @@ final class SymfonySerializerAdapter implements Serializer
     public function __construct()
     {
         $this->serializer = new SymfonySerializer(
-            [new ValueObjectNormalizer(), new ObjectNormalizer(null, new IsserNameConverter())],
+            [new CustomObjectNormalizer(), new ValueObjectNormalizer(), new ObjectNormalizer(null, new IsserNameConverter())],
             [new JsonEncoder()]
         );
     }

@@ -1,0 +1,64 @@
+{
+  "manifest": {
+    "apis": {
+      "flashBriefing": {
+        "locales": {
+          "en-US": {
+            "customErrorMessage": "Error message",
+            "feeds": [
+              {
+                "name": "feed name",
+                "isDefault": true,
+                "vuiPreamble": "In this skill",
+                "updateFrequency": "HOURLY",
+                "genre": "POLITICS",
+                "imageUri": "https://fburi.com",
+                "contentType": "TEXT",
+                "url": "https://feeds.sampleskill.com/feedX"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "manifestVersion": "1.0",
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "usesPersonalInfo": false,
+      "isChildDirected": false,
+      "isExportCompliant": true,
+      "containsAds": false,
+      "locales": {
+        "en-US": {
+          "privacyPolicyUrl": "http://www.myprivacypolicy.sampleskill.com",
+          "termsOfUseUrl": "http://www.termsofuse.sampleskill.com"
+        }
+      }
+    },
+    "publishingInformation": {
+      "locales": {
+        "en-US": {
+          "name": "Sample skill name.",
+          "summary": "This is a sample Alexa skill.",
+          "description": "This skill has basic and advanced features.",
+          "smallIconUri": "https://smallUri.com",
+          "largeIconUri": "https://largeUri.com",
+          "examplePhrases": [],
+          "keywords": [
+            "Flash Briefing",
+            "News",
+            "Happenings"
+          ]
+        }
+      },
+      "distributionCountries": [
+        "US",
+        "GB",
+        "DE"
+      ],
+      "isAvailableWorldwide": false,
+      "testingInstructions": "1) Say 'Alexa, hello world'",
+      "category": "HEALTH_AND_FITNESS"
+    }
+  }
+}

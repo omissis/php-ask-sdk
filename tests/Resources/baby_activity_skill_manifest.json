@@ -1,0 +1,60 @@
+{
+  "skillManifest": {
+    "apis": {
+      "health": {
+        "endpoint": {
+          "uri": "lambda-endpoint"
+        },
+        "regions": {
+          "NA": {
+            "endpoint": {
+              "uri": "lambda-endpoint"
+            }
+          }
+        }
+      }
+    },
+    "manifestVersion": "1.0",
+    "permissions": [
+      {
+        "name": "alexa::health:profile:write"
+      }
+    ],
+    "privacyAndCompliance": {
+      "locales": {
+        "en-US": {
+          "privacyPolicyUrl": "https://example.com/privacy"
+        }
+      },
+      "allowsPurchases": false,
+      "isExportCompliant": true,
+      "containsAds": false,
+      "isChildDirected": false,
+      "usesPersonalInfo": true
+    },
+    "publishingInformation": {
+      "locales": {
+        "en-US": {
+          "summary": "Baby Activity Skill 1",
+          "examplePhrases": [
+            "\"Alexa, log a diaper change for Jane\"",
+            "\"Alexa, what is Jane's weight\""
+          ],
+          "description": "A skill that logs and tracks baby activities",
+          "keywords": [
+            "Family",
+            "Infant Tracking"
+          ],
+          "name": "Baby Activity Test Skill",
+          "smallIconUri": "iconUri",
+          "largeIconUri": "iconUri"
+        }
+      },
+      "isAvailableWorldwide": true,
+      "category": "HEALTH_AND_FITNESS",
+      "testingInstructions": "Alexa, log a diaper change",
+      "distributionCountries": []
+    }
+  },
+  "vendorId" : "your-vendor-id"
+}

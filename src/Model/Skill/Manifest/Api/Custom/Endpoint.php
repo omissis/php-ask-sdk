@@ -17,11 +17,11 @@ final class Endpoint
     /**
      * The SSL certificate type for the skill's HTTPS endpoint. Only valid for HTTPS endpoints, not for AWS Lambda ARN
      *
-     * @var SslCertificateType
+     * @var null|SslCertificateType
      */
     private $sslCertificateType;
 
-    public function __construct(Uri $uri, SslCertificateType $sslCertificateType)
+    public function __construct(Uri $uri, ?SslCertificateType $sslCertificateType = null)
     {
         $this->uri = $uri;
         $this->sslCertificateType = $sslCertificateType;
@@ -32,7 +32,7 @@ final class Endpoint
         return $this->uri;
     }
 
-    public function getSslCertificateType(): SslCertificateType
+    public function getSslCertificateType(): ?SslCertificateType
     {
         return $this->sslCertificateType;
     }

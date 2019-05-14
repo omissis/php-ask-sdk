@@ -18,9 +18,11 @@ final class PermissionTest extends TestCase
     /**
      * @dataProvider permissionProvider
      */
-    function test_it_is_convertible_to_string(string $permission): void
+    function test_it_exposes_accessors(string $permissionName): void
     {
-        $this->assertSame($permission, (string) new Permission($permission));
+        $permission = new Permission($permissionName);
+
+        $this->assertSame($permissionName, $permission->getName());
     }
 
     public function permissionProvider(): \Generator

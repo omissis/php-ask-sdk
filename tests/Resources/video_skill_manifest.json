@@ -1,0 +1,79 @@
+{
+  "manifest": {
+    "apis": {
+      "video": {
+        "locales": {
+          "en-US": {
+            "videoProviderTargetingNames": [
+              "TV provider"
+            ],
+            "catalogInformation": [
+              {
+                "sourceId": "1234",
+                "type": "FIRE_TV"
+              }
+            ]
+          }
+        },
+        "endpoint": {
+          "uri": "arn:aws:lambda:us-east-1:452493640596:function:sampleSkill"
+        },
+        "regions": {
+          "NA": {
+            "endpoint": {
+              "uri": "arn:aws:lambda:us-east-1:452493640596:function:sampleSkill"
+            },
+            "upchannel": [
+              {
+                "type": "SNS",
+                "uri": "arn:aws:sns:us-east-1:291420629295:sampleSkill"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "manifestVersion": "1.0",
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "usesPersonalInfo": false,
+      "isChildDirected": false,
+      "isExportCompliant": true,
+      "containsAds": false,
+      "locales": {
+        "en-US": {
+          "privacyPolicyUrl": "http://www.myprivacypolicy.sampleskill.com",
+          "termsOfUseUrl": "http://www.termsofuse.sampleskill.com"
+        }
+      }
+    },
+    "publishingInformation": {
+      "locales": {
+        "en-US": {
+          "name": "VideoSampleSkill",
+          "summary": "This is a sample Alexa skill.",
+          "description": "This skill has video control features.",
+          "smallIconUri": "https://smallUri.com",
+          "largeIconUri": "https://largeUri.com",
+          "examplePhrases": [
+            "Alexa, tune to channel 206",
+            "Alexa, search for comedy movies",
+            "Alexa, pause."
+          ],
+          "keywords": [
+            "Video",
+            "TV"
+          ]
+        }
+      },
+      "distributionCountries": [
+        "US",
+        "GB",
+        "DE"
+      ],
+      "isAvailableWorldwide": false,
+      "testingInstructions": "",
+      "category": "SMART_HOME"
+    }
+  }
+}

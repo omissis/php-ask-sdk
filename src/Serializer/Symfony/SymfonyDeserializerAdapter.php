@@ -4,12 +4,16 @@ declare(strict_types=1);
 
 namespace Omissis\AlexaSdk\Serializer\Symfony;
 
+use Doctrine\Common\Annotations\AnnotationReader;
 use Omissis\AlexaSdk\Model\Skill\Manifest;
 use Omissis\AlexaSdk\Model\Skill\Manifest\PublishingInformation;
 use Omissis\AlexaSdk\Serializer\Deserializer;
 use Omissis\AlexaSdk\Serializer\Format;
 use Omissis\AlexaSdk\Serializer\Type;
+use Symfony\Component\PropertyInfo\Extractor\PhpDocExtractor;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory;
+use Symfony\Component\Serializer\Mapping\Loader\AnnotationLoader;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer as SymfonySerializer;
 
@@ -22,8 +26,10 @@ final class SymfonyDeserializerAdapter implements Deserializer
 
     public function __construct()
     {
+        $classMetaDataFactory = new ClassMetadataFactory(new AnnotationLoader(new AnnotationReader()));
+
         $this->serializer = new SymfonySerializer(
-            [new ObjectNormalizer(null, new ConstructorParameterNameConverter())],
+            [new ObjectNormalizer($classMetaDataFactory, new ConstructorParameterNameConverter(), null, new PhpDocExtractor())],
             [new JsonEncoder()]
         );
     }

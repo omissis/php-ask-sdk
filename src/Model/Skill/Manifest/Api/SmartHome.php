@@ -26,14 +26,14 @@ final class SmartHome implements Api
     /**
      * (Optional) Version of the Smart Home API. Default and recommended value is '3'. You may create a skill with version '2' for testing migration to version '3', but a skill submission using version '2' will not be certified.
      *
-     * @var ProtocolVersion
+     * @var null|ProtocolVersion
      */
     private $protocolVersion;
 
     /**
      * @param array<Region>
      */
-    public function __construct(Endpoint $endpoint, array $regions, ProtocolVersion $protocolVersion)
+    public function __construct(Endpoint $endpoint, array $regions, ?ProtocolVersion $protocolVersion = null)
     {
         $this->endpoint = $endpoint;
         $this->regions = $regions;
@@ -53,7 +53,7 @@ final class SmartHome implements Api
         return $this->regions;
     }
 
-    public function getProtocolVersion(): ProtocolVersion
+    public function getProtocolVersion(): ?ProtocolVersion
     {
         return $this->protocolVersion;
     }

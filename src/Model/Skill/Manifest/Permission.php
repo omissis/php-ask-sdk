@@ -21,22 +21,22 @@ final class Permission
     /**
      * @var string
      */
-    private $permission;
+    private $name;
 
     /**
      * @throws InvalidPermissionException
      */
-    public function __construct(string $permission)
+    public function __construct(string $name)
     {
-        if (!in_array($permission, self::ALLOWED_PERMISSIONS, true)) {
-            throw new InvalidPermissionException($permission);
+        if (!in_array($name, self::ALLOWED_PERMISSIONS, true)) {
+            throw new InvalidPermissionException($name);
         }
 
-        $this->permission = $permission;
+        $this->name = $name;
     }
 
-    public function __toString()
+    public function getName()
     {
-        return $this->permission;
+        return $this->name;
     }
 }

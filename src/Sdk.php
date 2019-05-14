@@ -4,6 +4,7 @@ namespace Omissis\AlexaSdk;
 
 use Omissis\AlexaSdk\Model\Skill;
 use Omissis\AlexaSdk\Model\Skill\Manifest;
+use Omissis\AlexaSdk\Model\SkillManifestSchema;
 use Omissis\AlexaSdk\Sdk\OAuthToken;
 use Omissis\AlexaSdk\Serializer\Deserializer;
 use Omissis\AlexaSdk\Serializer\Format;
@@ -64,7 +65,7 @@ final class Sdk
     /**
      * @throws Sdk\Exception
      */
-    public function getSkillInformation(Skill\Id $skillId, Skill\Stage $stage): Manifest
+    public function getSkillInformation(Skill\Id $skillId, Skill\Stage $stage): SkillManifestSchema
     {
         $request = $this->httpRequestFactory
             ->createRequest('GET', "$this->baseUrl/skills/$skillId/stages/$stage/manifest")

@@ -69,9 +69,9 @@ final class ManifestTest extends TestCase
         $sslCertificateType = new SslCertificateType('SelfSigned');
 
         $events = new Events(
+            $endpoint,
             $publications,
             $subscriptions,
-            $endpoint,
             $regions,
             $sslCertificateType
         );

@@ -11,7 +11,7 @@ final class PublishingInformationTest extends TestCase
     {
         $locales = [
             'en-US' => new PublishingInformation\Locale(
-                //'Room Booking Skill', // name
+                'Room Booking Skill', // name
                 'This is a sample Alexa skill.',
                 'This skill has Alexa for Business reservations features.',
                 'https://smallUri.example.com/small1.png',

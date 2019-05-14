@@ -12,14 +12,14 @@ final class Region
     private $endpoint;
 
     /**
-     * @var Region\UpChannel
+     * @var array<Region\Upchannel>
      */
-    private $upChannel;
+    private $upchannel;
 
-    public function __construct(Region\Endpoint $endpoint, Region\UpChannel $upChannel)
+    public function __construct(Region\Endpoint $endpoint, Region\Upchannel $upchannel)
     {
         $this->endpoint = $endpoint;
-        $this->upChannel = $upChannel;
+        $this->upchannel = [$upchannel];
     }
 
     public function getEndpoint(): Region\Endpoint
@@ -27,8 +27,11 @@ final class Region
         return $this->endpoint;
     }
 
-    public function getUpChannel(): Region\UpChannel
+    /**
+     * @return array<Region\Upchannel>
+     */
+    public function getUpchannel(): array
     {
-        return $this->upChannel;
+        return $this->upchannel;
     }
 }

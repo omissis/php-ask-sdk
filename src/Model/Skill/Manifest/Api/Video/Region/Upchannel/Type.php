@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Omissis\AlexaSdk\Model\Skill\Manifest\Api\Video\Region\UpChannel;
+namespace Omissis\AlexaSdk\Model\Skill\Manifest\Api\Video\Region\Upchannel;
 
 final class Type
 {

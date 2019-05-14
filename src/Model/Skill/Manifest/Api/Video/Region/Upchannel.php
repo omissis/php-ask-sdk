@@ -6,12 +6,12 @@ namespace Omissis\AlexaSdk\Model\Skill\Manifest\Api\Video\Region;
 
 use Omissis\AlexaSdk\Model\Uri\Uri;
 
-final class UpChannel
+final class Upchannel
 {
     /**
      * Use "SNS" for this field
      *
-     * @var UpChannel\Type
+     * @var Upchannel\Type
      */
     private $type;
 
@@ -22,13 +22,13 @@ final class UpChannel
      */
     private $uri;
 
-    public function __construct(UpChannel\Type $type, Uri $uri)
+    public function __construct(Upchannel\Type $type, Uri $uri)
     {
         $this->type = $type;
         $this->uri = $uri;
     }
 
-    public function getType(): UpChannel\Type
+    public function getType(): Upchannel\Type
     {
         return $this->type;
     }

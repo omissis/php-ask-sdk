@@ -2,7 +2,7 @@
 
 namespace Omissis\AlexaSdk\Tests\Model\Skill\Manifest\Api\Video\Region\UpChannel;
 
-use Omissis\AlexaSdk\Model\Skill\Manifest\Api\Video\Region\UpChannel\Type;
+use Omissis\AlexaSdk\Model\Skill\Manifest\Api\Video\Region\Upchannel\Type;
 use PHPUnit\Framework\TestCase;
 
 final class TypeTest extends TestCase

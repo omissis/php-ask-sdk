@@ -9,7 +9,7 @@ use Omissis\AlexaSdk\Model\Skill\Manifest\PrivacyAndCompliance;
 use Omissis\AlexaSdk\Model\Skill\Manifest\PublishingInformation;
 use Omissis\AlexaSdk\Model\Skill\Manifest\ManifestVersion;
 
-final class Manifest
+/*final */class Manifest
 {
     /**
      * Object specifying required information for all interfaces that a skill supports.

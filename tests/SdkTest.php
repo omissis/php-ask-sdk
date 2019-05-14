@@ -2,12 +2,16 @@
 
 namespace Omissis\AlexaSdk\Tests;
 
+use Omissis\AlexaSdk\Model\SkillManifestSchema;
 use Omissis\AlexaSdk\Sdk;
 use Omissis\AlexaSdk\Model\Skill;
 use Omissis\AlexaSdk\Model\Skill\Manifest;
 use Omissis\AlexaSdk\Serializer\Deserializer;
+use Omissis\AlexaSdk\Serializer\Format;
 use Omissis\AlexaSdk\Serializer\Serializer;
+use Omissis\AlexaSdk\Serializer\Type;
 use PHPUnit\Framework\TestCase;
+use Prophecy\Argument;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\RequestInterface;
@@ -78,11 +82,17 @@ final class SdkTest extends TestCase
             ->willReturn($response->reveal())
             ->shouldBeCalledOnce();
 
+        $this->deserializer
+            ->deserialize(Argument::any(), Format::json(), Type::skillManifestSchema())
+            ->willReturn(new SkillManifestSchema($this->prophesize(Manifest::class)->reveal()));
+
         $skillId = new Skill\Id(self::TEST_SKILL_ID);
         $stage = new Skill\Stage(self::TEST_STAGE);
 
-        $manifest = $this->sdk->getSkillInformation($skillId, $stage);
+        $skillManifestSchema = $this->sdk->getSkillInformation($skillId, $stage);
 
-        $this->assertInstanceOf(Manifest::class, $manifest);
+        $this->assertInstanceOf(SkillManifestSchema::class, $skillManifestSchema);
+
+        // TODO: improve test
     }
 }
