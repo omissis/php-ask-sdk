@@ -7,6 +7,7 @@ use Omissis\AlexaSdk\Model\Skill\Manifest;
 use Omissis\AlexaSdk\Model\Skill\Manifest\Api;
 use Omissis\AlexaSdk\Model\Skill\Manifest\Api\Video\Locale\VideoProviderTargetingName;
 use Omissis\AlexaSdk\Model\Skill\Manifest\Events;
+use Omissis\AlexaSdk\Model\Skill\VendorId;
 use Omissis\AlexaSdk\Model\SkillManifestSchema;
 use Omissis\AlexaSdk\Model\Ssl\SslCertificateType;
 use Omissis\AlexaSdk\Model\Uri\Uri;
@@ -30,16 +31,52 @@ final class SymfonySerializerAdapterTest extends TestCase
 
     public function serializationProvider(): Generator
     {
-//        // Testcase: Baby activity
-//        {
-//            $serialized = Resources::getContent('baby_activity_skill_manifest.json');
-//
-//            $schema = new SkillManifestSchema(
-//                new Manifest()
-//            );
-//
-//            yield [$serialized, $schema, Format::json()];
-//        }
+        // Testcase: Baby activity
+        {
+            $serialized = Resources::getContent('baby_activity_skill_manifest.json');
+
+            $schema = new SkillManifestSchema(
+                new Manifest(
+                    ['health' => new Api\Health(
+                        new Api\Health\Endpoint(new Uri('lambda-endpoint')),
+                        ['NA' => new Api\Health\Region(new Api\Health\Region\Endpoint(new Uri('lambda-endpoint')))]
+                    )],
+                    null,
+                    new Manifest\ManifestVersion('1.0'),
+                    [new Manifest\Permission('alexa::health:profile:write')],
+                    new Manifest\PrivacyAndCompliance(false, true, false, true, false, [
+                        'en-US' => new Manifest\PrivacyAndCompliance\Locale(
+                            new Url('https://example.com/privacy')
+                        )
+                    ]),
+                    new Manifest\PublishingInformation(
+                        ['en-US' => new Manifest\PublishingInformation\Locale(
+                            'Baby Activity Test Skill',
+                            'Baby Activity Skill 1',
+                            'A skill that logs and tracks baby activities',
+                            'iconUri',
+                            'iconUri',
+                            [
+                                '"Alexa, log a diaper change for Jane"',
+                                '"Alexa, what is Jane\'s weight"',
+                            ],
+                            [
+                                'Family',
+                                'Infant Tracking',
+                            ]
+                        )],
+                        [],
+                        true,
+                        null,
+                        "Alexa, log a diaper change",
+                        new Manifest\PublishingInformation\Category('HEALTH_AND_FITNESS')
+                    )
+                ),
+                new VendorId('your-vendor-id')
+            );
+
+            yield [$serialized, $schema, Format::json()];
+        }
 
         // Testcase: Custom
         {

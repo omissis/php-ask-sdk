@@ -16,6 +16,7 @@ final class Permission
         'alexa::profile:given_name:read', // Read the customer's given name or first name.
         'alexa::profile:mobile_number:read', // Read the customer's phone number.
         'alexa::profile:name:read', // Read the customer's full name.
+        'alexa::health:profile:write',
     ];
 
     /**

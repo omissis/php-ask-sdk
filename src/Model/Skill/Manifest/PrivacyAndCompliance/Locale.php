@@ -16,11 +16,11 @@ final class Locale
     /**
      * URL to the terms of use for the skill for the locale.
      *
-     * @var Url
+     * @var null|Url
      */
     private $termsOfUseUrl;
 
-    public function __construct(Url $privacyPolicyUrl, Url $termsOfUseUrl)
+    public function __construct(Url $privacyPolicyUrl, ?Url $termsOfUseUrl = null)
     {
         $this->privacyPolicyUrl = $privacyPolicyUrl;
         $this->termsOfUseUrl = $termsOfUseUrl;
@@ -31,7 +31,7 @@ final class Locale
         return $this->privacyPolicyUrl;
     }
 
-    public function getTermsOfUseUrl(): Url
+    public function getTermsOfUseUrl(): ?Url
     {
         return $this->termsOfUseUrl;
     }
