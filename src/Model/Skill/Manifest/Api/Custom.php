@@ -19,20 +19,20 @@ final class Custom implements Api
     /**
      * Contains an array of the supported <region> Objects.
      *
-     * @var array<Region>
+     * @var Region[]
      */
     private $regions;
 
     /**
      * Contains an array of the supported interfaces.
      *
-     * @var array<SupportedInterface>
+     * @var SupportedInterface[]
      */
     private $interfaces;
 
     /**
-     * @param array<Region>
-     * @param array<SupportedInterface>
+     * @param Region[] $regions
+     * @param SupportedInterface[] $interfaces
      */
     public function __construct(Endpoint $endpoint, array $regions, array $interfaces)
     {
@@ -47,7 +47,7 @@ final class Custom implements Api
     }
 
     /**
-     * @return array<Region>
+     * @return Region[]
      */
     public function getRegions(): array
     {
@@ -55,7 +55,7 @@ final class Custom implements Api
     }
 
     /**
-     * @return array<SupportedInterface>
+     * @return SupportedInterface[]
      */
     public function getInterfaces(): array
     {

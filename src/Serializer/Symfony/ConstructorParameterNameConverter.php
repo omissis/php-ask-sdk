@@ -8,8 +8,17 @@ use Symfony\Component\Serializer\NameConverter\AdvancedNameConverterInterface;
 
 final class ConstructorParameterNameConverter implements AdvancedNameConverterInterface
 {
+    /**
+     * @param string $propertyName
+     *
+     * @return int|string
+     */
     public function normalize($propertyName, string $class = null, string $format = null, array $context = [])
     {
+        if ($class === null) {
+            return $propertyName;
+        }
+
         $reflectionClass = new \ReflectionClass($class);
 
         if ($propertyName === lcfirst($reflectionClass->getShortName())) {
@@ -19,6 +28,11 @@ final class ConstructorParameterNameConverter implements AdvancedNameConverterIn
         return $propertyName;
     }
 
+    /**
+     * @param string $propertyName
+     *
+     * @return string
+     */
     public function denormalize($propertyName, string $class = null, string $format = null, array $context = [])
     {
         return $propertyName;

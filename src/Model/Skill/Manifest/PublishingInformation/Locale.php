@@ -42,14 +42,14 @@ final class Locale
     /**
      * Three example phrases that illustrate how users can invoke your skill. For accuracy, these phrases must come directly from your sample utterances.
      *
-     * @var array<string>
+     * @var string[]
      */
     private $examplePhrases;
 
     /**
      * Sample keyword phrases that describe the skill.
      *
-     * @var array<string>
+     * @var string[]
      */
     private $keywords;
 
@@ -61,8 +61,8 @@ final class Locale
     private $updatesDescription;
 
     /**
-     * @param array<string> $examplePhrases
-     * @param array<string> $keywords
+     * @param string[] $examplePhrases
+     * @param string[] $keywords
      */
     public function __construct(
         string $name,
@@ -110,7 +110,7 @@ final class Locale
     }
 
     /**
-     * @return array<string>
+     * @return string[]
      */
     public function getExamplePhrases(): array
     {
@@ -118,7 +118,7 @@ final class Locale
     }
 
     /**
-     * @return array<string>
+     * @return string[]
      */
     public function getKeywords(): array
     {

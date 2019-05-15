@@ -12,20 +12,20 @@ final class Locale
     /**
      * List of names.
      *
-     * @var array<string, VideoProviderTargetingName>
+     * @var VideoProviderTargetingName[]
      */
     private $videoProviderTargetingNames;
 
     /**
      * Undocumented field.
      *
-     * @var array<CatalogInformation>
+     * @var CatalogInformation[]
      */
     private $catalogInformation;
 
     /**
-     * @param array<string, VideoProviderTargetingName>
-     * @param array<CatalogInformation>
+     * @param VideoProviderTargetingName[] $videoProviderTargetingNames
+     * @param CatalogInformation[] $catalogInformation
      */
     public function __construct(array $videoProviderTargetingNames, array $catalogInformation)
     {
@@ -34,7 +34,7 @@ final class Locale
     }
 
     /**
-     * @return array<string, VideoProviderTargetingName>
+     * @return VideoProviderTargetingName[]
      */
     public function getVideoProviderTargetingNames(): array
     {
@@ -42,7 +42,7 @@ final class Locale
     }
 
     /**
-     * @return array<CatalogInformation>
+     * @return CatalogInformation[]
      */
     public function getCatalogInformation(): array
     {

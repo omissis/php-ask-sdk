@@ -15,13 +15,13 @@ final class PrivacyAndComplianceTest extends TestCase
             new Url('https://example.com/privacy-policy'),
             new Url('https://example.com/terms-of-use')
         );
-        $privacyAndCompliance = new PrivacyAndCompliance(true, false, true, false, true, [$locale]);
+        $privacyAndCompliance = new PrivacyAndCompliance(true, false, true, false, true, ['en-US' => $locale]);
 
-        $this->assertSame(true, $privacyAndCompliance->isAllowsPurchases());
-        $this->assertSame(false, $privacyAndCompliance->isUsesPersonalInfo());
-        $this->assertSame(true, $privacyAndCompliance->isChildDirected());
-        $this->assertSame(false, $privacyAndCompliance->isExportCompliant());
-        $this->assertSame(true, $privacyAndCompliance->isContainsAds());
-        $this->assertSame([$locale], $privacyAndCompliance->getLocales());
+        $this->assertTrue($privacyAndCompliance->isAllowsPurchases());
+        $this->assertFalse($privacyAndCompliance->isUsesPersonalInfo());
+        $this->assertTrue($privacyAndCompliance->isChildDirected());
+        $this->assertFalse($privacyAndCompliance->isExportCompliant());
+        $this->assertTrue($privacyAndCompliance->isContainsAds());
+        $this->assertSame(['en-US' => $locale], $privacyAndCompliance->getLocales());
     }
 }

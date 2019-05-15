@@ -14,12 +14,12 @@ final class Locale
     private $customErrorMessage;
 
     /**
-     * @var array<Feed>
+     * @var Feed[]
      */
     private $feeds;
 
     /**
-     * @param array<Feed>
+     * @param Feed[] $feeds
      */
     public function __construct(string $customErrorMessage, array $feeds)
     {
@@ -33,7 +33,7 @@ final class Locale
     }
 
     /**
-     * @return array<Feed>
+     * @return Feed[]
      */
     public function getFeeds(): array
     {

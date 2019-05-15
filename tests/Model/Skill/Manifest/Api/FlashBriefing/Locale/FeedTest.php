@@ -26,7 +26,7 @@ final class FeedTest extends TestCase
         $feed = new Feed($name, $isDefault, $vuiPreamble, $updateFrequency, $genre, $imageUri, $contentType, $url);
 
         $this->assertSame($name, $feed->getName());
-        $this->assertSame($isDefault, $feed->isDefault());
+        $this->assertTrue($feed->isDefault());
         $this->assertSame($vuiPreamble, $feed->getVuiPreamble());
         $this->assertSame($updateFrequency, $feed->getUpdateFrequency());
         $this->assertSame($genre, $feed->getGenre());

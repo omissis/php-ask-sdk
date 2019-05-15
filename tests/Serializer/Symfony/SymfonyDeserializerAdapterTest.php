@@ -5,6 +5,7 @@ namespace Omissis\AlexaSdk\Tests\Serializer\Symfony;
 use Generator;
 use Omissis\AlexaSdk\Model\Skill\Manifest;
 use Omissis\AlexaSdk\Model\Skill\Manifest\Api\AlexaForBusiness;
+use Omissis\AlexaSdk\Model\Skill\Manifest\PublishingInformation\DistributionCountry;
 use Omissis\AlexaSdk\Model\SkillManifestSchema;
 use Omissis\AlexaSdk\Model\Uri\Uri;
 use Omissis\AlexaSdk\Model\Uri\Url;
@@ -120,7 +121,7 @@ final class SymfonyDeserializerAdapterTest extends TestCase
                             ],
                             'This skill has updates that fix feature bugs.'
                         )],
-                        ['US'],
+                        [new DistributionCountry('US')],
                         false,
                         null,
                         "1) Say 'Alexa, Book this room'",

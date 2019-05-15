@@ -10,6 +10,7 @@ use Omissis\AlexaSdk\Model\Skill\Manifest\ManifestVersion;
 use Omissis\AlexaSdk\Model\Skill\Manifest\Permission;
 use Omissis\AlexaSdk\Model\Skill\Manifest\PrivacyAndCompliance;
 use Omissis\AlexaSdk\Model\Skill\Manifest\PublishingInformation;
+use Omissis\AlexaSdk\Model\Skill\Manifest\PublishingInformation\DistributionCountry;
 use Omissis\AlexaSdk\Model\Ssl\SslCertificateType;
 use Omissis\AlexaSdk\Model\Uri\Uri;
 use Omissis\AlexaSdk\Model\Uri\Url;
@@ -39,7 +40,7 @@ final class ManifestTest extends TestCase
                 'This skill has updates that fix feature bugs.'
             ),
         ];
-        $distributionCountries = ['US', 'GB', 'DE'];
+        $distributionCountries = [new DistributionCountry('US'), new DistributionCountry('GB'), new DistributionCountry('DE')];
         $isAvailableWorldwide = false;
         $distributionMode = new PublishingInformation\DistributionMode('PUBLIC');
         $testingInstructions = '1) Say \'Alexa, hello world\'';
@@ -58,12 +59,12 @@ final class ManifestTest extends TestCase
             new Url('https://example.com/privacy-policy'),
             new Url('https://example.com/terms-of-use')
         );
-        $privacyAndCompliance = new PrivacyAndCompliance(true, false, true, false, true, [$locale]);
+        $privacyAndCompliance = new PrivacyAndCompliance(true, false, true, false, true, ['en-US' => $locale]);
 
         $permissions = [new Permission('alexa::alerts:reminders:skill:readwrite')];
 
-        $publications = [new EventName('SKILL_ENABLED')];
-        $subscriptions = [new EventName('SKILL_ENABLED')];
+        $publications = [new Events\Publication(new EventName('SKILL_ENABLED'))];
+        $subscriptions = [new Events\Subscription(new EventName('SKILL_ENABLED'))];
         $endpoint = new Events\Endpoint(new Uri('https://example.com/'));
         $regions = [new Events\Region(new Events\Endpoint(new Uri('https://example.com/EU')))];
         $sslCertificateType = new SslCertificateType('SelfSigned');
@@ -76,7 +77,7 @@ final class ManifestTest extends TestCase
             $sslCertificateType
         );
 
-        $apis = [new HouseholdList()];
+        $apis = ['householdList' => new HouseholdList()];
 
         $manifest = new Manifest(
             $apis,

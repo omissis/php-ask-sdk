@@ -2,8 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Omissis\AlexaSdk\Model\Skill\Manifest\Api\FlashBriefing\Locale\Feed;
+namespace Omissis\AlexaSdk\Tests\Model\Skill\Manifest\Api\FlashBriefing\Locale\Feed;
 
+use Omissis\AlexaSdk\Model\Skill\Manifest\Api\FlashBriefing\Locale\Feed\InvalidUpdateFrequencyException;
+use Omissis\AlexaSdk\Model\Skill\Manifest\Api\FlashBriefing\Locale\Feed\UpdateFrequency;
 use PHPUnit\Framework\TestCase;
 
 final class UpdateFrequencyTest extends TestCase

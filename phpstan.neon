@@ -1,0 +1,17 @@
+parameters:
+    reportUnmatchedIgnoredErrors: false
+    level: 7
+    paths:
+        - src
+        - tests
+    no-progress: true
+    ignoreErrors:
+        - '#Method Omissis\AlexaSdk\Serializer\Symfony\CustomObjectNormalizer::normalize() should return array|bool|float|int|string but returns stdClass.#'
+    excludes_analyse:
+        - %currentWorkingDirectory%/tests/Resources
+includes:
+    - vendor/jangregor/phpstan-prophecy/src/extension.neon
+    - vendor/phpstan/phpstan-phpunit/extension.neon
+    - vendor/phpstan/phpstan-phpunit/rules.neon
+
+services: []

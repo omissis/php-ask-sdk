@@ -7,6 +7,7 @@ use Omissis\AlexaSdk\Model\Skill\Manifest;
 use Omissis\AlexaSdk\Model\Skill\Manifest\Api;
 use Omissis\AlexaSdk\Model\Skill\Manifest\Api\Video\Locale\VideoProviderTargetingName;
 use Omissis\AlexaSdk\Model\Skill\Manifest\Events;
+use Omissis\AlexaSdk\Model\Skill\Manifest\PublishingInformation\DistributionCountry;
 use Omissis\AlexaSdk\Model\Skill\VendorId;
 use Omissis\AlexaSdk\Model\SkillManifestSchema;
 use Omissis\AlexaSdk\Model\Ssl\SslCertificateType;
@@ -145,7 +146,7 @@ final class SymfonySerializerAdapterTest extends TestCase
                                 'Descriptive_Phrase_3',
                             ]
                         )],
-                        ['US', 'GB', 'DE'],
+                        [new DistributionCountry('US'), new DistributionCountry('GB'), new DistributionCountry('DE')],
                         false,
                         null,
                         "1) Say 'Alexa, hello world'",
@@ -201,7 +202,7 @@ final class SymfonySerializerAdapterTest extends TestCase
                                 'Happenings',
                             ]
                         )],
-                        ['US', 'GB', 'DE'],
+                        [new DistributionCountry('US'), new DistributionCountry('GB'), new DistributionCountry('DE')],
                         false,
                         null,
                         "1) Say 'Alexa, hello world'",
@@ -265,7 +266,7 @@ final class SymfonySerializerAdapterTest extends TestCase
                                 'Descriptive_Phrase_3',
                             ]
                         )],
-                        ['US', 'GB', 'DE'],
+                        [new DistributionCountry('US'), new DistributionCountry('GB'), new DistributionCountry('DE')],
                         false,
                         null,
                         "1) Say 'Alexa, hello world'",
@@ -325,7 +326,7 @@ final class SymfonySerializerAdapterTest extends TestCase
                             ],
                             'This skill has updates that fix feature bugs.'
                         )],
-                        ['US'],
+                        [new DistributionCountry('US')],
                         false,
                         null,
                         "1) Say 'Alexa, Book this room'",
@@ -373,7 +374,7 @@ final class SymfonySerializerAdapterTest extends TestCase
                                 'Smart Devices',
                             ]
                         )],
-                        ['US', 'GB', 'DE'],
+                        [new DistributionCountry('US'), new DistributionCountry('GB'), new DistributionCountry('DE')],
                         false,
                         null,
                         "1) Say 'Alexa, turn on sample lights'",
@@ -433,7 +434,7 @@ final class SymfonySerializerAdapterTest extends TestCase
                                 'TV',
                             ]
                         )],
-                        ['US', 'GB', 'DE'],
+                        [new DistributionCountry('US'), new DistributionCountry('GB'), new DistributionCountry('DE')],
                         false,
                         null,
                         '',

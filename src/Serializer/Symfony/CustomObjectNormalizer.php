@@ -9,25 +9,41 @@ use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 
 final class CustomObjectNormalizer extends AbstractNormalizer
 {
+    /**
+     * {@inheritDoc}
+     */
     public function denormalize($data, $class, $format = null, array $context = [])
     {
-        return null;
+        throw new \RuntimeException(
+            sprintf('Denormalization to "%s" is not supported by "%s".', $class, self::class)
+        );
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function supportsDenormalization($data, $type, $format = null)
     {
         return false;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function normalize($object, $format = null, array $context = [])
     {
         if ($object instanceof HouseholdList) {
             return new \stdClass();
         }
 
-        return null;
+        throw new \RuntimeException(
+            sprintf('Object of class "%s" is not supported by "%s".', get_class($object), self::class)
+        );
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function supportsNormalization($data, $format = null)
     {
         return $data instanceof HouseholdList;

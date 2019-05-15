@@ -25,12 +25,12 @@ final class SupportedInterface
     /**
      * Array of requests.
      *
-     * @var array<Request>
+     * @var Request[]
      */
     private $requests;
 
     /**
-     * @var array<Request>
+     * @var Request[]
      */
     public function __construct(InterfaceNamespace $namespace, Version $version, array $requests)
     {
@@ -50,7 +50,7 @@ final class SupportedInterface
     }
 
     /**
-     * @return array<Request>
+     * @return Request[]
      */
     public function getRequests(): array
     {

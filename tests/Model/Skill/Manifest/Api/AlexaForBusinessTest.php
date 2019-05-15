@@ -12,7 +12,7 @@ final class AlexaForBusinessTest extends TestCase
     {
         $endpoint = new AlexaForBusiness\Endpoint(new Uri('arn:aws:lambda:us-east-1:123456789:function:myFunctionName1'));
         $regions = [
-            new AlexaForBusiness\Region(new AlexaForBusiness\Region\Endpoint(new Uri('https:://example.com/custom')))
+            'NA' => new AlexaForBusiness\Region(new AlexaForBusiness\Region\Endpoint(new Uri('https:://example.com/custom')))
         ];
         $interfaces = [
             new AlexaForBusiness\SupportedInterface(

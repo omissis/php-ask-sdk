@@ -12,8 +12,8 @@ final class EventsTest extends TestCase
 {
     function test_it_exposes_accessors(): void
     {
-        $publications = [new EventName('SKILL_ENABLED')];
-        $subscriptions = [new EventName('SKILL_ENABLED')];
+        $publications = [new Events\Publication(new EventName('SKILL_ENABLED'))];
+        $subscriptions = [new Events\Subscription(new EventName('SKILL_ENABLED'))];
         $endpoint = new Events\Endpoint(new Uri('https://example.com/'));
         $regions = [new Events\Region(new Events\Endpoint(new Uri('https://example.com/EU')))];
         $sslCertificateType = new SslCertificateType('SelfSigned');

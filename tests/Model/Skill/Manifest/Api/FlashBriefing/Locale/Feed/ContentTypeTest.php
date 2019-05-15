@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Omissis\AlexaSdk\Model\Tests\Skill\Manifest\Api\FlashBriefing\Locale\Feed;
+namespace Omissis\AlexaSdk\Tests\Model\Skill\Manifest\Api\FlashBriefing\Locale\Feed;
 
 use Omissis\AlexaSdk\Model\Skill\Manifest\Api\FlashBriefing\Locale\Feed\ContentType;
 use Omissis\AlexaSdk\Model\Skill\Manifest\Api\FlashBriefing\Locale\Feed\InvalidContentTypeException;

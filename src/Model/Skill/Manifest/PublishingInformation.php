@@ -12,7 +12,7 @@ final class PublishingInformation
     /**
      * Object that contains <locale> objects for each supported locale.
      *
-     * @var array<Locale>
+     * @var array<string, Locale>
      */
     private $locales;
 
@@ -52,7 +52,7 @@ final class PublishingInformation
     private $category;
 
     /**
-     * @param array<Locale> $locales
+     * @param array<string, Locale> $locales
      * @param array<DistributionCountry> $distributionCountries
      */
     public function __construct(
@@ -72,7 +72,7 @@ final class PublishingInformation
     }
 
     /**
-     * @return array<Locale>
+     * @return array<string, Locale>
      */
     public function getLocales(): array
     {

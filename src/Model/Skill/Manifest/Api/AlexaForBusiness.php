@@ -26,13 +26,13 @@ final class AlexaForBusiness implements Api
     /**
      * Contains an array of the supported interfaces
      *
-     * @var array<SupportedInterface>
+     * @var SupportedInterface[]
      */
     private $interfaces;
 
     /**
-     * @param array<string, Region>
-     * @param array<SupportedInterface>
+     * @param array<string, Region> $regions
+     * @param SupportedInterface[] $interfaces
      */
     public function __construct(Endpoint $endpoint, array $regions, array $interfaces)
     {
@@ -55,7 +55,7 @@ final class AlexaForBusiness implements Api
     }
 
     /**
-     * @return array<SupportedInterface>
+     * @return SupportedInterface[]
      */
     public function getInterfaces(): array
     {

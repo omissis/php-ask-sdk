@@ -28,8 +28,8 @@ final class FlashBriefingTest extends TestCase
         $feed = new Feed($name, $isDefault, $vuiPreamble, $updateFrequency, $genre, $imageUri, $contentType, $url);
 
         $locale = new Locale('Some error', [$feed]);
-        $flashBriefing = new FlashBriefing([$locale]);
+        $flashBriefing = new FlashBriefing(['en-US' => $locale]);
 
-        $this->assertSame([$locale], $flashBriefing->getLocales());
+        $this->assertSame(['en-US' => $locale], $flashBriefing->getLocales());
     }
 }

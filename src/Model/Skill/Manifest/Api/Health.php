@@ -18,12 +18,12 @@ final class Health implements Api
     /**
      * Contains an array of the supported <region> Objects
      *
-     * @var array<Region>
+     * @var Region[]
      */
     private $regions;
 
     /**
-     * @param array<Region>
+     * @param Region[] $regions
      */
     public function __construct(Endpoint $endpoint, array $regions)
     {
@@ -37,7 +37,7 @@ final class Health implements Api
     }
 
     /**
-     * @return array<Region>
+     * @return Region[]
      */
     public function getRegions(): array
     {

@@ -19,7 +19,7 @@ final class SmartHome implements Api
     /**
      * Contains an array of the supported <region> Objects
      *
-     * @var array<Region>
+     * @var Region[]
      */
     private $regions;
 
@@ -31,7 +31,7 @@ final class SmartHome implements Api
     private $protocolVersion;
 
     /**
-     * @param array<Region>
+     * @param Region[] $regions
      */
     public function __construct(Endpoint $endpoint, array $regions, ?ProtocolVersion $protocolVersion = null)
     {
@@ -46,7 +46,7 @@ final class SmartHome implements Api
     }
 
     /**
-     * @return array<Region>
+     * @return Region[]
      */
     public function getRegions(): array
     {

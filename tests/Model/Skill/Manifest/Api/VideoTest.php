@@ -20,10 +20,10 @@ final class VideoTest extends TestCase
             new Upchannel(new Upchannel\Type('SNS'), new Uri('arn:aws:sns:us-east-1:291420629295:sampleSkill'))
         );
 
-        $video = new Video([$locale], $endpoint, [$region]);
+        $video = new Video(['en-US' => $locale], $endpoint, ['NA' => $region]);
 
-        $this->assertSame([$locale], $video->getLocales());
+        $this->assertSame(['en-US' => $locale], $video->getLocales());
         $this->assertSame($endpoint, $video->getEndpoint());
-        $this->assertSame([$region], $video->getRegions());
+        $this->assertSame(['NA' => $region], $video->getRegions());
     }
 }

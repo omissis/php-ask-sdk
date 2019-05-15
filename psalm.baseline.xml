@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files>
+  <file src="src/Serializer/Symfony/ConstructorParameterNameConverter.php">
+    <ArgumentTypeCoercion occurrences="1">
+      <code>$class</code>
+    </ArgumentTypeCoercion>
+    <ImplementedReturnTypeMismatch occurrences="1">
+      <code>int|string</code>
+    </ImplementedReturnTypeMismatch>
+  </file>
+  <file src="src/Serializer/Symfony/CustomObjectNormalizer.php">
+    <InvalidReturnType occurrences="1">
+      <code>normalize</code>
+    </InvalidReturnType>
+  </file>
+</files>

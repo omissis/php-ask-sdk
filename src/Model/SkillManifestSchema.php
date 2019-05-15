@@ -20,7 +20,7 @@ final class SkillManifestSchema
     private $skillManifest;
 
     /**
-     * @var null|string
+     * @var null|VendorId
      */
     private $vendorId;
 

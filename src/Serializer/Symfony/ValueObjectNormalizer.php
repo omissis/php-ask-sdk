@@ -10,7 +10,7 @@ final class ValueObjectNormalizer extends AbstractNormalizer
 {
     public function denormalize($data, $class, $format = null, array $context = [])
     {
-        return null;
+        return new \stdClass();
     }
 
     public function supportsDenormalization($data, $type, $format = null)

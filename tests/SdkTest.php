@@ -25,22 +25,22 @@ final class SdkTest extends TestCase
     private const TEST_API_BASE_URL = 'https://api.amazonalexa.com/v1';
 
     /**
-     * @var ObjectProphecy<ClientInterface>
+     * @var ObjectProphecy|ClientInterface
      */
     private $client;
 
     /**
-     * @var ObjectProphecy<RequestFactoryInterface>
+     * @var ObjectProphecy|RequestFactoryInterface
      */
     private $httpRequestFactory;
 
     /**
-     * @var Serializer
+     * @var ObjectProphecy|Serializer
      */
     private $serializer;
 
     /**
-     * @var Deserializer
+     * @var ObjectProphecy|Deserializer
      */
     private $deserializer;
 

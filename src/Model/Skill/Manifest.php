@@ -35,7 +35,7 @@ use Omissis\AlexaSdk\Model\Skill\Manifest\ManifestVersion;
     /**
      * Array specifying the permissions that let you ask the user for specific personal information, such as access to the address of their device.
      *
-     * @var ?array<Permission>
+     * @var null|(Permission[])
      */
     private $permissions;
 
@@ -55,7 +55,7 @@ use Omissis\AlexaSdk\Model\Skill\Manifest\ManifestVersion;
 
     /**
      * @param array<string, Api> $apis
-     * @param array<Permission> $permissions
+     * @param Permission[] $permissions
      */
     public function __construct(
         array $apis,
@@ -92,7 +92,7 @@ use Omissis\AlexaSdk\Model\Skill\Manifest\ManifestVersion;
     }
 
     /**
-     * @return null|array<Permission>
+     * @return null|Permission[]
      */
     public function getPermissions(): ?array
     {

@@ -20,21 +20,21 @@ final class Events
     /**
      * Contains an array of eventName objects, each of which contains the name of a proactive event.
      *
-     * @var ?array<Publication>
+     * @var null|(Publication[])
      */
     private $publications;
 
     /**
      * Contains an array of eventName objects, each of which contains the name of a skill event.
      *
-     * @var ?array<Subscription>
+     * @var null|(Subscription[])
      */
     private $subscriptions;
 
     /**
      * Contains an array of the supported <region> Objects
      *
-     * @var array<Region>
+     * @var Region[]
      */
     private $regions;
 
@@ -46,9 +46,9 @@ final class Events
     private $sslCertificateType;
 
     /**
-     * @param array<Publication> $publications
-     * @param array<Subscription> $subscriptions
-     * @param array<Region> $regions
+     * @param null|(Publication[]) $publications
+     * @param null|(Subscription[]) $subscriptions
+     * @param Region[] $regions
      */
     public function __construct(
         Endpoint $endpoint,
@@ -70,7 +70,7 @@ final class Events
     }
 
     /**
-     * @return array<Publication>
+     * @return null|Publication[]
      */
     public function getPublications(): ?array
     {
@@ -78,7 +78,7 @@ final class Events
     }
 
     /**
-     * @return array<Subscription>
+     * @return null|Subscription[]
      */
     public function getSubscriptions(): ?array
     {
@@ -86,7 +86,7 @@ final class Events
     }
 
     /**
-     * @return array<Region>
+     * @return Region[]
      */
     public function getRegions(): array
     {

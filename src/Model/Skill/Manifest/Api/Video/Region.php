@@ -12,7 +12,7 @@ final class Region
     private $endpoint;
 
     /**
-     * @var array<Region\Upchannel>
+     * @var Region\Upchannel[]
      */
     private $upchannel;
 
@@ -28,7 +28,7 @@ final class Region
     }
 
     /**
-     * @return array<Region\Upchannel>
+     * @return Region\Upchannel[]
      */
     public function getUpchannel(): array
     {
