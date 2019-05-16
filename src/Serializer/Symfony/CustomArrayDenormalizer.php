@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Omissis\AlexaSdk\Serializer\Symfony;
 
-use Omissis\AlexaSdk\Model\Skill\Manifest\Api;
 use Symfony\Component\Serializer\Exception\BadMethodCallException;
 use Symfony\Component\Serializer\Exception\InvalidArgumentException;
 use Symfony\Component\Serializer\Exception\NotNormalizableValueException;
