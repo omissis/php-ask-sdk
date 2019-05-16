@@ -9,7 +9,7 @@ use Symfony\Component\Serializer\NameConverter\AdvancedNameConverterInterface;
 final class ConstructorParameterNameConverter implements AdvancedNameConverterInterface
 {
     /**
-     * @param string $propertyName
+     * {@inheritDoc}
      *
      * @return int|string
      */
@@ -29,11 +29,9 @@ final class ConstructorParameterNameConverter implements AdvancedNameConverterIn
     }
 
     /**
-     * @param string $propertyName
-     *
-     * @return string
+     * {@inheritDoc}
      */
-    public function denormalize($propertyName, string $class = null, string $format = null, array $context = [])
+    public function denormalize($propertyName, string $class = null, string $format = null, array $context = []): string
     {
         return $propertyName;
     }

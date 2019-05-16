@@ -19,21 +19,24 @@
         <severity>3</severity>
     </rule>
     <rule ref="Generic.Files.LineEndings" />
+
+    <rule ref="SlevomatCodingStandard.Files.TypeNameMatchesFileName">
+        <properties>
+            <property name="rootNamespaces" type="array" value="src=>Omissis\AlexaSdk,tests=>Omissis\AlexaSdk\Tests"/>
+        </properties>
+    </rule>
+    <rule ref="SlevomatCodingStandard.Namespaces.AlphabeticallySortedUses" />
     <rule ref="SlevomatCodingStandard.Namespaces.UnusedUses">
         <properties>
             <property name="searchAnnotations" type="bool" value="true"/>
         </properties>
     </rule>
-    <rule ref="SlevomatCodingStandard.Namespaces.AlphabeticallySortedUses" />
-    <rule ref="SlevomatCodingStandard.Files.TypeNameMatchesFileName" >
+
+    <rule ref="SlevomatCodingStandard.TypeHints.TypeHintDeclaration">
         <properties>
-            <property name="rootNamespaces" type="array" value="src=>Omissis\AlexaSdk,tests=>Omissis\AlexaSdk\Tests"/>
+            <property name="allAnnotationsAreUseful" type="bool" value="true"/>
         </properties>
     </rule>
-    <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHintSpacing" />
-    <rule ref="SlevomatCodingStandard.Namespaces.DisallowGroupUse" />
-    <rule ref="SlevomatCodingStandard.Namespaces.MultipleUsesPerLine" />
-    <rule ref="SlevomatCodingStandard.Namespaces.UseDoesNotStartWithBackslash" />
-    <rule ref="SlevomatCodingStandard.ControlStructures.LanguageConstructWithParentheses" />
-    <rule ref="SlevomatCodingStandard.TypeHints.LongTypeHints" />
+
+
 </ruleset>

@@ -24,9 +24,6 @@ final class InvalidProtocolVersionException extends Exception
         $this->invalidProtocolVersion = $invalidProtocolVersion;
     }
 
-    /**
-     * @return string
-     */
     public function getInvalidProtocolVersion(): string
     {
         return $this->invalidProtocolVersion;

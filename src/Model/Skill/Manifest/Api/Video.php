@@ -49,9 +49,6 @@ final class Video implements Api
         return $this->locales;
     }
 
-    /**
-     * @return Endpoint
-     */
     public function getEndpoint(): Endpoint
     {
         return $this->endpoint;

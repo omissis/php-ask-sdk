@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 final class DistributionCountryTest extends TestCase
 {
-    public function test_is_not_initializable_using_a_wrong_distribution_country_code()
+    public function test_is_not_initializable_using_a_wrong_distribution_country_code(): void
     {
         $this->expectException(InvalidDistributionCountryException::class);
 

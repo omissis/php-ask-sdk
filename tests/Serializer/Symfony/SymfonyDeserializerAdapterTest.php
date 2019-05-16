@@ -22,7 +22,7 @@ final class SymfonyDeserializerAdapterTest extends TestCase
      *
      * @param mixed $expectedObject
      */
-    public function test_it_deserializes($expectedObject, string $data, Format $format, Type $outputType)
+    public function test_it_deserializes($expectedObject, string $data, Format $format, Type $outputType): void
     {
         $actualObject = (new SymfonyDeserializerAdapter())->deserialize($data, $format, $outputType);
 

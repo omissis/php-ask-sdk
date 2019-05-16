@@ -23,7 +23,7 @@ final class SymfonySerializerAdapterTest extends TestCase
     /**
      * @dataProvider serializationProvider
      */
-    public function test_it_serializes(string $expectedString, $data, Format $format)
+    public function test_it_serializes(string $expectedString, $data, Format $format): void
     {
         $serializer = new SymfonySerializerAdapter();
 

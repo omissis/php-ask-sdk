@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 final class HouseholdListTest extends TestCase
 {
-    public function test_is_an_empty_class()
+    public function test_is_an_empty_class(): void
     {
         $reflectionClass = new \ReflectionClass(HouseholdList::class);
 
