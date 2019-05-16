@@ -30,7 +30,7 @@ final class SupportedInterface
     private $requests;
 
     /**
-     * @var Request[]
+     * @param Request[] $requests
      */
     public function __construct(InterfaceNamespace $namespace, Version $version, array $requests)
     {

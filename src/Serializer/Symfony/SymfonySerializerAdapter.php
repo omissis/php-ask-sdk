@@ -25,6 +25,9 @@ final class SymfonySerializerAdapter implements Serializer
         );
     }
 
+    /**
+     * @param mixed $data
+     */
     public function serialize($data, Format $format): string
     {
         return $this->serializer->serialize($data, (string) $format, ['skip_null_values' => true]);

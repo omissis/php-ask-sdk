@@ -37,6 +37,9 @@ final class SymfonyDeserializerAdapter implements Deserializer
         );
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function deserialize(string $data, Format $inputFormat, Type $outputType)
     {
         return $this->serializer->deserialize($data, (string) $outputType, (string) $inputFormat, [

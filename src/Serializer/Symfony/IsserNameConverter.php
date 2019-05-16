@@ -15,6 +15,9 @@ final class IsserNameConverter implements NameConverterInterface
         'default',
     ];
 
+    /**
+     * {@inheritDoc}
+     */
     public function normalize($propertyName)
     {
         if (in_array($propertyName, self::KNOWN_ISSER_PROPERTIES, true)) {
@@ -24,6 +27,9 @@ final class IsserNameConverter implements NameConverterInterface
         return $propertyName;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function denormalize($propertyName)
     {
         return substr($propertyName, 0, 2) === 'is' ? substr($propertyName, 2) : $propertyName;

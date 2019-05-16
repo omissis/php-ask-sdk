@@ -38,5 +38,8 @@
         </properties>
     </rule>
 
+    <rule ref="SlevomatCodingStandard.TypeHints.UselessConstantTypeHint" />
+    <rule ref="SlevomatCodingStandard.Exceptions.ReferenceThrowableOnly" />
+    <rule ref="SlevomatCodingStandard.TypeHints.DeclareStrictTypes" />
 
 </ruleset>
