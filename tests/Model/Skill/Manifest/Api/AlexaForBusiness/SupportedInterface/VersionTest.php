@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 final class VersionTest extends TestCase
 {
-    function test_it_is_convertible_to_string(): void
+    public function test_it_is_convertible_to_string(): void
     {
         $this->assertSame('1.0', (string) new Version('1.0'));
     }

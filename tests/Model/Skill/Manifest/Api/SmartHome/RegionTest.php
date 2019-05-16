@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 final class RegionTest extends TestCase
 {
-    function test_it_exposes_accessors(): void
+    public function test_it_exposes_accessors(): void
     {
         $endpoint = new Endpoint(new Uri('https://api.example.com/eu'), new SslCertificateType('SelfSigned'));
         $region = new Region($endpoint);

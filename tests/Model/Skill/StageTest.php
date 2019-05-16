@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 final class StageTest extends TestCase
 {
-    function test_it_is_not_initializable_using_a_wrong_stage_name(): void
+    public function test_it_is_not_initializable_using_a_wrong_stage_name(): void
     {
         $this->expectException(Skill\InvalidStageException::class);
 
@@ -18,7 +18,7 @@ final class StageTest extends TestCase
     /**
      * @dataProvider stageProvider
      */
-    function test_it_is_convertible_to_string(string $stage): void
+    public function test_it_is_convertible_to_string(string $stage): void
     {
         $this->assertSame($stage, (string) new Stage($stage));
     }

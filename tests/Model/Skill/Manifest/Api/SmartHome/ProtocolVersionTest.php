@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 final class ProtocolVersionTest extends TestCase
 {
-    function test_it_is_not_initializable_using_invalid_protocol_version(): void
+    public function test_it_is_not_initializable_using_invalid_protocol_version(): void
     {
         $this->expectException(InvalidProtocolVersionException::class);
 
@@ -18,7 +18,7 @@ final class ProtocolVersionTest extends TestCase
     /**
      * @dataProvider protocolVersionProvider
      */
-    function test_it_is_convertible_to_string(string $protocolVersion): void
+    public function test_it_is_convertible_to_string(string $protocolVersion): void
     {
         $this->assertSame($protocolVersion, (string) new ProtocolVersion($protocolVersion));
     }

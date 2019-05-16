@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 final class LocaleTest extends TestCase
 {
-    function test_it_exposes_accessors(): void
+    public function test_it_exposes_accessors(): void
     {
         $name = 'Room Booking Skill';
         $summary = 'This is a sample Alexa skill.';

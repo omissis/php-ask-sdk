@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 final class VideoProviderTargetingNameTest extends TestCase
 {
-    function test_it_is_convertible_to_string(): void
+    public function test_it_is_convertible_to_string(): void
     {
         $this->assertSame('TV Provider', (string) new VideoProviderTargetingName('TV Provider'));
     }

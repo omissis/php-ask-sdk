@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 final class VendorIdTest extends TestCase
 {
-    function test_it_is_convertible_to_string(): void
+    public function test_it_is_convertible_to_string(): void
     {
         $this->assertSame('your-vendor-id', (string) new VendorId('your-vendor-id'));
     }

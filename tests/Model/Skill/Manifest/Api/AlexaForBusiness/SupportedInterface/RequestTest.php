@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 final class RequestTest extends TestCase
 {
-    function test_it_is_not_initializable_with_wrong_name(): void
+    public function test_it_is_not_initializable_with_wrong_name(): void
     {
         $this->expectException(InvalidRequestNameException::class);
 
@@ -18,7 +18,7 @@ final class RequestTest extends TestCase
     /**
      * @dataProvider allowedNamesProvider
      */
-    function test_it_exposes_accessors(): void
+    public function test_it_exposes_accessors(): void
     {
         $request = new Request('Search');
 

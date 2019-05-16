@@ -49,7 +49,7 @@ final class SdkTest extends TestCase
      */
     private $sdk;
 
-    function setUp(): void
+    public function setUp(): void
     {
         $this->client = $this->prophesize(ClientInterface::class);
         $this->httpRequestFactory = $this->prophesize(RequestFactoryInterface::class);
@@ -66,7 +66,7 @@ final class SdkTest extends TestCase
         );
     }
 
-    function test_it_can_get_skill_information(): void
+    public function test_it_can_get_skill_information(): void
     {
         $request = $this->prophesize(RequestInterface::class);
         $request->withHeader('Authorization', 'Bearer foobar')->willReturn($request);

@@ -11,14 +11,14 @@ final class IdTest extends TestCase
     private const TEST_CORRECT_ID = 'amzn1.ask.skill.00000001-0002-0003-0004-000000000005';
 
 
-    function test_it_is_not_initializable_using_a_wrong_id(): void
+    public function test_it_is_not_initializable_using_a_wrong_id(): void
     {
         $this->expectException(Skill\InvalidIdFormatException::class);
 
         new Skill\Id(self::TEST_WRONG_ID);
     }
 
-    function test_it_is_convertible_to_string(): void
+    public function test_it_is_convertible_to_string(): void
     {
         $this->assertSame(self::TEST_CORRECT_ID, (string) new Skill\Id(self::TEST_CORRECT_ID));
     }

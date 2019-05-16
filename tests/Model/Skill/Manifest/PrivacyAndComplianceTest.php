@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 final class PrivacyAndComplianceTest extends TestCase
 {
-    function test_it_exposes_accessors(): void
+    public function test_it_exposes_accessors(): void
     {
         $locale = new Locale(
             new Url('https://example.com/privacy-policy'),

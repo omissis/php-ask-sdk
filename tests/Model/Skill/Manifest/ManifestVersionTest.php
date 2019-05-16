@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 final class ManifestVersionTest extends TestCase
 {
-    function test_it_is_convertible_to_string(): void
+    public function test_it_is_convertible_to_string(): void
     {
         $this->assertSame('1234.5678', (string) new ManifestVersion('1234.5678'));
     }

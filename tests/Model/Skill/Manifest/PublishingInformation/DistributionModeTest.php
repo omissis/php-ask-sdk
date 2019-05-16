@@ -12,7 +12,7 @@ final class DistributionModeTest extends TestCase
     private const TEST_PRIVATE = 'PRIVATE';
     private const TEST_WRONG = 'foobar';
 
-    function test_is_not_initializable_using_a_wrong_value()
+    public function test_is_not_initializable_using_a_wrong_value()
     {
         $this->expectException(InvalidDistributionModeException::class);
 
@@ -22,7 +22,7 @@ final class DistributionModeTest extends TestCase
     /**
      * @dataProvider distributionModeProvider
      */
-    function test_is_convertible_to_string(string $distributionMode): void
+    public function test_is_convertible_to_string(string $distributionMode): void
     {
         $this->assertSame($distributionMode, (string) new DistributionMode($distributionMode));
     }

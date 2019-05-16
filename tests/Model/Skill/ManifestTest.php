@@ -18,7 +18,7 @@ use PHPUnit\Framework\TestCase;
 
 final class ManifestTest extends TestCase
 {
-    function test_it_exposes_accessors(): void
+    public function test_it_exposes_accessors(): void
     {
         $manifestVersion = new ManifestVersion('1234.5678');
         $locales = [

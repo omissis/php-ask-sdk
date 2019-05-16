@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 final class EventsTest extends TestCase
 {
-    function test_it_exposes_accessors(): void
+    public function test_it_exposes_accessors(): void
     {
         $publications = [new Events\Publication(new EventName('SKILL_ENABLED'))];
         $subscriptions = [new Events\Subscription(new EventName('SKILL_ENABLED'))];

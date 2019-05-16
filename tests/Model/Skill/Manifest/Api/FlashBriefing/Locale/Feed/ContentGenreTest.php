@@ -13,12 +13,12 @@ final class ContentGenreTest extends TestCase
     /**
      * @dataProvider contentGenreProvider
      */
-    function test_it_is_convertible_to_string(string $contentGenre): void
+    public function test_it_is_convertible_to_string(string $contentGenre): void
     {
         $this->assertSame($contentGenre, (string) new ContentGenre($contentGenre));
     }
 
-    function test_it_is_not_initializable_with_wrong_content_genre(): void
+    public function test_it_is_not_initializable_with_wrong_content_genre(): void
     {
         $this->expectException(InvalidContentGenreException::class);
 

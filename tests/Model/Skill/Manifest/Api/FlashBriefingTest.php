@@ -14,7 +14,7 @@ use PHPUnit\Framework\TestCase;
 
 final class FlashBriefingTest extends TestCase
 {
-    function test_it_exposes_accessors(): void
+    public function test_it_exposes_accessors(): void
     {
         $name = 'feed name';
         $isDefault = true;

@@ -8,14 +8,14 @@ use PHPUnit\Framework\TestCase;
 
 final class DistributionCountryTest extends TestCase
 {
-    function test_is_not_initializable_using_a_wrong_distribution_country_code()
+    public function test_is_not_initializable_using_a_wrong_distribution_country_code()
     {
         $this->expectException(InvalidDistributionCountryException::class);
 
         new DistributionCountry('ITALY');
     }
 
-    function test_is_convertible_to_string(): void
+    public function test_is_convertible_to_string(): void
     {
         $this->assertSame('IT', (string) new DistributionCountry('IT'));
     }
