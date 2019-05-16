@@ -29,7 +29,10 @@ final class SymfonyDeserializerAdapter implements Deserializer
         $classMetaDataFactory = new ClassMetadataFactory(new AnnotationLoader(new AnnotationReader()));
 
         $this->serializer = new SymfonySerializer(
-            [new ObjectNormalizer($classMetaDataFactory, new ConstructorParameterNameConverter(), null, new PhpDocExtractor())],
+            [
+                new CustomArrayDenormalizer(),
+                new ObjectNormalizer($classMetaDataFactory, new ConstructorParameterNameConverter(), null, new PhpDocExtractor()),
+            ],
             [new JsonEncoder()]
         );
     }

@@ -12,14 +12,14 @@ final class PublishingInformation
     /**
      * Object that contains <locale> objects for each supported locale.
      *
-     * @var array<string, Locale>
+     * @var Locale[]
      */
     private $locales;
 
     /**
      * Array specifying distribution country/region strings in ISO 3166-1 alpha-2 format, for example US, GB or DE. This array should only contain values if availableWorldwide is false.
      *
-     * @var array<DistributionCountry>
+     * @var DistributionCountry[]
      */
     private $distributionCountries;
 
@@ -52,8 +52,8 @@ final class PublishingInformation
     private $category;
 
     /**
-     * @param array<string, Locale> $locales
-     * @param array<DistributionCountry> $distributionCountries
+     * @param Locale[] $locales
+     * @param DistributionCountry[] $distributionCountries
      */
     public function __construct(
         array $locales,
@@ -72,7 +72,7 @@ final class PublishingInformation
     }
 
     /**
-     * @return array<string, Locale>
+     * @return Locale[]
      */
     public function getLocales(): array
     {
@@ -80,7 +80,7 @@ final class PublishingInformation
     }
 
     /**
-     * @return array<DistributionCountry>
+     * @return DistributionCountry[]
      */
     public function getDistributionCountries(): array
     {

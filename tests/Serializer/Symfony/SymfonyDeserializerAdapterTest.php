@@ -134,7 +134,7 @@ final class SymfonyDeserializerAdapterTest extends TestCase
 
             yield [$schema, $serialized, Format::json(), Type::skillManifestSchema()];
         }
-
+//
 //        // Testcase: Smart home
 //        {
 //            $schema = new SkillManifestSchema(

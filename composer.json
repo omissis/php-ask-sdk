@@ -15,11 +15,13 @@
     "require": {
         "ext-json": "*",
         "psr/http-client": "^1.0",
-        "psr/http-factory": "^1.0",
-        "symfony/serializer": "^4.2",
-        "symfony/property-access": "^4.2",
-        "symfony/property-info": "^4.2",
-        "doctrine/common": "^2.10"
+        "psr/http-factory": "^1.0"
+    },
+    "suggest": {
+        "doctrine/common": "Used to parse annotations",
+        "symfony/serializer": "Used to serialize/deserialize data",
+        "symfony/property-access": "Used to access object properties",
+        "symfony/property-info": "Used to access information about object properties"
     },
     "autoload": {
         "psr-4": {
@@ -32,7 +34,12 @@
         "object-calisthenics/phpcs-calisthenics-rules": "^3.5",
         "phpunit/phpunit": "^8.1",
         "phpstan/phpstan-phpunit": "^0.11.1",
-        "jangregor/phpstan-prophecy": "dev-master"
+        "jangregor/phpstan-prophecy": "dev-master",
+        "doctrine/common": "^2.10",
+        "symfony/serializer": "^4.2",
+        "symfony/property-access": "^4.2",
+        "symfony/property-info": "^4.2",
+        "symfony/var-dumper": "^4.2"
     },
     "autoload-dev": {
         "psr-4": {

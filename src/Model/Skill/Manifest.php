@@ -8,13 +8,14 @@ use Omissis\AlexaSdk\Model\Skill\Manifest\Permission;
 use Omissis\AlexaSdk\Model\Skill\Manifest\PrivacyAndCompliance;
 use Omissis\AlexaSdk\Model\Skill\Manifest\PublishingInformation;
 use Omissis\AlexaSdk\Model\Skill\Manifest\ManifestVersion;
+use Omissis\AlexaSdk\Model\Skill\Manifest\UnsupportedApiException;
 
 /*final */class Manifest
 {
     /**
      * Object specifying required information for all interfaces that a skill supports.
      *
-     * @var array<string, Api>
+     * @var Api[]
      */
     private $apis;
 
@@ -54,8 +55,10 @@ use Omissis\AlexaSdk\Model\Skill\Manifest\ManifestVersion;
     private $publishingInformation;
 
     /**
-     * @param array<string, Api> $apis
+     * @param Api[] $apis
      * @param Permission[] $permissions
+     *
+     * @throws UnsupportedApiException
      */
     public function __construct(
         array $apis,
@@ -65,6 +68,12 @@ use Omissis\AlexaSdk\Model\Skill\Manifest\ManifestVersion;
         PrivacyAndCompliance $privacyAndCompliance,
         PublishingInformation $publishingInformation
     ) {
+        foreach ($apis as $name => $api) {
+            if (!in_array($name, Api::ALLOWED_API_NAMES, true)) {
+                throw new UnsupportedApiException($name);
+            }
+        }
+
         $this->apis = $apis;
         $this->events = $events;
         $this->manifestVersion = $manifestVersion;
@@ -74,7 +83,7 @@ use Omissis\AlexaSdk\Model\Skill\Manifest\ManifestVersion;
     }
 
     /**
-     * @return array<string, Api>
+     * @return Api[]
      */
     public function getApis(): array
     {

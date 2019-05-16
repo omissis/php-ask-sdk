@@ -9,22 +9,22 @@ final class InterfaceNamespace
     /**
      * @var string
      */
-    private $namespace;
+    private $interfaceNamespace;
 
     /**
      * @throws InvalidNamespaceException
      */
-    public function __construct(string $namespace)
+    public function __construct(string $interfaceNamespace)
     {
-        if (!in_array($namespace, self::ALLOWED_NAMESPACES, true)) {
-            throw new InvalidNamespaceException($namespace);
+        if (!in_array($interfaceNamespace, self::ALLOWED_NAMESPACES, true)) {
+            throw new InvalidNamespaceException($interfaceNamespace);
         }
 
-        $this->namespace = $namespace;
+        $this->interfaceNamespace = $interfaceNamespace;
     }
 
     public function __toString(): string
     {
-        return $this->namespace;
+        return $this->interfaceNamespace;
     }
 }
