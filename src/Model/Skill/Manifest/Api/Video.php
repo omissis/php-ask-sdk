@@ -10,7 +10,7 @@ use Omissis\AlexaSdk\Model\Skill\Manifest\Api\Video\Region;
 final class Video implements Api
 {
     /**
-     * Object that contains <locale> Objects for each supported locale.	Object
+     * Object that contains <locale> Objects for each supported locale. Object
      *
      * @var array<string, Locale>
      */
@@ -24,7 +24,7 @@ final class Video implements Api
     private $endpoint;
 
     /**
-     * Contains an array of the supported <region> Objects	Array of Object
+     * Contains an array of the supported <region> Objects  Array of Object
      *
      * @var array<string, Region>
      */

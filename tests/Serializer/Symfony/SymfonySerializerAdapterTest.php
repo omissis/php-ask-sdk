@@ -169,7 +169,7 @@ final class SymfonySerializerAdapterTest extends TestCase
                         'en-US' => new Api\FlashBriefing\Locale('Error message', [
                             new Api\FlashBriefing\Locale\Feed(
                                 'feed name',
-                                True,
+                                true,
                                 'In this skill',
                                 new Api\FlashBriefing\Locale\Feed\UpdateFrequency('HOURLY'),
                                 new Api\FlashBriefing\Locale\Feed\ContentGenre('POLITICS'),

@@ -2,8 +2,8 @@
 
 namespace Omissis\AlexaSdk\Tests\Model\Skill\Manifest\Api;
 
-use Omissis\AlexaSdk\Model\Skill\Manifest\Api\SmartHome\Endpoint;
 use Omissis\AlexaSdk\Model\Skill\Manifest\Api\SmartHome;
+use Omissis\AlexaSdk\Model\Skill\Manifest\Api\SmartHome\Endpoint;
 use Omissis\AlexaSdk\Model\Skill\Manifest\Api\SmartHome\ProtocolVersion;
 use Omissis\AlexaSdk\Model\Uri\Uri;
 use PHPUnit\Framework\TestCase;

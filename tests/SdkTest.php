@@ -2,21 +2,21 @@
 
 namespace Omissis\AlexaSdk\Tests;
 
-use Omissis\AlexaSdk\Model\SkillManifestSchema;
-use Omissis\AlexaSdk\Sdk;
 use Omissis\AlexaSdk\Model\Skill;
 use Omissis\AlexaSdk\Model\Skill\Manifest;
+use Omissis\AlexaSdk\Model\SkillManifestSchema;
+use Omissis\AlexaSdk\Sdk;
 use Omissis\AlexaSdk\Serializer\Deserializer;
 use Omissis\AlexaSdk\Serializer\Format;
 use Omissis\AlexaSdk\Serializer\Serializer;
 use Omissis\AlexaSdk\Serializer\Type;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
+use Prophecy\Prophecy\ObjectProphecy;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use Prophecy\Prophecy\ObjectProphecy;
 
 final class SdkTest extends TestCase
 {

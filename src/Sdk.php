@@ -3,7 +3,6 @@
 namespace Omissis\AlexaSdk;
 
 use Omissis\AlexaSdk\Model\Skill;
-use Omissis\AlexaSdk\Model\Skill\Manifest;
 use Omissis\AlexaSdk\Model\SkillManifestSchema;
 use Omissis\AlexaSdk\Sdk\OAuthToken;
 use Omissis\AlexaSdk\Serializer\Deserializer;

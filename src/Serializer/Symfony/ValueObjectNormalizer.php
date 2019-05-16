@@ -27,5 +27,4 @@ final class ValueObjectNormalizer extends AbstractNormalizer
     {
         return method_exists($data, '__toString');
     }
-
 }

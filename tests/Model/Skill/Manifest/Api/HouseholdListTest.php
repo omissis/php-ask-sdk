@@ -2,7 +2,6 @@
 
 namespace Omissis\AlexaSdk\Tests\Model\Skill\Manifest\Api;
 
-use Omissis\AlexaSdk\Model\Skill\Manifest\Api;
 use Omissis\AlexaSdk\Model\Skill\Manifest\Api\HouseholdList;
 use PHPUnit\Framework\TestCase;
 

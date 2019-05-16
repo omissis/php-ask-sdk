@@ -48,5 +48,4 @@ final class CustomObjectNormalizer extends AbstractNormalizer
     {
         return $data instanceof HouseholdList;
     }
-
 }

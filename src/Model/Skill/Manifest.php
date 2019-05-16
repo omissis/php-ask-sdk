@@ -4,10 +4,10 @@ namespace Omissis\AlexaSdk\Model\Skill;
 
 use Omissis\AlexaSdk\Model\Skill\Manifest\Api;
 use Omissis\AlexaSdk\Model\Skill\Manifest\Events;
+use Omissis\AlexaSdk\Model\Skill\Manifest\ManifestVersion;
 use Omissis\AlexaSdk\Model\Skill\Manifest\Permission;
 use Omissis\AlexaSdk\Model\Skill\Manifest\PrivacyAndCompliance;
 use Omissis\AlexaSdk\Model\Skill\Manifest\PublishingInformation;
-use Omissis\AlexaSdk\Model\Skill\Manifest\ManifestVersion;
 use Omissis\AlexaSdk\Model\Skill\Manifest\UnsupportedApiException;
 
 /*final */class Manifest

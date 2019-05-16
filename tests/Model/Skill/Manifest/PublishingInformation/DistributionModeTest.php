@@ -2,7 +2,6 @@
 
 namespace Omissis\AlexaSdk\Tests\Model\Skill\Manifest\PublishingInformation;
 
-use Omissis\AlexaSdk\Model\Skill\Manifest\PublishingInformation;
 use Omissis\AlexaSdk\Model\Skill\Manifest\PublishingInformation\DistributionMode;
 use Omissis\AlexaSdk\Model\Skill\Manifest\PublishingInformation\InvalidDistributionModeException;
 use PHPUnit\Framework\TestCase;

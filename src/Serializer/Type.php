@@ -8,7 +8,7 @@ abstract class Type
 {
     abstract public function __toString(): string;
 
-    static public function skillManifestSchema(): Type\SkillManifestSchema
+    public static function skillManifestSchema(): Type\SkillManifestSchema
     {
         return new Type\SkillManifestSchema();
     }

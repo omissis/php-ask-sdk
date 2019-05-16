@@ -28,5 +28,4 @@ final class IsserNameConverter implements NameConverterInterface
     {
         return substr($propertyName, 0, 2) === 'is' ? substr($propertyName, 2) : $propertyName;
     }
-
 }
