@@ -5,6 +5,7 @@ namespace Omissis\AlexaSdk\Serializer\Symfony;
 use Omissis\AlexaSdk\Model\Skill\Manifest\Api\HouseholdList;
 use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 
+// phpcs:disable SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
 final class CustomObjectNormalizer extends AbstractNormalizer
 {
     /**
@@ -47,3 +48,4 @@ final class CustomObjectNormalizer extends AbstractNormalizer
         return $data instanceof HouseholdList;
     }
 }
+// phpcs:enable

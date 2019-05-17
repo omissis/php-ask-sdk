@@ -4,6 +4,7 @@ namespace Omissis\AlexaSdk\Serializer\Symfony;
 
 use Symfony\Component\Serializer\NameConverter\AdvancedNameConverterInterface;
 
+// phpcs:disable SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
 final class ConstructorParameterNameConverter implements AdvancedNameConverterInterface
 {
     /**
@@ -34,3 +35,4 @@ final class ConstructorParameterNameConverter implements AdvancedNameConverterIn
         return $propertyName;
     }
 }
+// phpcs:enable

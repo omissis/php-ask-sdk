@@ -68,7 +68,7 @@ use Omissis\AlexaSdk\Model\Skill\Manifest\UnsupportedApiException;
         PrivacyAndCompliance $privacyAndCompliance,
         PublishingInformation $publishingInformation
     ) {
-        foreach ($apis as $name => $api) {
+        foreach (array_keys($apis) as $name) {
             if (!in_array($name, Api::ALLOWED_API_NAMES, true)) {
                 throw new UnsupportedApiException($name);
             }

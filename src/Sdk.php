@@ -78,4 +78,9 @@ final class Sdk
 
         return $this->deserializer->deserialize((string) $response->getBody(), Format::json(), Type::skillManifestSchema());
     }
+
+    public function createSkill(): void
+    {
+        $this->serializer->serialize('{"todo": "implement"}', Format::json());
+    }
 }

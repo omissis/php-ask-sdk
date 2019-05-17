@@ -4,6 +4,7 @@ namespace Omissis\AlexaSdk\Serializer\Symfony;
 
 use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 
+// phpcs:disable SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
 final class ValueObjectNormalizer extends AbstractNormalizer
 {
     /**
@@ -38,3 +39,4 @@ final class ValueObjectNormalizer extends AbstractNormalizer
         return method_exists($data, '__toString');
     }
 }
+// phpcs:enable
