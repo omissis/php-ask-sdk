@@ -16,7 +16,7 @@ final class Uri
      */
     public function __construct(string $uri)
     {
-        if (empty($uri)) {
+        if ($uri === '') {
             throw new InvalidUriException($uri);
         }
 
