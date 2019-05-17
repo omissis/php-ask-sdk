@@ -26,11 +26,14 @@ class CustomArrayDenormalizer implements ContextAwareDenormalizerInterface, Seri
     private $serializer;
 
     /**
-     * @param array $data
+     * {@inheritDoc}
+     *
+     * @param mixed[] $data
      * @param string $class
      * @param null|string $format
+     * @param mixed[] $context
      *
-     * @return object|array
+     * @return object|mixed[]
      *
      * @throws NotNormalizableValueException
      */
