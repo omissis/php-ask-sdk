@@ -40,6 +40,10 @@
 
     <rule ref="SlevomatCodingStandard.TypeHints.UselessConstantTypeHint" />
     <rule ref="SlevomatCodingStandard.Exceptions.ReferenceThrowableOnly" />
-    <rule ref="SlevomatCodingStandard.TypeHints.DeclareStrictTypes" />
+    <rule ref="SlevomatCodingStandard.TypeHints.DeclareStrictTypes">
+        <properties>
+            <property name="spacesCountAroundEqualsSign" type="int" value="0" />
+        </properties>
+    </rule>
 
 </ruleset>

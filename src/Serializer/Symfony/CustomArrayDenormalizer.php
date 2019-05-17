@@ -1,6 +1,4 @@
-<?php
-
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace Omissis\AlexaSdk\Serializer\Symfony;
 
@@ -9,7 +7,6 @@ use Symfony\Component\Serializer\Exception\InvalidArgumentException;
 use Symfony\Component\Serializer\Exception\NotNormalizableValueException;
 use Symfony\Component\Serializer\Normalizer\CacheableSupportsMethodInterface;
 use Symfony\Component\Serializer\Normalizer\ContextAwareDenormalizerInterface;
-use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\SerializerAwareInterface;
 use Symfony\Component\Serializer\SerializerInterface;
 
@@ -24,12 +21,16 @@ use Symfony\Component\Serializer\SerializerInterface;
 class CustomArrayDenormalizer implements ContextAwareDenormalizerInterface, SerializerAwareInterface, CacheableSupportsMethodInterface
 {
     /**
-     * @var SerializerInterface|DenormalizerInterface
+     * @var SerializerInterface&ContextAwareDenormalizerInterface
      */
     private $serializer;
 
     /**
-     * {@inheritdoc}
+     * @param array $data
+     * @param string $class
+     * @param null|string $format
+     *
+     * @return object|array
      *
      * @throws NotNormalizableValueException
      */
@@ -46,9 +47,15 @@ class CustomArrayDenormalizer implements ContextAwareDenormalizerInterface, Seri
         }
 
         $baseClass = substr($class, 0, -2);
+        $interfaceExists = interface_exists($baseClass);
 
         foreach ($data as $key => $value) {
-            $concreteClass = interface_exists($baseClass) ? $baseClass . '\\' . ucfirst($key) : $baseClass;
+            $concreteClass = $interfaceExists ? $baseClass . '\\' . ucfirst($key) : $baseClass;
+
+            if (!class_exists($concreteClass)) {
+                throw new \RuntimeException('');
+            }
+
             $data[$key] = $this->serializer->denormalize($value, $concreteClass, $format, $context);
         }
 
@@ -76,7 +83,7 @@ class CustomArrayDenormalizer implements ContextAwareDenormalizerInterface, Seri
      */
     public function setSerializer(SerializerInterface $serializer)
     {
-        if (!$serializer instanceof DenormalizerInterface) {
+        if (!$serializer instanceof ContextAwareDenormalizerInterface) {
             throw new InvalidArgumentException('Expected a serializer that also implements DenormalizerInterface.');
         }
 

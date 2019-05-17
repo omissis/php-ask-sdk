@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Omissis\AlexaSdk\Model\Skill\Manifest\Api\AlexaForBusiness\SupportedInterface;
 
