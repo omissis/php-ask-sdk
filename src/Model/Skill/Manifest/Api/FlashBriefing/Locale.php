@@ -12,14 +12,14 @@ final class Locale
     private $customErrorMessage;
 
     /**
-     * @var Feed[]
+     * @var null|Feed[]
      */
     private $feeds;
 
     /**
-     * @param Feed[] $feeds
+     * @param null|Feed[] $feeds
      */
-    public function __construct(string $customErrorMessage, array $feeds)
+    public function __construct(string $customErrorMessage, ?array $feeds = null)
     {
         $this->customErrorMessage = $customErrorMessage;
         $this->feeds = $feeds;
@@ -31,9 +31,9 @@ final class Locale
     }
 
     /**
-     * @return Feed[]
+     * @return null|Feed[]
      */
-    public function getFeeds(): array
+    public function getFeeds(): ?array
     {
         return $this->feeds;
     }

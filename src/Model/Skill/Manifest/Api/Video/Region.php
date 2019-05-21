@@ -10,14 +10,14 @@ final class Region
     private $endpoint;
 
     /**
-     * @var Region\Upchannel[]
+     * @var null|Region\Upchannel[]
      */
     private $upchannel;
 
     /**
-     * @param Region\Upchannel[] $upchannel
+     * @param null|Region\Upchannel[] $upchannel
      */
-    public function __construct(Region\Endpoint $endpoint, array $upchannel)
+    public function __construct(Region\Endpoint $endpoint, ?array $upchannel = null)
     {
         $this->endpoint = $endpoint;
         $this->upchannel = $upchannel;
@@ -29,9 +29,9 @@ final class Region
     }
 
     /**
-     * @return Region\Upchannel[]
+     * @return null|Region\Upchannel[]
      */
-    public function getUpchannel(): array
+    public function getUpchannel(): ?array
     {
         return $this->upchannel;
     }

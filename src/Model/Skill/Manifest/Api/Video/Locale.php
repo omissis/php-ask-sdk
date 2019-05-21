@@ -17,15 +17,15 @@ final class Locale
     /**
      * Undocumented field.
      *
-     * @var CatalogInformation[]
+     * @var null|CatalogInformation[]
      */
     private $catalogInformation;
 
     /**
      * @param VideoProviderTargetingName[] $videoProviderTargetingNames
-     * @param CatalogInformation[] $catalogInformation
+     * @param null|CatalogInformation[] $catalogInformation
      */
-    public function __construct(array $videoProviderTargetingNames, array $catalogInformation)
+    public function __construct(array $videoProviderTargetingNames, ?array $catalogInformation = null)
     {
         $this->videoProviderTargetingNames = $videoProviderTargetingNames;
         $this->catalogInformation = $catalogInformation;
@@ -40,9 +40,9 @@ final class Locale
     }
 
     /**
-     * @return CatalogInformation[]
+     * @return null|CatalogInformation[]
      */
-    public function getCatalogInformation(): array
+    public function getCatalogInformation(): ?array
     {
         return $this->catalogInformation;
     }

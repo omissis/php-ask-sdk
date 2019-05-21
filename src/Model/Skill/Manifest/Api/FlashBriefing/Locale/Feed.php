@@ -20,61 +20,61 @@ final class Feed
     /**
      * If true, the feed is included in the flash briefing by default. If false, it is not.
      *
-     * @var bool
+     * @var null|bool
      */
     private $isDefault;
 
     /**
      * Preamble to flash briefing
      *
-     * @var string
+     * @var null|string
      */
     private $vuiPreamble;
 
     /**
      * See UpdateFrequency enumeration
      *
-     * @var UpdateFrequency
+     * @var null|UpdateFrequency
      */
     private $updateFrequency;
 
     /**
      * See ContentGenre enumeration
      *
-     * @var ContentGenre
+     * @var null|ContentGenre
      */
     private $genre;
 
     /**
      * URI of the image used for the skill in the skill store.
      *
-     * @var Uri
+     * @var null|Uri
      */
     private $imageUri;
 
     /**
      * See ContentType enumeration
      *
-     * @var ContentType
+     * @var null|ContentType
      */
     private $contentType;
 
     /**
      * URL of the content of the feed.
      *
-     * @var Url
+     * @var null|Url
      */
     private $url;
 
     public function __construct(
         string  $name,
-        bool $isDefault,
-        string $vuiPreamble,
-        UpdateFrequency $updateFrequency,
-        ContentGenre $genre,
-        Uri $imageUri,
-        ContentType $contentType,
-        Url $url
+        ?bool $isDefault,
+        ?string $vuiPreamble,
+        ?UpdateFrequency $updateFrequency,
+        ?ContentGenre $genre,
+        ?Uri $imageUri,
+        ?ContentType $contentType,
+        ?Url $url
     ) {
         $this->name = $name;
         $this->isDefault = $isDefault;
@@ -91,37 +91,37 @@ final class Feed
         return $this->name;
     }
 
-    public function isDefault(): bool
+    public function isDefault(): ?bool
     {
         return $this->isDefault;
     }
 
-    public function getVuiPreamble(): string
+    public function getVuiPreamble(): ?string
     {
         return $this->vuiPreamble;
     }
 
-    public function getUpdateFrequency(): UpdateFrequency
+    public function getUpdateFrequency(): ?UpdateFrequency
     {
         return $this->updateFrequency;
     }
 
-    public function getGenre(): ContentGenre
+    public function getGenre(): ?ContentGenre
     {
         return $this->genre;
     }
 
-    public function getImageUri(): Uri
+    public function getImageUri(): ?Uri
     {
         return $this->imageUri;
     }
 
-    public function getContentType(): ContentType
+    public function getContentType(): ?ContentType
     {
         return $this->contentType;
     }
 
-    public function getUrl(): Url
+    public function getUrl(): ?Url
     {
         return $this->url;
     }

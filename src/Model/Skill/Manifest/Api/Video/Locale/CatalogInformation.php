@@ -10,11 +10,11 @@ final class CatalogInformation
     private $sourceId;
 
     /**
-     * @var string
+     * @var null|string
      */
     private $type;
 
-    public function __construct(string $sourceId, string $type)
+    public function __construct(string $sourceId, ?string $type = null)
     {
         $this->sourceId = $sourceId;
         $this->type = $type;
@@ -25,7 +25,7 @@ final class CatalogInformation
         return $this->sourceId;
     }
 
-    public function getType(): string
+    public function getType(): ?string
     {
         return $this->type;
     }

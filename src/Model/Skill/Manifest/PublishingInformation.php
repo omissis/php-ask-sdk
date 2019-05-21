@@ -19,14 +19,14 @@ final class PublishingInformation
     /**
      * Array specifying distribution country/region strings in ISO 3166-1 alpha-2 format, for example US, GB or DE. This array should only contain values if availableWorldwide is false.
      *
-     * @var DistributionCountry[]
+     * @var null|DistributionCountry[]
      */
     private $distributionCountries;
 
     /**
      * true to indicate the skill is available worldwide; otherwise, false. If false, countries must be listed for distributionCountries.
      *
-     * @var bool
+     * @var null|bool
      */
     private $isAvailableWorldwide;
 
@@ -40,28 +40,28 @@ final class PublishingInformation
     /**
      * Indicates any special instructions for testing the skill, such as a test account.
      *
-     * @var string
+     * @var null|string
      */
     private $testingInstructions;
 
     /**
      * Indicates the filter category for the skill in the Alexa App such as NEWS or SMART_HOME. See Category enumeration.
      *
-     * @var Category
+     * @var null|Category
      */
     private $category;
 
     /**
      * @param Locale[] $locales
-     * @param DistributionCountry[] $distributionCountries
+     * @param null|DistributionCountry[] $distributionCountries
      */
     public function __construct(
         array $locales,
-        array $distributionCountries,
-        bool $isAvailableWorldwide,
-        ?DistributionMode $distributionMode,
-        string $testingInstructions,
-        Category $category
+        ?array $distributionCountries = null,
+        ?bool $isAvailableWorldwide = null,
+        ?DistributionMode $distributionMode = null,
+        ?string $testingInstructions = null,
+        ?Category $category = null
     ) {
         $this->locales = $locales;
         $this->distributionCountries = $distributionCountries;
@@ -80,14 +80,14 @@ final class PublishingInformation
     }
 
     /**
-     * @return DistributionCountry[]
+     * @return null|DistributionCountry[]
      */
-    public function getDistributionCountries(): array
+    public function getDistributionCountries(): ?array
     {
         return $this->distributionCountries;
     }
 
-    public function isAvailableWorldwide(): bool
+    public function isAvailableWorldwide(): ?bool
     {
         return $this->isAvailableWorldwide;
     }
@@ -97,12 +97,12 @@ final class PublishingInformation
         return $this->distributionMode;
     }
 
-    public function getTestingInstructions(): string
+    public function getTestingInstructions(): ?string
     {
         return $this->testingInstructions;
     }
 
-    public function getCategory(): Category
+    public function getCategory(): ?Category
     {
         return $this->category;
     }

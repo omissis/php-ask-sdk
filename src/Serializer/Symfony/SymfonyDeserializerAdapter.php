@@ -9,8 +9,6 @@ use Omissis\AlexaSdk\Model\SkillManifestSchema;
 use Omissis\AlexaSdk\Serializer\Deserializer;
 use Omissis\AlexaSdk\Serializer\Format;
 use Omissis\AlexaSdk\Serializer\Type;
-use Symfony\Component\PropertyAccess\PropertyAccessor;
-use Symfony\Component\PropertyAccess\PropertyAccessorInterface;
 use Symfony\Component\PropertyInfo\Extractor\PhpDocExtractor;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory;
@@ -45,10 +43,7 @@ final class SymfonyDeserializerAdapter implements Deserializer
     {
         return $this->serializer->deserialize($data, (string) $outputType, (string) $inputFormat, [
             'default_constructor_arguments' => [
-                Manifest::class => ['events' => null, 'permissions' => null],
-                PublishingInformation::class => ['distributionMode' => null],
                 Manifest\Events::class => ['publications' => null, 'subscriptions' => null],
-                SkillManifestSchema::class => ['manifest' => null, 'skillManifest' => null],
             ],
         ]);
     }

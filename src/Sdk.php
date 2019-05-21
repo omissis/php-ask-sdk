@@ -68,10 +68,16 @@ final class Sdk
     {
         $request = $this->httpRequestFactory
             ->createRequest('GET', "$this->baseUrl/skills/$skillId/stages/$stage/manifest")
-            ->withHeader('Authorization', sprintf('Bearer %s', $this->oAuthToken->getToken()));
+            ->withHeader('Authorization', sprintf('Bearer %s', $this->oAuthToken->getToken()))
+            ->withHeader('Accept', 'application/json')
+            ->withHeader('Content-Type', 'application/json');
 
         try {
             $response = $this->httpClient->sendRequest($request);
+
+            if ($response->getStatusCode() < 200 || $response->getStatusCode() > 299) {
+                throw new Sdk\Exception(sprintf('Request "%s" failed, Http code %d received.', (string) $request->getUri(), $response->getStatusCode()));
+            }
         } catch (ClientExceptionInterface $e) {
             throw new Sdk\Exception(sprintf('Cannot get skill "%s" information for stage "%s".', $skillId, $stage), 0, $e);
         }

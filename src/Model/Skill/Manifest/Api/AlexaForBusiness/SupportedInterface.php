@@ -18,21 +18,21 @@ final class SupportedInterface
     /**
      * Version of the object.
      *
-     * @var Version
+     * @var null|Version
      */
     private $version;
 
     /**
      * Array of requests.
      *
-     * @var Request[]
+     * @var null|Request[]
      */
     private $requests;
 
     /**
-     * @param Request[] $requests
+     * @param null|Request[] $requests
      */
-    public function __construct(InterfaceNamespace $namespace, Version $version, array $requests)
+    public function __construct(InterfaceNamespace $namespace, ?Version $version = null, ?array $requests = null)
     {
         $this->namespace = $namespace;
         $this->version = $version;
@@ -44,7 +44,7 @@ final class SupportedInterface
         return $this->namespace;
     }
 
-    public function getVersion(): Version
+    public function getVersion(): ?Version
     {
         return $this->version;
     }
@@ -52,7 +52,7 @@ final class SupportedInterface
     /**
      * @return Request[]
      */
-    public function getRequests(): array
+    public function getRequests(): ?array
     {
         return $this->requests;
     }

@@ -16,11 +16,11 @@ final class Upchannel
     /**
      * SNS Amazon Resource Name (ARN) for video skill through which video partner can send events to Alexa
      *
-     * @var Uri
+     * @var null|Uri
      */
     private $uri;
 
-    public function __construct(Upchannel\Type $type, Uri $uri)
+    public function __construct(Upchannel\Type $type, ?Uri $uri = null)
     {
         $this->type = $type;
         $this->uri = $uri;
@@ -31,7 +31,7 @@ final class Upchannel
         return $this->type;
     }
 
-    public function getUri(): Uri
+    public function getUri(): ?Uri
     {
         return $this->uri;
     }

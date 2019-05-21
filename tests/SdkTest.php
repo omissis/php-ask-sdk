@@ -2,6 +2,7 @@
 
 namespace Omissis\AlexaSdk\Tests;
 
+use Nyholm\Psr7\Factory\Psr17Factory;
 use Omissis\AlexaSdk\Model\Skill;
 use Omissis\AlexaSdk\Model\Skill\Manifest;
 use Omissis\AlexaSdk\Model\SkillManifestSchema;
@@ -15,8 +16,6 @@ use Prophecy\Argument;
 use Prophecy\Prophecy\ObjectProphecy;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
-use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\ResponseInterface;
 
 final class SdkTest extends TestCase
 {
@@ -68,18 +67,25 @@ final class SdkTest extends TestCase
 
     public function test_it_can_get_skill_information(): void
     {
-        $request = $this->prophesize(RequestInterface::class);
-        $request->withHeader('Authorization', 'Bearer foobar')->willReturn($request);
-        $response = $this->prophesize(ResponseInterface::class);
+        $uri = self::TEST_API_BASE_URL . '/skills/' . self::TEST_SKILL_ID . '/stages/' . self::TEST_STAGE . '/manifest';
+
+        $factory = new Psr17Factory();
+
+        $request = $factory->createRequest('GET', $uri)
+            ->withHeader('Accept', 'application/json')
+            ->withHeader('Content-Type', 'application/json')
+            ->withHeader('Authorization', 'Bearer foobar');
+
+        $response = $factory->createResponse();
 
         $this->httpRequestFactory
-            ->createRequest('GET', self::TEST_API_BASE_URL.'/skills/'.self::TEST_SKILL_ID.'/stages/'.self::TEST_STAGE.'/manifest')
-            ->willReturn($request->reveal())
+            ->createRequest('GET', $uri)
+            ->willReturn($request)
             ->shouldBeCalledOnce();
 
         $this->client
-            ->sendRequest($request->reveal())
-            ->willReturn($response->reveal())
+            ->sendRequest($request)
+            ->willReturn($response)
             ->shouldBeCalledOnce();
 
         $this->deserializer

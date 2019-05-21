@@ -14,42 +14,42 @@ final class Locale
     /**
      * Summary description of the skill, which is shown when viewing the list of skills.
      *
-     * @var string
+     * @var null|string
      */
     private $summary;
 
     /**
      * A full description explaining the skill’s core functionality and any prerequisites to using it (such as additional hardware, software, or accounts). For a Flash Briefing skill, you must list the feeds for the skill.
      *
-     * @var string
+     * @var null|string
      */
     private $description;
 
     /**
      * URL to a small icon for the skill, which is shown in the list of skills. (108x108px)
      *
-     * @var string
+     * @var null|string
      */
     private $smallIconUri;
 
     /**
      * URL to a large icon that represents this skill. (512x512px)
      *
-     * @var string
+     * @var null|string
      */
     private $largeIconUri;
 
     /**
      * Three example phrases that illustrate how users can invoke your skill. For accuracy, these phrases must come directly from your sample utterances.
      *
-     * @var string[]
+     * @var null|string[]
      */
     private $examplePhrases;
 
     /**
      * Sample keyword phrases that describe the skill.
      *
-     * @var string[]
+     * @var null|string[]
      */
     private $keywords;
 
@@ -61,17 +61,17 @@ final class Locale
     private $updatesDescription;
 
     /**
-     * @param string[] $examplePhrases
-     * @param string[] $keywords
+     * @param null|string[] $examplePhrases
+     * @param null|string[] $keywords
      */
     public function __construct(
         string $name,
-        string $summary,
-        string $description,
-        string $smallIconUri,
-        string $largeIconUri,
-        array $examplePhrases,
-        array $keywords,
+        ?string $summary = null,
+        ?string $description = null,
+        ?string $smallIconUri = null,
+        ?string $largeIconUri = null,
+        ?array $examplePhrases = null,
+        ?array $keywords = null,
         ?string $updatesDescription = null
     ) {
         $this->name = $name;
@@ -89,38 +89,38 @@ final class Locale
         return $this->name;
     }
 
-    public function getSummary(): string
+    public function getSummary(): ?string
     {
         return $this->summary;
     }
 
-    public function getDescription(): string
+    public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    public function getSmallIconUri(): string
+    public function getSmallIconUri(): ?string
     {
         return $this->smallIconUri;
     }
 
-    public function getLargeIconUri(): string
+    public function getLargeIconUri(): ?string
     {
         return $this->largeIconUri;
     }
 
     /**
-     * @return string[]
+     * @return null|string[]
      */
-    public function getExamplePhrases(): array
+    public function getExamplePhrases(): ?array
     {
         return $this->examplePhrases;
     }
 
     /**
-     * @return string[]
+     * @return null|string[]
      */
-    public function getKeywords(): array
+    public function getKeywords(): ?array
     {
         return $this->keywords;
     }

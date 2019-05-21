@@ -39,7 +39,10 @@
         "symfony/serializer": "^4.2",
         "symfony/property-access": "^4.2",
         "symfony/property-info": "^4.2",
-        "symfony/var-dumper": "^4.2"
+        "symfony/var-dumper": "^4.2",
+        "symfony/dotenv": "^4.2",
+        "kriswallsmith/buzz": "^1.0",
+        "nyholm/psr7": "^1.1"
     },
     "autoload-dev": {
         "psr-4": {

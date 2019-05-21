@@ -20,6 +20,11 @@ final class OAuthToken
         $this->refreshToken = $refreshToken;
     }
 
+    public static function fromEnv(): self
+    {
+        return new self(getenv('PHP_ASK_SDK_OAUTH_TOKEN') ?: '', getenv('PHP_ASK_SDK_OAUTH_REFRESH_TOKEN') ?: '');
+    }
+
     public function getToken(): string
     {
         return $this->token;

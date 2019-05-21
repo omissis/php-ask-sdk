@@ -19,22 +19,22 @@ final class Video implements Api
     /**
      * Undocumented field.
      *
-     * @var Endpoint
+     * @var null|Endpoint
      */
     private $endpoint;
 
     /**
      * Contains an array of the supported <region> Objects  Array of Object
      *
-     * @var Region[]
+     * @var null|Region[]
      */
     private $regions;
 
     /**
      * @param Locale[] $locales
-     * @param Region[] $regions
+     * @param null|Region[] $regions
      */
-    public function __construct(array $locales, Endpoint $endpoint, array $regions)
+    public function __construct(array $locales, ?Endpoint $endpoint = null, ?array $regions = null)
     {
         $this->locales = $locales;
         $this->endpoint = $endpoint;
@@ -49,15 +49,15 @@ final class Video implements Api
         return $this->locales;
     }
 
-    public function getEndpoint(): Endpoint
+    public function getEndpoint(): ?Endpoint
     {
         return $this->endpoint;
     }
 
     /**
-     * @return Region[]
+     * @return null|Region[]
      */
-    public function getRegions(): array
+    public function getRegions(): ?array
     {
         return $this->regions;
     }

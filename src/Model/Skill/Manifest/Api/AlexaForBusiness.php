@@ -19,22 +19,22 @@ final class AlexaForBusiness implements Api
     /**
      * Contains an array of the supported <region> Objects.
      *
-     * @var Region[]
+     * @var null|Region[]
      */
     private $regions;
 
     /**
      * Contains an array of the supported interfaces
      *
-     * @var SupportedInterface[]
+     * @var null|SupportedInterface[]
      */
     private $interfaces;
 
     /**
-     * @param Region[] $regions
-     * @param SupportedInterface[] $interfaces
+     * @param null|Region[] $regions
+     * @param null|SupportedInterface[] $interfaces
      */
-    public function __construct(Endpoint $endpoint, array $regions, array $interfaces)
+    public function __construct(Endpoint $endpoint, ?array $regions = null, ?array $interfaces = null)
     {
         $this->endpoint = $endpoint;
         $this->regions = $regions;
@@ -47,17 +47,17 @@ final class AlexaForBusiness implements Api
     }
 
     /**
-     * @return Region[]
+     * @return null|Region[]
      */
-    public function getRegions(): array
+    public function getRegions(): ?array
     {
         return $this->regions;
     }
 
     /**
-     * @return SupportedInterface[]
+     * @return null|SupportedInterface[]
      */
-    public function getInterfaces(): array
+    public function getInterfaces(): ?array
     {
         return $this->interfaces;
     }

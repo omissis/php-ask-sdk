@@ -20,14 +20,14 @@ final class Events
     /**
      * Contains an array of eventName objects, each of which contains the name of a proactive event.
      *
-     * @var null|(Publication[])
+     * @var null|Publication[]
      */
     private $publications;
 
     /**
      * Contains an array of eventName objects, each of which contains the name of a skill event.
      *
-     * @var null|(Subscription[])
+     * @var null|Subscription[]
      */
     private $subscriptions;
 
@@ -46,8 +46,8 @@ final class Events
     private $sslCertificateType;
 
     /**
-     * @param null|(Publication[]) $publications
-     * @param null|(Subscription[]) $subscriptions
+     * @param null|Publication[] $publications
+     * @param null|Subscription[] $subscriptions
      * @param Region[] $regions
      */
     public function __construct(

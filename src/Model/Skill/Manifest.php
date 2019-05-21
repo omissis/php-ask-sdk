@@ -29,44 +29,44 @@ use Omissis\AlexaSdk\Model\Skill\Manifest\UnsupportedApiException;
     /**
      * Version of the skill manifest.
      *
-     * @var ManifestVersion
+     * @var null|ManifestVersion
      */
     private $manifestVersion;
 
     /**
      * Array specifying the permissions that let you ask the user for specific personal information, such as access to the address of their device.
      *
-     * @var null|(Permission[])
+     * @var null|Permission[]
      */
     private $permissions;
 
     /**
      * Object containing options related to user privacy, such as the URLs for your privacy policy and terms of use.
      *
-     * @var PrivacyAndCompliance
+     * @var null|PrivacyAndCompliance
      */
     private $privacyAndCompliance;
 
     /**
      * Object containing the information to determine how the skill is presented to end users in the skill store or Alexa app.
      *
-     * @var PublishingInformation
+     * @var null|PublishingInformation
      */
     private $publishingInformation;
 
     /**
      * @param Api[] $apis
-     * @param Permission[] $permissions
+     * @param null|Permission[] $permissions
      *
      * @throws UnsupportedApiException
      */
     public function __construct(
         array $apis,
-        ?Events $events,
-        ManifestVersion $manifestVersion,
-        ?array $permissions,
-        PrivacyAndCompliance $privacyAndCompliance,
-        PublishingInformation $publishingInformation
+        ?Events $events = null,
+        ?ManifestVersion $manifestVersion = null,
+        ?array $permissions = null,
+        ?PrivacyAndCompliance $privacyAndCompliance = null,
+        ?PublishingInformation $publishingInformation = null
     ) {
         foreach (array_keys($apis) as $name) {
             if (!in_array($name, Api::ALLOWED_API_NAMES, true)) {
@@ -95,7 +95,7 @@ use Omissis\AlexaSdk\Model\Skill\Manifest\UnsupportedApiException;
         return $this->events;
     }
 
-    public function getManifestVersion(): ManifestVersion
+    public function getManifestVersion(): ?ManifestVersion
     {
         return $this->manifestVersion;
     }
@@ -108,12 +108,12 @@ use Omissis\AlexaSdk\Model\Skill\Manifest\UnsupportedApiException;
         return $this->permissions;
     }
 
-    public function getPrivacyAndCompliance(): PrivacyAndCompliance
+    public function getPrivacyAndCompliance(): ?PrivacyAndCompliance
     {
         return $this->privacyAndCompliance;
     }
 
-    public function getPublishingInformation(): PublishingInformation
+    public function getPublishingInformation(): ?PublishingInformation
     {
         return $this->publishingInformation;
     }
