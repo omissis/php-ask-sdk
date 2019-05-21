@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 final class SupportedInterfaceTest extends TestCase
 {
-    public function test_it_exposes_accessors(): void
+    public function testItExposesAccessors(): void
     {
         $namespace = new InterfaceNamespace('Alexa.Business.Reservation.Room');
         $version = new Version('1.0');

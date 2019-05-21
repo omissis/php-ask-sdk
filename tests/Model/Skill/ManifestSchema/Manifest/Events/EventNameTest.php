@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 final class EventNameTest extends TestCase
 {
-    public function test_it_is_convertible_to_string(): void
+    public function testItIsConvertibleToString(): void
     {
         $this->assertSame('SKILL_ENABLED', (string) new EventName('SKILL_ENABLED'));
     }

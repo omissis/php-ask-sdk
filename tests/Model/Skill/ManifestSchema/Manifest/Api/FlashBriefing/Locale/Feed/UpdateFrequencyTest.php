@@ -11,12 +11,12 @@ final class UpdateFrequencyTest extends TestCase
     /**
      * @dataProvider updateFrequencyProvider
      */
-    public function test_it_is_convertible_to_string(string $updateFrequency): void
+    public function testItIsConvertibleToString(string $updateFrequency): void
     {
         $this->assertSame($updateFrequency, (string) new UpdateFrequency($updateFrequency));
     }
 
-    public function test_it_is_not_initializable_with_wrong_frequency(): void
+    public function testItIsNotInitializableWithWrongFrequency(): void
     {
         $this->expectException(InvalidUpdateFrequencyException::class);
 

@@ -13,7 +13,7 @@ final class SymfonySerializerAdapterTest extends TestCase
     /**
      * @dataProvider serializationProvider
      */
-    public function test_it_serializes(string $expectedString, ManifestSchema $data, Format $format): void
+    public function testItSerializes(string $expectedString, ManifestSchema $data, Format $format): void
     {
         $actualString = (new SymfonySerializerAdapter())->serialize($data, $format);
 

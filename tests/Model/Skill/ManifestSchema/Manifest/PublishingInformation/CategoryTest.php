@@ -10,7 +10,7 @@ final class CategoryTest extends TestCase
 {
     const TEST_WRONG_VALUE = 'FOOBAR_1234567890';
 
-    public function test_is_not_initializable_using_wrong_value(): void
+    public function testIsNotInitializableUsingWrongValue(): void
     {
         $this->expectException(InvalidCategoryException::class);
 
@@ -20,7 +20,7 @@ final class CategoryTest extends TestCase
     /**
      * @dataProvider categoryProvider
      */
-    public function test_it_is_convertible_to_string(string $category): void
+    public function testItIsConvertibleToString(string $category): void
     {
         $this->assertSame($category, (string) new Category($category));
     }

@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 final class RegionTest extends TestCase
 {
-    public function test_it_exposes_accessors(): void
+    public function testItExposesAccessors(): void
     {
         $endpoint = new Region\Endpoint(new Uri('arn:aws:lambda:us-east-1:12345678π9:function:myFunctionName1'));
         $region = new Region($endpoint);

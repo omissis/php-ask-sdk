@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 final class CustomTest extends TestCase
 {
-    public function test_it_exposes_accessors(): void
+    public function testItExposesAccessors(): void
     {
         $endpoint = new Custom\Endpoint(
             new Uri('arn:aws:lambda:us-east-1:123456789:function:myFunctionName1'),

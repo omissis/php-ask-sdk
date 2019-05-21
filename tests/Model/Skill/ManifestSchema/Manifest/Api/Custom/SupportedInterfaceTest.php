@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 final class SupportedInterfaceTest extends TestCase
 {
-    public function test_it_is_not_initializable_using_invalid_type(): void
+    public function testItIsNotInitializableUsingInvalidType(): void
     {
         $this->expectException(InvalidNamespaceTypeException::class);
 
@@ -18,7 +18,7 @@ final class SupportedInterfaceTest extends TestCase
     /**
      * @dataProvider typeProvider
      */
-    public function test_it_exposes_accessors(string $type): void
+    public function testItExposesAccessors(string $type): void
     {
         $supportedInterface = new SupportedInterface($type);
 

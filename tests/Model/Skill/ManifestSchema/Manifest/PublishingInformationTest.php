@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 final class PublishingInformationTest extends TestCase
 {
-    public function test_it_exposes_accessors(): void
+    public function testItExposesAccessors(): void
     {
         $locales = [
             'en-US' => new PublishingInformation\Locale(

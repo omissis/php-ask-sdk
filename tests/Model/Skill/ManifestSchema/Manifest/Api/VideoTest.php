@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 
 final class VideoTest extends TestCase
 {
-    public function test_it_exposes_accessors(): void
+    public function testItExposesAccessors(): void
     {
         $locale = new Locale([new Locale\VideoProviderTargetingName('TV provider')], [new Locale\CatalogInformation('1234', 'FIRE_TV')]);
         $endpoint = new Video\Endpoint(new Uri('arn:aws:lambda:us-east-1:452493640596:function:sampleSkill'));

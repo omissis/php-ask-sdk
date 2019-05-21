@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 final class RegionTest extends TestCase
 {
-    public function test_it_exposes_accessors(): void
+    public function testItExposesAccessors(): void
     {
         $endpoint = new Endpoint(new Uri('https:://example.com/custom'));
         $region = new Region($endpoint);

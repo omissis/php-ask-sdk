@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 final class SslCertificateTypeTest extends TestCase
 {
-    public function test_it_is_not_initializable_using_a_wrong_certificate_type(): void
+    public function testItIsNotInitializableUsingAWrongCertificateType(): void
     {
         $this->expectException(InvalidSslCertificateTypeException::class);
 
@@ -18,7 +18,7 @@ final class SslCertificateTypeTest extends TestCase
     /**
      * @dataProvider certificateTypeProvider
      */
-    public function test_it_is_convertible_to_string(string $certificateType): void
+    public function testItIsConvertibleToString(string $certificateType): void
     {
         $this->assertSame($certificateType, (string) new SslCertificateType($certificateType));
     }

@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 final class PermissionTest extends TestCase
 {
-    public function test_it_is_not_initializable_with_wrong_name(): void
+    public function testItIsNotInitializableWithWrongName(): void
     {
         $this->expectException(InvalidPermissionException::class);
 
@@ -18,7 +18,7 @@ final class PermissionTest extends TestCase
     /**
      * @dataProvider permissionProvider
      */
-    public function test_it_exposes_accessors(string $permissionName): void
+    public function testItExposesAccessors(string $permissionName): void
     {
         $permission = new Permission($permissionName);
 

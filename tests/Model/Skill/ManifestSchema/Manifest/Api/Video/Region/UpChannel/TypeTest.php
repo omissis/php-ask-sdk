@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 final class TypeTest extends TestCase
 {
-    public function test_it_is_convertible_to_string(): void
+    public function testItIsConvertibleToString(): void
     {
         $this->assertSame('SNS', (string) new Type('SNS'));
     }

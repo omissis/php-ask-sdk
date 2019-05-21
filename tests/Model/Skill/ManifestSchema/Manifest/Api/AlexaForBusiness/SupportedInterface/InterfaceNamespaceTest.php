@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 final class InterfaceNamespaceTest extends TestCase
 {
-    public function test_it_is_not_initializable_with_wrong_namesace(): void
+    public function testItIsNotInitializableWithWrongNamesace(): void
     {
         $this->expectException(InvalidNamespaceException::class);
         $this->expectExceptionMessage('Invalid namespace: "Foo.Bar.Baz.Quux". Allowed values are: "Alexa.Business.Reservation.Room".');
@@ -16,7 +16,7 @@ final class InterfaceNamespaceTest extends TestCase
         new InterfaceNamespace('Foo.Bar.Baz.Quux');
     }
 
-    public function test_it_is_convertible_to_string(): void
+    public function testItIsConvertibleToString(): void
     {
         $namespace = new InterfaceNamespace('Alexa.Business.Reservation.Room');
 

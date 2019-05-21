@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 final class UpchannelTest extends TestCase
 {
-    public function test_it_exposes_accessors(): void
+    public function testItExposesAccessors(): void
     {
         $type = new Type('SNS');
         $uri = new Uri('arn:aws:sns:us-east-1:291420629295:sampleSkill');

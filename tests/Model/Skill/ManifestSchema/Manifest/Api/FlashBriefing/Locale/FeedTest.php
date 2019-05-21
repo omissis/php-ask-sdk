@@ -12,7 +12,7 @@ use PHPUnit\Framework\TestCase;
 
 final class FeedTest extends TestCase
 {
-    public function test_it_exposes_accessors(): void
+    public function testItExposesAccessors(): void
     {
         $name = 'feed name';
         $isDefault = true;

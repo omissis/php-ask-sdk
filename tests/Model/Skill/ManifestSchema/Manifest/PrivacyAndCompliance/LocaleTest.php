@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 final class LocaleTest extends TestCase
 {
-    public function test_it_exposes_accessors(): void
+    public function testItExposesAccessors(): void
     {
         $privacyPolicyUrl = new Url('https://example.com/privacy-policy');
         $termsOfUseUrl = new Url('https://example.com/terms-of-use');

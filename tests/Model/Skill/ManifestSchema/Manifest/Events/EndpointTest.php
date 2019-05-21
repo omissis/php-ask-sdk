@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 final class EndpointTest extends TestCase
 {
-    public function test_it_exposes_accessors(): void
+    public function testItExposesAccessors(): void
     {
         $uri = new Uri('https:://example.com/custom');
         $endpoint = new Endpoint($uri);

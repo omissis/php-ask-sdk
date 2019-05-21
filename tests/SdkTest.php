@@ -63,7 +63,7 @@ final class SdkTest extends TestCase
         );
     }
 
-    public function test_it_can_get_skill_information(): void
+    public function testItCanGetSkillInformation(): void
     {
         $uri = self::TEST_API_BASE_URL . '/skills/' . self::TEST_SKILL_ID . '/stages/' . self::TEST_STAGE . '/manifest';
 

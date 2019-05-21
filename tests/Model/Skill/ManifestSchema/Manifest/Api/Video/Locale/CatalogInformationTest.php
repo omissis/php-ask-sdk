@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 final class CatalogInformationTest extends TestCase
 {
-    public function test_it_exposes_accessors(): void
+    public function testItExposesAccessors(): void
     {
         $catalogInformation = new CatalogInformation('1234', 'FIRE_TV');
 

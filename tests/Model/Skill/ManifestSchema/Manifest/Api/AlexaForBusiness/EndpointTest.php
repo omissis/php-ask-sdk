@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 final class EndpointTest extends TestCase
 {
-    public function test_it_exposes_accessors(): void
+    public function testItExposesAccessors(): void
     {
         $uri = new Uri('arn:aws:lambda:us-east-1:12345678π9:function:myFunctionName1');
         $endpoint = new Endpoint($uri);

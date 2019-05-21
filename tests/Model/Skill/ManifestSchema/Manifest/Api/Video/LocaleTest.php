@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 
 final class LocaleTest extends TestCase
 {
-    public function test_it_exposes_accessors(): void
+    public function testItExposesAccessors(): void
     {
         $videoProviderTargetingName = new Locale\VideoProviderTargetingName('TV provider');
         $catalogInformation = new CatalogInformation('1234', 'FIRE_TV');
