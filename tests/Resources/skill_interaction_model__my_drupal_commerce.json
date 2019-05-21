@@ -1,0 +1,94 @@
+{
+  "interactionModel": {
+      "languageModel": {
+          "invocationName": "my drupal commerce",
+          "intents": [
+              {
+                  "name": "AMAZON.FallbackIntent",
+                  "samples": [
+                      "hey drupalexa",
+                      "drupalexa"
+                  ]
+              },
+              {
+                  "name": "AMAZON.CancelIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.HelpIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.StopIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.NavigateHomeIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AddProductToCartIntent",
+                  "slots": [
+                      {
+                          "name": "product_name",
+                          "type": "ProductName"
+                      }
+                  ],
+                  "samples": [
+                      "cart {product_name}",
+                      "basket {product_name}",
+                      "add {product_name}",
+                      "add {product_name} to the cart",
+                      "add {product_name} to cart"
+                  ]
+              }
+          ],
+          "types": [
+              {
+                  "values": [
+                      {
+                          "id": "0",
+                          "name": {
+                              "value": "nothing"
+                          }
+                      }
+                  ],
+                  "name": "ProductName"
+              }
+          ]
+      },
+      "dialog": {
+          "intents": [
+              {
+                  "name": "AddProductToCartIntent",
+                  "confirmationRequired": false,
+                  "prompts": {},
+                  "slots": [
+                      {
+                          "name": "product_name",
+                          "type": "ProductName",
+                          "elicitationRequired": true,
+                          "confirmationRequired": false,
+                          "prompts": {
+                              "elicitation": "Elicit.Slot.989082703768.30792011828"
+                          }
+                      }
+                  ]
+              }
+          ],
+          "delegationStrategy": "ALWAYS"
+      },
+      "prompts": [
+          {
+              "id": "Elicit.Slot.989082703768.30792011828",
+              "variations": [
+                  {
+                      "type": "PlainText",
+                      "value": "what's the product name?"
+                  }
+              ]
+          }
+      ]
+  },
+  "version": "2"
+}
