@@ -12,6 +12,7 @@ use Omissis\AlexaSdk\Serializer\Type;
 use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
+use RuntimeException;
 
 final class Sdk
 {
@@ -74,12 +75,20 @@ final class Sdk
 
         try {
             $response = $this->httpClient->sendRequest($request);
-
-            if ($response->getStatusCode() < 200 || $response->getStatusCode() > 299) {
-                throw new Sdk\Exception(sprintf('Request "%s" failed, Http code %d received.', (string) $request->getUri(), $response->getStatusCode()));
-            }
         } catch (ClientExceptionInterface $e) {
             throw new Sdk\Exception(sprintf('Cannot get skill "%s" information for stage "%s".', $skillId, $stage), 0, $e);
+        }
+
+        $responseStatusCode = $response->getStatusCode();
+
+        if ($responseStatusCode < 200 || $responseStatusCode > 299) {
+            throw new Sdk\Exception(sprintf(
+                'Cannot get skill "%s" information for stage "%s": HTTP %d received. Response body: %s',
+                $skillId,
+                $stage,
+                $responseStatusCode,
+                (string) $response->getBody()
+            ));
         }
 
         return $this->deserializer->deserialize((string) $response->getBody(), Format::json(), Type::skillManifestSchema());

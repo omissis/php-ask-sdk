@@ -6,7 +6,7 @@ use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
-final class LoggingClientDecorator implements ClientInterface
+final class VarDumperClientDecorator implements ClientInterface
 {
     /**
      * @var ClientInterface

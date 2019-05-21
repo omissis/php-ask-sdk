@@ -3,7 +3,7 @@
 use Buzz\Client\FileGetContents;
 use Nyholm\Psr7\Factory\Psr17Factory;
 use Omissis\AlexaSdk\Model\Skill;
-use Omissis\AlexaSdk\Psr\Http\Client\LoggingClientDecorator;
+use Omissis\AlexaSdk\Psr\Http\Client\VarDumperClientDecorator;
 use Omissis\AlexaSdk\Sdk;
 use Omissis\AlexaSdk\Sdk\OAuthToken;
 use Omissis\AlexaSdk\Serializer\Symfony\SymfonyDeserializerAdapter;
@@ -15,7 +15,7 @@ require_once dirname(__DIR__).'/vendor/autoload.php';
 (new Dotenv())->load(dirname(__DIR__).'/.env');
 
 $httpRequestFactory = new Psr17Factory();
-$client = new LoggingClientDecorator(new FileGetContents($httpRequestFactory));
+$client = new VarDumperClientDecorator(new FileGetContents($httpRequestFactory));
 $serializer = new SymfonySerializerAdapter();
 $deserializer = new SymfonyDeserializerAdapter();
 $apiBaseUrl = getenv('PHP_ASK_SDK_API_BASE_URL');

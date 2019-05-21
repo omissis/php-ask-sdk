@@ -4,7 +4,6 @@ namespace Omissis\AlexaSdk\Tests;
 
 use Nyholm\Psr7\Factory\Psr17Factory;
 use Omissis\AlexaSdk\Model\Skill;
-use Omissis\AlexaSdk\Model\Skill\Manifest;
 use Omissis\AlexaSdk\Model\SkillManifestSchema;
 use Omissis\AlexaSdk\Sdk;
 use Omissis\AlexaSdk\Serializer\Deserializer;
@@ -90,15 +89,11 @@ final class SdkTest extends TestCase
 
         $this->deserializer
             ->deserialize(Argument::any(), Format::json(), Type::skillManifestSchema())
-            ->willReturn(new SkillManifestSchema($this->prophesize(Manifest::class)->reveal()));
+            ->willReturn(new SkillManifestSchema());
 
         $skillId = new Skill\Id(self::TEST_SKILL_ID);
         $stage = new Skill\Stage(self::TEST_STAGE);
 
-        $skillManifestSchema = $this->sdk->getSkillInformation($skillId, $stage);
-
-        $this->assertInstanceOf(SkillManifestSchema::class, $skillManifestSchema);
-
-        // TODO: improve test
+        $this->sdk->getSkillInformation($skillId, $stage);
     }
 }
