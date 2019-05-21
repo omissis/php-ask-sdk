@@ -9,7 +9,7 @@ use Omissis\AlexaSdk\Model\Skill\Manifest\Api\Video\Locale\VideoProviderTargetin
 use Omissis\AlexaSdk\Model\Skill\Manifest\Events;
 use Omissis\AlexaSdk\Model\Skill\Manifest\PublishingInformation\DistributionCountry;
 use Omissis\AlexaSdk\Model\Skill\VendorId;
-use Omissis\AlexaSdk\Model\SkillManifestSchema;
+use Omissis\AlexaSdk\Model\Skill\ManifestSchema;
 use Omissis\AlexaSdk\Model\Ssl\SslCertificateType;
 use Omissis\AlexaSdk\Model\Uri\Uri;
 use Omissis\AlexaSdk\Model\Uri\Url;
@@ -25,7 +25,7 @@ final class SerializationProvider
         {
             $serialized = Resources::getContent('baby_activity_skill_manifest.json');
 
-            $schema = new SkillManifestSchema(
+            $schema = new ManifestSchema(
                 null,
                 new Manifest(
                     ['health' => new Api\Health(
@@ -73,7 +73,7 @@ final class SerializationProvider
         {
             $serialized = Resources::getContent('custom_skill_manifest.json');
 
-            $schema = new SkillManifestSchema(
+            $schema = new ManifestSchema(
                 new Manifest(
                     ['custom' => new Api\Custom(
                         new Api\Custom\Endpoint(new Uri('arn:aws:lambda:us-east-1:040623927470:function:sampleSkill')),
@@ -153,7 +153,7 @@ final class SerializationProvider
         {
             $serialized = Resources::getContent('flash_briefing_skill_manifest.json');
 
-            $schema = new SkillManifestSchema(
+            $schema = new ManifestSchema(
                 new Manifest(
                     ['flashBriefing' => new Api\FlashBriefing([
                         'en-US' => new Api\FlashBriefing\Locale('Error message', [
@@ -208,7 +208,7 @@ final class SerializationProvider
         {
             $serialized = Resources::getContent('list_skill_manifest_with_no_custom_component.json');
 
-            $schema = new SkillManifestSchema(
+            $schema = new ManifestSchema(
                 new Manifest(
                     ['householdList' => new Api\HouseholdList()],
                     new Events(
@@ -272,7 +272,7 @@ final class SerializationProvider
         {
             $serialized = Resources::getContent('meetings_skill_manifest.json');
 
-            $schema = new SkillManifestSchema(
+            $schema = new ManifestSchema(
                 new Manifest(
                     ['alexaForBusiness' => new Api\AlexaForBusiness(
                         new Api\AlexaForBusiness\Endpoint(new Uri('arn:aws:lambda:us-east-1:123456789:function:myFunctionName1')),
@@ -332,7 +332,7 @@ final class SerializationProvider
         {
             $serialized = Resources::getContent('smart_home_skill_manifest.json');
 
-            $schema = new SkillManifestSchema(
+            $schema = new ManifestSchema(
                 new Manifest(
                     ['smartHome' => new Api\SmartHome(
                         new Api\SmartHome\Endpoint(new Uri('arn:aws:lambda:us-east-1:040623927470:function:sampleSkill')),
@@ -380,7 +380,7 @@ final class SerializationProvider
         {
             $serialized = Resources::getContent('video_skill_manifest.json');
 
-            $schema = new SkillManifestSchema(
+            $schema = new ManifestSchema(
                 new Manifest(
                     ['video' => new Api\Video(
                         ['en-US' => new Api\Video\Locale(

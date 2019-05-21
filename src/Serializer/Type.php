@@ -10,4 +10,9 @@ abstract class Type
     {
         return new Type\SkillManifestSchema();
     }
+
+    public static function skillInteractionModelSchema(): Type\SkillInteractionModelSchema
+    {
+        return new Type\SkillInteractionModelSchema();
+    }
 }

@@ -3,7 +3,7 @@
 namespace Omissis\AlexaSdk\Tests\Serializer\Symfony;
 
 use Generator;
-use Omissis\AlexaSdk\Model\SkillManifestSchema;
+use Omissis\AlexaSdk\Model\Skill\ManifestSchema;
 use Omissis\AlexaSdk\Serializer\Format;
 use Omissis\AlexaSdk\Serializer\Symfony\SymfonyDeserializerAdapter;
 use Omissis\AlexaSdk\Serializer\Type;
@@ -14,7 +14,7 @@ final class SymfonyDeserializerAdapterTest extends TestCase
     /**
      * @dataProvider deserializationProvider
      */
-    public function test_it_deserializes(string $data, SkillManifestSchema $expectedObject, Format $format): void
+    public function test_it_deserializes(string $data, ManifestSchema $expectedObject, Format $format): void
     {
         $actualObject = (new SymfonyDeserializerAdapter())->deserialize($data, $format, Type::skillManifestSchema());
 

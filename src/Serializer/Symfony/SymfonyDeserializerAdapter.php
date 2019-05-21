@@ -4,8 +4,6 @@ namespace Omissis\AlexaSdk\Serializer\Symfony;
 
 use Doctrine\Common\Annotations\AnnotationReader;
 use Omissis\AlexaSdk\Model\Skill\Manifest;
-use Omissis\AlexaSdk\Model\Skill\Manifest\PublishingInformation;
-use Omissis\AlexaSdk\Model\SkillManifestSchema;
 use Omissis\AlexaSdk\Serializer\Deserializer;
 use Omissis\AlexaSdk\Serializer\Format;
 use Omissis\AlexaSdk\Serializer\Type;

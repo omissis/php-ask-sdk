@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace Omissis\AlexaSdk\Model;
+namespace Omissis\AlexaSdk\Model\Skill;
 
 use Omissis\AlexaSdk\Model\Skill\Manifest;
 use Omissis\AlexaSdk\Model\Skill\VendorId;
 
-final class SkillManifestSchema
+final class ManifestSchema
 {
     /**
      * @var null|Manifest

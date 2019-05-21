@@ -2,8 +2,6 @@
 
 namespace Omissis\AlexaSdk\Model\Skill\Manifest\PublishingInformation;
 
-use Omissis\AlexaSdk\Model\Skill\InvalidStageException;
-
 final class Category
 {
     public const ALLOWED_CATEGORIES = [
@@ -74,12 +72,12 @@ final class Category
     private $category;
 
     /**
-     * @throws InvalidStageException
+     * @throws InvalidCategoryException
      */
     public function __construct(string $category)
     {
         if (!in_array($category, self::ALLOWED_CATEGORIES, true)) {
-            throw new InvalidStageException($category);
+            throw new InvalidCategoryException($category);
         }
 
         $this->category = $category;

@@ -27,9 +27,9 @@ $skillId = getenv('PHP_ASK_SDK_SKILL_ID');
 $stage = 'development';
 
 try {
-    $skillManifest = $sdk->getSkillInformation($skillId, $stage);
+    $interactionModel = $sdk->getInteractionModel($skillId, $stage, 'en-US');
 
-    dump($skillManifest);
+    dump($interactionModel);
 } catch (Throwable $exception) {
     dump($exception);
 }

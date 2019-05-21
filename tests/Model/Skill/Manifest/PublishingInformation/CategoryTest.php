@@ -2,8 +2,8 @@
 
 namespace Omissis\AlexaSdk\Tests\Model\Skill\Manifest\PublishingInformation;
 
-use Omissis\AlexaSdk\Model\Skill\InvalidStageException;
 use Omissis\AlexaSdk\Model\Skill\Manifest\PublishingInformation\Category;
+use Omissis\AlexaSdk\Model\Skill\Manifest\PublishingInformation\InvalidCategoryException;
 use PHPUnit\Framework\TestCase;
 
 final class CategoryTest extends TestCase
@@ -12,7 +12,7 @@ final class CategoryTest extends TestCase
 
     public function test_is_not_initializable_using_wrong_value(): void
     {
-        $this->expectException(InvalidStageException::class);
+        $this->expectException(InvalidCategoryException::class);
 
         new Category(self::TEST_WRONG_VALUE);
     }
