@@ -3,13 +3,13 @@
 namespace Omissis\AlexaSdk\Tests\Serializer\Symfony;
 
 use Generator;
-use Omissis\AlexaSdk\Model\Skill\Manifest;
-use Omissis\AlexaSdk\Model\Skill\Manifest\Api;
-use Omissis\AlexaSdk\Model\Skill\Manifest\Api\Video\Locale\VideoProviderTargetingName;
-use Omissis\AlexaSdk\Model\Skill\Manifest\Events;
-use Omissis\AlexaSdk\Model\Skill\Manifest\PublishingInformation\DistributionCountry;
-use Omissis\AlexaSdk\Model\Skill\VendorId;
 use Omissis\AlexaSdk\Model\Skill\ManifestSchema;
+use Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest;
+use Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api;
+use Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api\Video\Locale\VideoProviderTargetingName;
+use Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Events;
+use Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\PublishingInformation\DistributionCountry;
+use Omissis\AlexaSdk\Model\Skill\ManifestSchema\VendorId;
 use Omissis\AlexaSdk\Model\Ssl\SslCertificateType;
 use Omissis\AlexaSdk\Model\Uri\Uri;
 use Omissis\AlexaSdk\Model\Uri\Url;

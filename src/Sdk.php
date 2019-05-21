@@ -78,10 +78,15 @@ final class Sdk
         return $this->deserializer->deserialize((string) $response->getBody(), Format::json(), Type::skillManifestSchema());
     }
 
+    public function createSkill(): void
+    {
+        $this->serializer->serialize(['todo' => 'implement'], Format::json());
+    }
+
     /**
      * @throws Sdk\Exception
      */
-    public function getInteractionModel(string $skillId, string $stage, string $locale): SkillInteractionModelSchema
+    public function getInteractionModel(string $skillId, string $stage, string $locale): InteractionModelSchema
     {
         try {
             $response = $this->get("$this->baseUrl/skills/$skillId/stages/$stage/interactionModel/locales/$locale");

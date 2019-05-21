@@ -2,7 +2,7 @@
 
 namespace Omissis\AlexaSdk\Serializer\Symfony;
 
-use Omissis\AlexaSdk\Model\Skill\Manifest\Api\HouseholdList;
+use Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api\HouseholdList;
 use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 
 // phpcs:disable SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter

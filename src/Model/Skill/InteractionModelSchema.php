@@ -2,6 +2,8 @@
 
 namespace Omissis\AlexaSdk\Model\Skill;
 
+use Omissis\AlexaSdk\Model\Skill\InteractionModelSchema\InteractionModel;
+
 final class InteractionModelSchema
 {
     /**

@@ -1,0 +1,22 @@
+<?php declare(strict_types=1);
+
+namespace Omissis\AlexaSdk\Tests\Model\Skill\ManifestSchema\Manifest\PublishingInformation;
+
+use Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\PublishingInformation\DistributionCountry;
+use Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\PublishingInformation\InvalidDistributionCountryException;
+use PHPUnit\Framework\TestCase;
+
+final class DistributionCountryTest extends TestCase
+{
+    public function test_is_not_initializable_using_a_wrong_distribution_country_code(): void
+    {
+        $this->expectException(InvalidDistributionCountryException::class);
+
+        new DistributionCountry('ITALY');
+    }
+
+    public function test_is_convertible_to_string(): void
+    {
+        $this->assertSame('IT', (string) new DistributionCountry('IT'));
+    }
+}

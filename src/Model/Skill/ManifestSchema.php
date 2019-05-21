@@ -2,8 +2,8 @@
 
 namespace Omissis\AlexaSdk\Model\Skill;
 
-use Omissis\AlexaSdk\Model\Skill\Manifest;
-use Omissis\AlexaSdk\Model\Skill\VendorId;
+use Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest;
+use Omissis\AlexaSdk\Model\Skill\ManifestSchema\VendorId;
 
 final class ManifestSchema
 {
