@@ -8,12 +8,12 @@ use Omissis\AlexaSdk\Model\Skill\Manifest\Api\FlashBriefing\Locale;
 final class FlashBriefing implements Api
 {
     /**
-     * @var array<string, Locale>
+     * @var Locale[]
      */
     private $locales;
 
     /**
-     * @param array<string, Locale> $locales
+     * @param Locale[] $locales
      */
     public function __construct(array $locales)
     {
@@ -21,7 +21,7 @@ final class FlashBriefing implements Api
     }
 
     /**
-     * @return array<string, Locale>
+     * @return Locale[]
      */
     public function getLocales(): array
     {

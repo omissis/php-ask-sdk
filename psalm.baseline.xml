@@ -8,6 +8,11 @@
       <code>int|string</code>
     </ImplementedReturnTypeMismatch>
   </file>
+  <file src="src/Serializer/Symfony/CustomArrayDenormalizer.php">
+    <ImplementedReturnTypeMismatch occurrences="1">
+      <code>mixed[]</code>
+    </ImplementedReturnTypeMismatch>
+  </file>
   <file src="src/Serializer/Symfony/CustomObjectNormalizer.php">
     <InvalidReturnType occurrences="1">
       <code>normalize</code>

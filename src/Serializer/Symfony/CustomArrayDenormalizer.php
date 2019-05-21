@@ -33,7 +33,7 @@ class CustomArrayDenormalizer implements ContextAwareDenormalizerInterface, Seri
      * @param null|string $format
      * @param mixed[] $context
      *
-     * @return object|mixed[]
+     * @return mixed[]
      *
      * @throws NotNormalizableValueException
      */

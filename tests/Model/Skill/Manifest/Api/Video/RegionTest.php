@@ -14,7 +14,7 @@ final class RegionTest extends TestCase
     {
         $endpoint = new Endpoint(new Uri('arn:aws:lambda:us-east-1:452493640596:function:sampleSkill'));
         $upchannel = new Upchannel(new Upchannel\Type('SNS'), new Uri('arn:aws:sns:us-east-1:291420629295:sampleSkill'));
-        $region = new Region($endpoint, $upchannel);
+        $region = new Region($endpoint, [$upchannel]);
 
         $this->assertSame($endpoint, $region->getEndpoint());
         $this->assertSame([$upchannel], $region->getUpchannel());

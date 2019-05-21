@@ -6,7 +6,8 @@ parameters:
         - tests
     no-progress: true
     ignoreErrors:
-        - '#Method Omissis\AlexaSdk\Serializer\Symfony\CustomObjectNormalizer::normalize() should return array|bool|float|int|string but returns stdClass.#'
+        - '#Method Omissis\\AlexaSdk\\Serializer\\Symfony\\CustomObjectNormalizer\:\:normalize\(\) should return array|bool|float|int|string but returns stdClass\.#'
+        - '#Method Omissis\\AlexaSdk\\Serializer\\Symfony\\CustomArrayDenormalizer\:\:denormalize\(\) should return object but returns array\.#'
     excludes_analyse:
         - %currentWorkingDirectory%/tests/Resources
 includes:

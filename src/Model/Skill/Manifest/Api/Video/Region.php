@@ -14,10 +14,13 @@ final class Region
      */
     private $upchannel;
 
-    public function __construct(Region\Endpoint $endpoint, Region\Upchannel $upchannel)
+    /**
+     * @param Region\Upchannel[] $upchannel
+     */
+    public function __construct(Region\Endpoint $endpoint, array $upchannel)
     {
         $this->endpoint = $endpoint;
-        $this->upchannel = [$upchannel];
+        $this->upchannel = $upchannel;
     }
 
     public function getEndpoint(): Region\Endpoint

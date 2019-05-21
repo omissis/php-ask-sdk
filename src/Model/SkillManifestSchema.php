@@ -22,14 +22,11 @@ final class SkillManifestSchema
      */
     private $vendorId;
 
-    public function __construct(Manifest $manifest, ?VendorId $vendorId = null)
+    public function __construct(?Manifest $manifest, ?Manifest $skillManifest = null, ?VendorId $vendorId = null)
     {
-        if ($vendorId !== null) {
-            $this->skillManifest = $manifest;
-            $this->vendorId = $vendorId;
-        } else {
-            $this->manifest = $manifest;
-        }
+        $this->manifest = $manifest;
+        $this->skillManifest = $skillManifest;
+        $this->vendorId = $vendorId;
     }
 
     public function getManifest(): ?Manifest

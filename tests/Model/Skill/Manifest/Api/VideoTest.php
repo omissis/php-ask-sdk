@@ -17,7 +17,7 @@ final class VideoTest extends TestCase
         $endpoint = new Video\Endpoint(new Uri('arn:aws:lambda:us-east-1:452493640596:function:sampleSkill'));
         $region = new Region(
             new Region\Endpoint(new Uri('arn:aws:lambda:us-east-1:452493640596:function:sampleSkill')),
-            new Upchannel(new Upchannel\Type('SNS'), new Uri('arn:aws:sns:us-east-1:291420629295:sampleSkill'))
+            [new Upchannel(new Upchannel\Type('SNS'), new Uri('arn:aws:sns:us-east-1:291420629295:sampleSkill'))]
         );
 
         $video = new Video(['en-US' => $locale], $endpoint, ['NA' => $region]);

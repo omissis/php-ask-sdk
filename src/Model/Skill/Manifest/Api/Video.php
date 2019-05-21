@@ -12,7 +12,7 @@ final class Video implements Api
     /**
      * Object that contains <locale> Objects for each supported locale. Object
      *
-     * @var array<string, Locale>
+     * @var Locale[]
      */
     private $locales;
 
@@ -26,13 +26,13 @@ final class Video implements Api
     /**
      * Contains an array of the supported <region> Objects  Array of Object
      *
-     * @var array<string, Region>
+     * @var Region[]
      */
     private $regions;
 
     /**
-     * @param array<string, Locale> $locales
-     * @param array<string, Region> $regions
+     * @param Locale[] $locales
+     * @param Region[] $regions
      */
     public function __construct(array $locales, Endpoint $endpoint, array $regions)
     {
@@ -42,7 +42,7 @@ final class Video implements Api
     }
 
     /**
-     * @return array<string, Locale>
+     * @return Locale[]
      */
     public function getLocales(): array
     {
@@ -55,7 +55,7 @@ final class Video implements Api
     }
 
     /**
-     * @return array<string, Region>
+     * @return Region[]
      */
     public function getRegions(): array
     {
