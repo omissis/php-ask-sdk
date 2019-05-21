@@ -12,6 +12,14 @@
     "config": {
         "bin-dir": "bin"
     },
+    "scripts": {
+        "lint": ["composer validate", "bin/parallel-lint src tests", "sort -c .env", "sort -c .env.dist"],
+        "phpcs": ["bin/phpcs"],
+        "phpstan": ["bin/phpstan analyze"],
+        "psalm": ["bin/psalm --show-info=false"],
+        "phpunit": ["bin/phpunit"],
+        "qa": ["@lint", "@phpcs", "@phpstan", "@psalm", "@phpunit"]
+    },
     "require": {
         "ext-json": "*",
         "psr/http-client": "^1.0",
@@ -42,7 +50,8 @@
         "symfony/var-dumper": "^4.2",
         "symfony/dotenv": "^4.2",
         "kriswallsmith/buzz": "^1.0",
-        "nyholm/psr7": "^1.1"
+        "nyholm/psr7": "^1.1",
+        "jakub-onderka/php-parallel-lint": "^1.0"
     },
     "autoload-dev": {
         "psr-4": {

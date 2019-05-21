@@ -20,6 +20,61 @@
     </rule>
     <rule ref="Generic.Files.LineEndings" />
 
+    <!-- ObjectCalisthenics Coding Standard Rules -->
+    <!--
+        <rule ref="ObjectCalisthenics.Metrics.MaxNestingLevel">
+            <properties>
+                <property name="maxNestingLevel" value="2"/>
+            </properties>
+        </rule>
+
+        <rule ref="ObjectCalisthenics.ControlStructures.NoElse" />
+
+        <rule ref="ObjectCalisthenics.CodeAnalysis.OneObjectOperatorPerLine">
+            <properties>
+                <property name="variablesHoldingAFluentInterface" type="array" value="$queryBuilder,$containerBuilder"/>
+                <property name="methodsStartingAFluentInterface" type="array" value="createQueryBuilder"/>
+                <property name="methodsEndingAFluentInterface" type="array" value="execute,getQuery"/>
+            </properties>
+        </rule>
+
+        <rule ref="ObjectCalisthenics.NamingConventions.ElementNameMinimalLength">
+            <properties>
+                <property name="minLength" value="3"/>
+                <property name="allowedShortNames" type="array" value="i,id,to,up"/>
+            </properties>
+        </rule>
+
+        <rule ref="ObjectCalisthenics.Files.ClassTraitAndInterfaceLength">
+            <properties>
+                <property name="maxLength" value="200"/>
+            </properties>
+        </rule>
+        <rule ref="ObjectCalisthenics.Files.FunctionLength">
+            <properties>
+                <property name="maxLength" value="20"/>
+            </properties>
+        </rule>
+        <rule ref="ObjectCalisthenics.Metrics.PropertyPerClassLimit">
+            <properties>
+                <property name="maxCount" value="10"/>
+            </properties>
+        </rule>
+        <rule ref="ObjectCalisthenics.Metrics.MethodPerClassLimit">
+            <properties>
+                <property name="maxCount" value="10"/>
+            </properties>
+        </rule>
+
+        <rule ref="ObjectCalisthenics.NamingConventions.NoSetter">
+            <properties>
+                <property name="allowedClasses" type="array" value="*\DataObject"/>
+            </properties>
+        </rule>
+    -->
+
+    <!-- Slevomat Coding Standard Rules -->
+
     <rule ref="SlevomatCodingStandard.Files.TypeNameMatchesFileName">
         <properties>
             <property name="rootNamespaces" type="array" value="src=>Omissis\AlexaSdk,tests=>Omissis\AlexaSdk\Tests"/>
