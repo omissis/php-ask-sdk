@@ -3,7 +3,7 @@
 require_once __DIR__.'/bootstrap.php';
 
 try {
-    $skillManifest = $sdk->getSkillInformation($skillId, $stage);
+    $skillManifest = $sdk->getManifestSchema($skillId, $stage);
 
     dump($skillManifest);
 } catch (Throwable $exception) {

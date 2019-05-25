@@ -51,7 +51,8 @@
         "symfony/dotenv": "^4.2",
         "kriswallsmith/buzz": "^1.0",
         "nyholm/psr7": "^1.1",
-        "jakub-onderka/php-parallel-lint": "^1.0"
+        "jakub-onderka/php-parallel-lint": "^1.0",
+        "slevomat/coding-standard": "^5.0"
     },
     "autoload-dev": {
         "psr-4": {

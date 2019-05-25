@@ -67,15 +67,25 @@ final class Sdk
     /**
      * @throws Sdk\Exception
      */
-    public function getSkillInformation(string $skillId, string $stage): ManifestSchema
+    public function getManifestSchema(string $skillId, string $stage): ManifestSchema
     {
-        try {
-            $response = $this->get("$this->baseUrl/skills/$skillId/stages/$stage/manifest");
-        } catch (Throwable $exception) {
-            throw new Sdk\Exception(sprintf('Cannot get skill "%s" information for stage "%s".', $skillId, $stage), 0, $exception);
-        }
+        return $this->sdkGet(
+            "$this->baseUrl/skills/$skillId/stages/$stage/manifest",
+            "Cannot get manifest of skill '$skillId' for stage '$stage'",
+            Type::skillManifestSchema()
+        );
+    }
 
-        return $this->deserializer->deserialize((string) $response->getBody(), Format::json(), Type::skillManifestSchema());
+    /**
+     * @throws Sdk\Exception
+     */
+    public function getInteractionModelSchema(string $skillId, string $stage, string $locale): InteractionModelSchema
+    {
+        return $this->sdkGet(
+            "$this->baseUrl/skills/$skillId/stages/$stage/interactionModel/locales/$locale",
+            "Cannot get interaction model of skill '$skillId' for stage '$stage' using locale '$locale'.",
+            Type::skillInteractionModelSchema()
+        );
     }
 
     public function createSkill(): void
@@ -84,24 +94,26 @@ final class Sdk
     }
 
     /**
+     * @return mixed
+     *
      * @throws Sdk\Exception
      */
-    public function getInteractionModel(string $skillId, string $stage, string $locale): InteractionModelSchema
+    private function sdkGet(string $url, string $errorMessage, Type $returnType)
     {
         try {
-            $response = $this->get("$this->baseUrl/skills/$skillId/stages/$stage/interactionModel/locales/$locale");
+            $response = $this->httpGet($url);
         } catch (Throwable $exception) {
-            throw new Sdk\Exception(sprintf('Cannot get skill "%s" information for stage "%s".', $skillId, $stage), 0, $exception);
+            throw new Sdk\Exception($errorMessage, 0, $exception);
         }
 
-        return $this->deserializer->deserialize((string) $response->getBody(), Format::json(), Type::skillInteractionModelSchema());
+        return $this->deserializer->deserialize((string) $response->getBody(), Format::json(), $returnType);
     }
 
     /**
      * @throws RuntimeException
      * @throws ClientExceptionInterface
      */
-    private function get(string $url): ResponseInterface
+    private function httpGet(string $url): ResponseInterface
     {
         $request = $this->httpRequestFactory
             ->createRequest('GET', $url)

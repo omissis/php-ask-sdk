@@ -14,27 +14,11 @@ final class LocaleTest extends TestCase
         $description = 'This skill has Alexa for Business reservations features.';
         $smallIconUri = 'https://smallUri.example.com/small1.png';
         $largeIconUri = 'https://largeUri.example.com/large1.png';
-        $examplePhrases = [
-            'Alexa, book this room.',
-            'Alexa, find a room at 3pm tomorrow.'
-        ];
-        $keywords = [
-            'Meetings',
-            'Booking',
-            'Alexa For Business'
-        ];
+        $examplePhrases = ['Alexa, book this room.', 'Alexa, find a room at 3pm tomorrow.'];
+        $keywords = ['Meetings', 'Booking', 'Alexa For Business'];
         $updatesDescription = 'This skill has updates that fix feature bugs.';
 
-        $locale = new Locale(
-            $name,
-            $summary,
-            $description,
-            $smallIconUri,
-            $largeIconUri,
-            $examplePhrases,
-            $keywords,
-            $updatesDescription
-        );
+        $locale = new Locale($name, $summary, $description, $smallIconUri, $largeIconUri, $examplePhrases, $keywords, $updatesDescription);
 
         $this->assertSame($name, $locale->getName());
         $this->assertSame($summary, $locale->getSummary());

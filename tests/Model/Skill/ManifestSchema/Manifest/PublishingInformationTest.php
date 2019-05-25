@@ -10,25 +10,7 @@ final class PublishingInformationTest extends TestCase
 {
     public function testItExposesAccessors(): void
     {
-        $locales = [
-            'en-US' => new PublishingInformation\Locale(
-                'Room Booking Skill', // name
-                'This is a sample Alexa skill.',
-                'This skill has Alexa for Business reservations features.',
-                'https://smallUri.example.com/small1.png',
-                'https://largeUri.example.com/large1.png',
-                [
-                    'Alexa, book this room.',
-                    'Alexa, find a room at 3pm tomorrow.'
-                ],
-                [
-                    'Meetings',
-                    'Booking',
-                    'Alexa For Business'
-                ],
-                'This skill has updates that fix feature bugs.'
-            ),
-        ];
+        $locales = ['en-US' => $this->prophesize(PublishingInformation\Locale::class)->reveal()];
         $distributionCountries = [new DistributionCountry('US'), new DistributionCountry('GB'), new DistributionCountry('DE')];
         $isAvailableWorldwide = false;
         $distributionMode = new PublishingInformation\DistributionMode('PUBLIC');

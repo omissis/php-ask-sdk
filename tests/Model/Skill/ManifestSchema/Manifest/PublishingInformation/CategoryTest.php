@@ -25,6 +25,7 @@ final class CategoryTest extends TestCase
         $this->assertSame($category, (string) new Category($category));
     }
 
+    // phpcs:disable ObjectCalisthenics.Files.FunctionLength
     public function categoryProvider(): \Generator
     {
         yield ['ALARMS_AND_CLOCKS'];
@@ -87,4 +88,5 @@ final class CategoryTest extends TestCase
         yield ['WINE_AND_BEVERAGE'];
         yield ['ZIP_CODE_LOOKUP'];
     }
+    // phpcs:enable ObjectCalisthenics.Files.FunctionLength
 }

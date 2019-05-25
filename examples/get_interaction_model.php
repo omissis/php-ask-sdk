@@ -3,7 +3,7 @@
 require_once __DIR__.'/bootstrap.php';
 
 try {
-    $interactionModel = $sdk->getInteractionModel($skillId, $stage, 'en-US');
+    $interactionModel = $sdk->getInteractionModelSchema($skillId, $stage, 'en-US');
 
     dump($interactionModel);
 } catch (Throwable $exception) {

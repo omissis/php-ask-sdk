@@ -3,6 +3,7 @@
 namespace Omissis\AlexaSdk\Tests;
 
 use Nyholm\Psr7\Factory\Psr17Factory;
+use Omissis\AlexaSdk\Model\Skill\InteractionModelSchema;
 use Omissis\AlexaSdk\Model\Skill\ManifestSchema;
 use Omissis\AlexaSdk\Sdk;
 use Omissis\AlexaSdk\Serializer\Deserializer;
@@ -14,12 +15,20 @@ use Prophecy\Argument;
 use Prophecy\Prophecy\ObjectProphecy;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
+use Psr\Http\Message\RequestInterface;
 
+// phpcs:disable ObjectCalisthenics.CodeAnalysis.OneObjectOperatorPerLine
 final class SdkTest extends TestCase
 {
     private const TEST_SKILL_ID = 'amzn1.ask.skill.00000001-0002-0003-0004-000000000005';
     private const TEST_STAGE = 'development';
     private const TEST_API_BASE_URL = 'https://api.amazonalexa.com/v1';
+    private const TEST_LOCALE = 'en-US';
+
+    /**
+     * @var Psr17Factory
+     */
+    private $psr17Factory;
 
     /**
      * @var ObjectProphecy|ClientInterface
@@ -48,6 +57,8 @@ final class SdkTest extends TestCase
 
     public function setUp(): void
     {
+        $this->psr17Factory = new Psr17Factory();
+
         $this->client = $this->prophesize(ClientInterface::class);
         $this->httpRequestFactory = $this->prophesize(RequestFactoryInterface::class);
         $this->serializer = $this->prophesize(Serializer::class);
@@ -63,18 +74,13 @@ final class SdkTest extends TestCase
         );
     }
 
-    public function testItCanGetSkillInformation(): void
+    public function testItCanGetManifestSchema(): void
     {
         $uri = self::TEST_API_BASE_URL . '/skills/' . self::TEST_SKILL_ID . '/stages/' . self::TEST_STAGE . '/manifest';
 
-        $factory = new Psr17Factory();
+        $expectedResult = new ManifestSchema();
 
-        $request = $factory->createRequest('GET', $uri)
-            ->withHeader('Accept', 'application/json')
-            ->withHeader('Content-Type', 'application/json')
-            ->withHeader('Authorization', 'Bearer foobar');
-
-        $response = $factory->createResponse();
+        $request = $this->createRequest('GET', $uri);
 
         $this->httpRequestFactory
             ->createRequest('GET', $uri)
@@ -83,13 +89,52 @@ final class SdkTest extends TestCase
 
         $this->client
             ->sendRequest($request)
-            ->willReturn($response)
+            ->willReturn($this->psr17Factory->createResponse())
             ->shouldBeCalledOnce();
 
         $this->deserializer
             ->deserialize(Argument::any(), Format::json(), Type::skillManifestSchema())
-            ->willReturn(new ManifestSchema());
+            ->willReturn($expectedResult)
+            ->shouldBeCalledOnce();
 
-        $this->sdk->getSkillInformation(self::TEST_SKILL_ID, self::TEST_STAGE);
+        $actualResult = $this->sdk->getManifestSchema(self::TEST_SKILL_ID, self::TEST_STAGE);
+
+        $this->assertSame($expectedResult, $actualResult);
+    }
+
+    public function testItCanGetInteractionModelSchema(): void
+    {
+        $uri = self::TEST_API_BASE_URL . '/skills/' . self::TEST_SKILL_ID . '/stages/' . self::TEST_STAGE . '/interactionModel/locales/'. self::TEST_LOCALE;
+
+        $expectedResult = $this->prophesize(InteractionModelSchema::class)->reveal();
+
+        $request = $this->createRequest('GET', $uri);
+
+        $this->httpRequestFactory
+            ->createRequest('GET', $uri)
+            ->willReturn($request)
+            ->shouldBeCalledOnce();
+
+        $this->client
+            ->sendRequest($request)
+            ->willReturn($this->psr17Factory->createResponse())
+            ->shouldBeCalledOnce();
+
+        $this->deserializer
+            ->deserialize(Argument::any(), Format::json(), Type::skillInteractionModelSchema())
+            ->willReturn($expectedResult)
+            ->shouldBeCalledOnce();
+
+        $actualResult = $this->sdk->getInteractionModelSchema(self::TEST_SKILL_ID, self::TEST_STAGE, self::TEST_LOCALE);
+
+        $this->assertSame($expectedResult, $actualResult);
+    }
+
+    private function createRequest(string $method, string $uri): RequestInterface
+    {
+        return $this->psr17Factory->createRequest($method, $uri)
+            ->withHeader('Accept', 'application/json')
+            ->withHeader('Content-Type', 'application/json')
+            ->withHeader('Authorization', 'Bearer foobar');
     }
 }

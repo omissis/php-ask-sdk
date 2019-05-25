@@ -18,8 +18,10 @@ use Omissis\AlexaSdk\Model\Uri\Url;
 use Omissis\AlexaSdk\Serializer\Format;
 use Omissis\AlexaSdk\Tests\Resources;
 
+// phpcs:disable ObjectCalisthenics.Files.ClassTraitAndInterfaceLength
 final class SerializationProvider
 {
+    // phpcs:disable ObjectCalisthenics.Files.FunctionLength
     public static function provide(): Generator
     {
         // Testsuite: Skill Manifest Schema
@@ -587,4 +589,6 @@ final class SerializationProvider
             }
         }
     }
+    // phpcs:enable ObjectCalisthenics.Files.FunctionLength
 }
+// phpcs:emable ObjectCalisthenics.Files.ClassTraitAndInterfaceLength
