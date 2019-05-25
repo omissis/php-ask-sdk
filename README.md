@@ -6,7 +6,7 @@ This repository contains an (experimental) API SDK for Alexa's Skill Management 
 
 In order to test it locally, you need to have an account on the [Alexa Developer Console](https://developer.amazon.com/alexa/console/ask) as well as a configured skill.
 
-Once that's in place, create a `.env` file in the root of this repo and fill in the skill id.
+Once that's in place, run `composer install`; then create a `.env` file in the root of this repo and fill in the skill id.
 
 Last, run `make env-renew-token`: that should open a browser and write a token in your env file once you authenticate.
 
