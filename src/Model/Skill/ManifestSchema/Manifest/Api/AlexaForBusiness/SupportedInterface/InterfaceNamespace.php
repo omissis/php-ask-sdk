@@ -2,7 +2,7 @@
 
 namespace Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api\AlexaForBusiness\SupportedInterface;
 
-final class InterfaceNamespace
+/*final */class InterfaceNamespace
 {
     public const ALLOWED_NAMESPACES = ['Alexa.Business.Reservation.Room'];
 

@@ -4,7 +4,7 @@ namespace Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api\Video\Region;
 
 use Omissis\AlexaSdk\Model\Uri\Uri;
 
-final class Upchannel
+/*final */class Upchannel
 {
     /**
      * Use "SNS" for this field

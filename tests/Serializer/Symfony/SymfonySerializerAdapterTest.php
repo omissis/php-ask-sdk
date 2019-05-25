@@ -3,6 +3,7 @@
 namespace Omissis\AlexaSdk\Tests\Serializer\Symfony;
 
 use Generator;
+use Omissis\AlexaSdk\Model\Skill\InteractionModelSchema;
 use Omissis\AlexaSdk\Model\Skill\ManifestSchema;
 use Omissis\AlexaSdk\Serializer\Format;
 use Omissis\AlexaSdk\Serializer\Symfony\SymfonySerializerAdapter;
@@ -11,9 +12,11 @@ use PHPUnit\Framework\TestCase;
 final class SymfonySerializerAdapterTest extends TestCase
 {
     /**
+     * @param InteractionModelSchema|ManifestSchema $data
+     *
      * @dataProvider serializationProvider
      */
-    public function testItSerializes(string $expectedString, ManifestSchema $data, Format $format): void
+    public function testItSerializes(string $expectedString, object $data, Format $format): void
     {
         $actualString = (new SymfonySerializerAdapter())->serialize($data, $format);
 

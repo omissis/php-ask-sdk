@@ -2,7 +2,7 @@
 
 namespace Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api\SmartHome;
 
-final class Region
+/*final */class Region
 {
     /**
      * @var Endpoint

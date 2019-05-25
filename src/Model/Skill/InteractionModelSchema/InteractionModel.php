@@ -4,9 +4,9 @@ namespace Omissis\AlexaSdk\Model\Skill\InteractionModelSchema;
 
 use Omissis\AlexaSdk\Model\Skill\InteractionModelSchema\InteractionModel\Dialog;
 use Omissis\AlexaSdk\Model\Skill\InteractionModelSchema\InteractionModel\LanguageModel;
-use Omissis\AlexaSdk\Model\Skill\InteractionModelSchema\InteractionModel\Prompts;
+use Omissis\AlexaSdk\Model\Skill\InteractionModelSchema\InteractionModel\Prompt;
 
-final class InteractionModel
+/*final */class InteractionModel
 {
     /**
      * @var LanguageModel
@@ -19,11 +19,14 @@ final class InteractionModel
     private $dialog;
 
     /**
-     * @var Prompts
+     * @var Prompt[]
      */
     private $prompts;
 
-    public function __construct(LanguageModel $languageModel, Dialog $dialog, Prompts $prompts)
+    /**
+     * @param Prompt[] $prompts
+     */
+    public function __construct(LanguageModel $languageModel, Dialog $dialog, array $prompts)
     {
         $this->languageModel = $languageModel;
         $this->dialog = $dialog;
@@ -40,7 +43,10 @@ final class InteractionModel
         return $this->dialog;
     }
 
-    public function getPrompts(): Prompts
+    /**
+     * @return Prompt[]
+     */
+    public function getPrompts(): array
     {
         return $this->prompts;
     }

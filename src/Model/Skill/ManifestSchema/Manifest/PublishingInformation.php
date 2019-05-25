@@ -7,7 +7,7 @@ use Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\PublishingInformation\D
 use Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\PublishingInformation\DistributionMode;
 use Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\PublishingInformation\Locale;
 
-final class PublishingInformation
+/*final */class PublishingInformation
 {
     /**
      * Object that contains <locale> objects for each supported locale.

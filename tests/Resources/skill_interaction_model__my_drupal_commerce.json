@@ -45,6 +45,7 @@
           ],
           "types": [
               {
+                  "name": "ProductName",
                   "values": [
                       {
                           "id": "0",
@@ -52,8 +53,7 @@
                               "value": "nothing"
                           }
                       }
-                  ],
-                  "name": "ProductName"
+                  ]
               }
           ]
       },
@@ -61,8 +61,6 @@
           "intents": [
               {
                   "name": "AddProductToCartIntent",
-                  "confirmationRequired": false,
-                  "prompts": {},
                   "slots": [
                       {
                           "name": "product_name",
@@ -73,7 +71,9 @@
                               "elicitation": "Elicit.Slot.989082703768.30792011828"
                           }
                       }
-                  ]
+                  ],
+                  "confirmationRequired": false,
+                  "prompts": {}
               }
           ],
           "delegationStrategy": "ALWAYS"

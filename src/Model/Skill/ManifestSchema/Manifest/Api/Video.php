@@ -7,7 +7,7 @@ use Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api\Video\Endpoint;
 use Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api\Video\Locale;
 use Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api\Video\Region;
 
-final class Video implements Api
+/*final */class Video implements Api
 {
     /**
      * Object that contains <locale> Objects for each supported locale. Object

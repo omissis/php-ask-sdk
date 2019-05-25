@@ -7,7 +7,7 @@ use Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api\AlexaForBusiness\En
 use Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api\AlexaForBusiness\Region;
 use Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api\AlexaForBusiness\SupportedInterface;
 
-final class AlexaForBusiness implements Api
+/*final */class AlexaForBusiness implements Api
 {
     /**
      * Contains the uri field. Sets the global default endpoint, which can be overridden on a region-by-region basis.

@@ -4,7 +4,7 @@ namespace Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\PublishingInforma
 
 use Omissis\AlexaSdk\Model\Exception;
 
-final class InvalidDistributionCountryException extends Exception
+/*final */class InvalidDistributionCountryException extends Exception
 {
     /**
      * @var string

@@ -2,7 +2,7 @@
 
 namespace Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api\Video\Region\Upchannel;
 
-final class Type
+/*final */class Type
 {
     /**
      * @var string

@@ -2,7 +2,7 @@
 
 namespace Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api\SmartHome;
 
-final class ProtocolVersion
+/*final */class ProtocolVersion
 {
     public const ALLOWED_PROTOCOL_VERSIONS = ['2', '3'];
 

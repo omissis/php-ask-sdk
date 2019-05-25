@@ -2,7 +2,7 @@
 
 namespace Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api\Video;
 
-final class Region
+/*final */class Region
 {
     /**
      * @var Region\Endpoint

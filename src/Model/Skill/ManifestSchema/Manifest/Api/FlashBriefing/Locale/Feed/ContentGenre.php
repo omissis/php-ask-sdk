@@ -2,7 +2,7 @@
 
 namespace Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api\FlashBriefing\Locale\Feed;
 
-final class ContentGenre
+/*final */class ContentGenre
 {
     public const ALLOWED_CONTENT_GENRES = [
         'HEADLINE_NEWS',

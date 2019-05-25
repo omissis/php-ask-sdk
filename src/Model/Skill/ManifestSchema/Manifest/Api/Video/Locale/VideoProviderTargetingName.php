@@ -2,7 +2,7 @@
 
 namespace Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api\Video\Locale;
 
-final class VideoProviderTargetingName
+/*final */class VideoProviderTargetingName
 {
     /**
      * @var string

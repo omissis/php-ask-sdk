@@ -4,7 +4,7 @@ namespace Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest;
 
 use Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\PrivacyAndCompliance\Locale;
 
-final class PrivacyAndCompliance
+/*final */class PrivacyAndCompliance
 {
     /**
      * true to indicate purchases can be made from this skill; otherwise, false.

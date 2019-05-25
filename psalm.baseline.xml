@@ -13,7 +13,7 @@
       <code>mixed[]</code>
     </ImplementedReturnTypeMismatch>
   </file>
-  <file src="src/Serializer/Symfony/CustomObjectNormalizer.php">
+  <file src="src/Serializer/Symfony/HouseholdListNormalizer.php">
     <InvalidReturnType occurrences="1">
       <code>normalize</code>
     </InvalidReturnType>

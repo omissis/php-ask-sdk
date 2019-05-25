@@ -2,7 +2,7 @@
 
 namespace Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\PublishingInformation;
 
-final class Category
+/*final */class Category
 {
     public const ALLOWED_CATEGORIES = [
         'ALARMS_AND_CLOCKS',

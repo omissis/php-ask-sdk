@@ -2,7 +2,7 @@
 
 namespace Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api\Health;
 
-final class Region
+/*final */class Region
 {
     /**
      * @var Region\Endpoint

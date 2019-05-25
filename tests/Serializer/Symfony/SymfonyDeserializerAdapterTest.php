@@ -3,6 +3,7 @@
 namespace Omissis\AlexaSdk\Tests\Serializer\Symfony;
 
 use Generator;
+use Omissis\AlexaSdk\Model\Skill\InteractionModelSchema;
 use Omissis\AlexaSdk\Model\Skill\ManifestSchema;
 use Omissis\AlexaSdk\Serializer\Format;
 use Omissis\AlexaSdk\Serializer\Symfony\SymfonyDeserializerAdapter;
@@ -12,11 +13,13 @@ use PHPUnit\Framework\TestCase;
 final class SymfonyDeserializerAdapterTest extends TestCase
 {
     /**
+     * @param InteractionModelSchema|ManifestSchema $expectedObject
+     *
      * @dataProvider deserializationProvider
      */
-    public function testItDeserializes(string $data, ManifestSchema $expectedObject, Format $format): void
+    public function testItDeserializes(string $data, object $expectedObject, Format $format): void
     {
-        $actualObject = (new SymfonyDeserializerAdapter())->deserialize($data, $format, Type::skillManifestSchema());
+        $actualObject = (new SymfonyDeserializerAdapter())->deserialize($data, $format, Type::fromObject($expectedObject));
 
         $this->assertEquals($expectedObject, $actualObject);
     }

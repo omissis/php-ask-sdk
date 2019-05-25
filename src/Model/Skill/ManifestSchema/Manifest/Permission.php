@@ -2,7 +2,7 @@
 
 namespace Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest;
 
-final class Permission
+/*final */class Permission
 {
     public const ALLOWED_PERMISSIONS = [
         'alexa::alerts:reminders:skill:readwrite', // Read/write permission for reminder alerts.

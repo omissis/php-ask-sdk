@@ -107,14 +107,12 @@
         "intents": [
           {
             "name": "GetTravelTime",
-            "confirmationRequired": false,
-            "prompts": {},
             "slots": [
               {
                 "name": "DepartingPlanet",
                 "type": "Planet",
-                "confirmationRequired": false,
                 "elicitationRequired": true,
+                "confirmationRequired": false,
                 "prompts": {
                   "elicitation": "Elicit.Intent-GetTravelTime.IntentSlot-DepartingPlanet"
                 },
@@ -143,7 +141,9 @@
                   "elicitation": "Elicit.Intent-GetTravelTime.IntentSlot-ArrivingPlanet"
                 }
               }
-            ]
+            ],
+            "confirmationRequired": false,
+            "prompts": {}
           }
         ],
         "delegationStrategy": "ALWAYS"

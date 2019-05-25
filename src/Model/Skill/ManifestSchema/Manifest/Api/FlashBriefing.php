@@ -5,7 +5,7 @@ namespace Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api;
 use Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api;
 use Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api\FlashBriefing\Locale;
 
-final class FlashBriefing implements Api
+/*final */class FlashBriefing implements Api
 {
     /**
      * @var Locale[]

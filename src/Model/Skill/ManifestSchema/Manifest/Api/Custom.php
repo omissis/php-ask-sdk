@@ -7,7 +7,7 @@ use Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api\Custom\Endpoint;
 use Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api\Custom\Region;
 use Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api\Custom\SupportedInterface;
 
-final class Custom implements Api
+/*final */class Custom implements Api
 {
     /**
      * Contains the uri and sslCertificateType fields. Sets the global default endpoint, which can be overridden on a region-by-region basis.

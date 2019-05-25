@@ -2,7 +2,7 @@
 
 namespace Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Events;
 
-final class Publication
+/*final */class Publication
 {
     /**
      * @var EventName

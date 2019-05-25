@@ -2,7 +2,7 @@
 
 namespace Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api\FlashBriefing\Locale\Feed;
 
-final class ContentType
+/*final */class ContentType
 {
     public const ALLOWED_CONTENT_TYPES = [
         'TEXT', // Indicates the content of the feed is text to be read by Alexa.

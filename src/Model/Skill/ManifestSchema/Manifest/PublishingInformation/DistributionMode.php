@@ -2,7 +2,7 @@
 
 namespace Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\PublishingInformation;
 
-final class DistributionMode
+/*final */class DistributionMode
 {
     public const ALLOWED_DISTRIBUTION_MODES = ['PUBLIC', 'PRIVATE'];
 

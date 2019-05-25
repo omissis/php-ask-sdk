@@ -2,7 +2,7 @@
 
 namespace Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api\Video\Locale;
 
-final class CatalogInformation
+/*final */class CatalogInformation
 {
     /**
      * @var string

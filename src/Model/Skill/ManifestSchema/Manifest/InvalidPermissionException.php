@@ -4,7 +4,7 @@ namespace Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest;
 
 use Omissis\AlexaSdk\Model\Exception;
 
-final class InvalidPermissionException extends Exception
+/*final */class InvalidPermissionException extends Exception
 {
     /**
      * @var string

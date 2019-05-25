@@ -2,7 +2,7 @@
 
 namespace Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\PublishingInformation;
 
-final class DistributionCountry
+/*final */class DistributionCountry
 {
     /**
      * @var string

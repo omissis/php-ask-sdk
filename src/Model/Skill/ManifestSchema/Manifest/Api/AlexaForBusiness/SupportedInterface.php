@@ -6,7 +6,7 @@ use Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api\AlexaForBusiness\Su
 use Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api\AlexaForBusiness\SupportedInterface\Request;
 use Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api\AlexaForBusiness\SupportedInterface\Version;
 
-final class SupportedInterface
+/*final */class SupportedInterface
 {
     /**
      * Must be Alexa.Business.Reservation.Room.

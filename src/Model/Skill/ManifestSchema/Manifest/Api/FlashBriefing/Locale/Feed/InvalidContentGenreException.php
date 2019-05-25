@@ -4,7 +4,7 @@ namespace Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api\FlashBriefing
 
 use Omissis\AlexaSdk\Model\Exception;
 
-final class InvalidContentGenreException extends Exception
+/*final */class InvalidContentGenreException extends Exception
 {
     /**
      * @var string

@@ -2,7 +2,7 @@
 
 namespace Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api\FlashBriefing\Locale\Feed;
 
-final class UpdateFrequency
+/*final */class UpdateFrequency
 {
     public const ALLOWED_UPDATED_FREQUENCIES = [
         'DAILY', // Feed content is updated daily.

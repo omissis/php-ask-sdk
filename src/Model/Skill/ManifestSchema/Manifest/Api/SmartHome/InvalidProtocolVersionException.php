@@ -4,7 +4,7 @@ namespace Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api\SmartHome;
 
 use Omissis\AlexaSdk\Model\Exception;
 
-final class InvalidProtocolVersionException extends Exception
+/*final */class InvalidProtocolVersionException extends Exception
 {
     /**
      * @var string

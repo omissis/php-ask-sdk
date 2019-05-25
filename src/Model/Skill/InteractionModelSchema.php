@@ -3,8 +3,9 @@
 namespace Omissis\AlexaSdk\Model\Skill;
 
 use Omissis\AlexaSdk\Model\Skill\InteractionModelSchema\InteractionModel;
+use Omissis\AlexaSdk\Model\Skill\InteractionModelSchema\Version;
 
-final class InteractionModelSchema
+/*final */class InteractionModelSchema
 {
     /**
      * @var InteractionModel
@@ -12,11 +13,11 @@ final class InteractionModelSchema
     private $interactionModel;
 
     /**
-     * @var null|string
+     * @var null|Version
      */
     private $version;
 
-    public function __construct(InteractionModel $interactionModel, ?string $version = null)
+    public function __construct(InteractionModel $interactionModel, ?Version $version = null)
     {
         $this->interactionModel = $interactionModel;
         $this->version = $version;
@@ -27,7 +28,7 @@ final class InteractionModelSchema
         return $this->interactionModel;
     }
 
-    public function getVersion(): ?string
+    public function getVersion(): ?Version
     {
         return $this->version;
     }

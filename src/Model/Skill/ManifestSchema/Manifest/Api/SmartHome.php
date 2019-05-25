@@ -7,7 +7,7 @@ use Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api\SmartHome\Endpoint;
 use Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api\SmartHome\ProtocolVersion;
 use Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api\SmartHome\Region;
 
-final class SmartHome implements Api
+/*final */class SmartHome implements Api
 {
     /**
      * Contains the uri field.

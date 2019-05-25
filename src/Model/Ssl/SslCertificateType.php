@@ -2,7 +2,7 @@
 
 namespace Omissis\AlexaSdk\Model\Ssl;
 
-final class SslCertificateType
+/*final */class SslCertificateType
 {
     public const ALLOWED_SSL_CERTIFICATE_TYPES = ['SelfSigned', 'Trusted', 'Wildcard'];
 

@@ -4,7 +4,7 @@ namespace Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\PublishingInforma
 
 use Omissis\AlexaSdk\Model\Exception;
 
-final class InvalidDistributionModeException extends Exception
+/*final */class InvalidDistributionModeException extends Exception
 {
     /**
      * @var string

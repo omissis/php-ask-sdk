@@ -4,7 +4,7 @@ namespace Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api\Video;
 
 use Omissis\AlexaSdk\Model\Uri\Uri;
 
-final class Endpoint
+/*final */class Endpoint
 {
     /**
      * Amazon Resource Name (ARN) for the skill's video AWS Lambda function.

@@ -4,6 +4,6 @@ namespace Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api;
 
 use Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api;
 
-final class HouseholdList implements Api
+/*final */class HouseholdList implements Api
 {
 }

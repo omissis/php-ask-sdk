@@ -2,7 +2,7 @@
 
 namespace Omissis\AlexaSdk\Model\Uri;
 
-final class Uri
+/*final */class Uri
 {
     /**
      * The Amazon Resource Name (ARN) of the Lambda function, or the HTTPS URL for a custom endpoint.

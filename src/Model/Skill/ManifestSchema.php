@@ -5,7 +5,7 @@ namespace Omissis\AlexaSdk\Model\Skill;
 use Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest;
 use Omissis\AlexaSdk\Model\Skill\ManifestSchema\VendorId;
 
-final class ManifestSchema
+/*final */class ManifestSchema
 {
     /**
      * @var null|Manifest

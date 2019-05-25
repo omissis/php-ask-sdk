@@ -8,7 +8,7 @@ use Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Events\Region;
 use Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Events\Subscription;
 use Omissis\AlexaSdk\Model\Ssl\SslCertificateType;
 
-final class Events
+/*final */class Events
 {
     /**
      * Contains the uri field. This sets the global default endpoint for events.

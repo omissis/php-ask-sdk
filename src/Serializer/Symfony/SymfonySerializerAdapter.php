@@ -18,7 +18,7 @@ final class SymfonySerializerAdapter implements Serializer
     public function __construct()
     {
         $this->serializer = new SymfonySerializer(
-            [new CustomObjectNormalizer(), new ValueObjectNormalizer(), new ObjectNormalizer(null, new IsserNameConverter())],
+            [new DialogIntentNormalizer(), new HouseholdListNormalizer(), new ValueObjectNormalizer(), new ObjectNormalizer(null, new IsserNameConverter())],
             [new JsonEncoder()]
         );
     }

@@ -2,7 +2,7 @@
 
 namespace Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api\AlexaForBusiness\SupportedInterface;
 
-final class Request
+/*final */class Request
 {
     public const ALLOWED_NAMES = ['Search', 'Create', 'Update'];
 

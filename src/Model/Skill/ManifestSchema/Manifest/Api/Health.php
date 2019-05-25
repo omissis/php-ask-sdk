@@ -6,7 +6,7 @@ use Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api;
 use Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api\Health\Endpoint;
 use Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api\Health\Region;
 
-final class Health implements Api
+/*final */class Health implements Api
 {
     /**
      * Contains the uri field.

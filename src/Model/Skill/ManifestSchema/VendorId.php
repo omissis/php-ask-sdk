@@ -2,7 +2,7 @@
 
 namespace Omissis\AlexaSdk\Model\Skill\ManifestSchema;
 
-final class VendorId
+/*final */class VendorId
 {
     /**
      * @var string

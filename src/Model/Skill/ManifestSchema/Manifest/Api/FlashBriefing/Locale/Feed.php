@@ -8,7 +8,7 @@ use Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api\FlashBriefing\Local
 use Omissis\AlexaSdk\Model\Uri\Uri;
 use Omissis\AlexaSdk\Model\Uri\Url;
 
-final class Feed
+/*final */class Feed
 {
     /**
      * Name of the feed

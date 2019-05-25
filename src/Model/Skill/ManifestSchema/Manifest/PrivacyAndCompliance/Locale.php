@@ -4,7 +4,7 @@ namespace Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\PrivacyAndComplia
 
 use Omissis\AlexaSdk\Model\Uri\Url;
 
-final class Locale
+/*final */class Locale
 {
     /**
      * URL to the privacy policy for the skill for the locale.

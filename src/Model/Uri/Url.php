@@ -2,7 +2,7 @@
 
 namespace Omissis\AlexaSdk\Model\Uri;
 
-final class Url
+/*final */class Url
 {
     /**
      * An HTTP/HTTPS URL.

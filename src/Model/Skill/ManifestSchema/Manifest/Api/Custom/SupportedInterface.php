@@ -2,7 +2,7 @@
 
 namespace Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api\Custom;
 
-final class SupportedInterface
+/*final */class SupportedInterface
 {
     public const ALLOWED_TYPES = [
         'ALEXA_PRESENTATION_APL',

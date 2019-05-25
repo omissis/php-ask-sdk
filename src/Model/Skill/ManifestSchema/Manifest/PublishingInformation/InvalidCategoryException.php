@@ -4,7 +4,7 @@ namespace Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\PublishingInforma
 
 use Omissis\AlexaSdk\Model\Exception;
 
-final class InvalidCategoryException extends Exception
+/*final */class InvalidCategoryException extends Exception
 {
     /**
      * @var string

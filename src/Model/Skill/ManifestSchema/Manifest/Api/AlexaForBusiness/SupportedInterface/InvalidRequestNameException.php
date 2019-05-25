@@ -4,7 +4,7 @@ namespace Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api\AlexaForBusin
 
 use Omissis\AlexaSdk\Model\Exception;
 
-final class InvalidRequestNameException extends Exception
+/*final */class InvalidRequestNameException extends Exception
 {
     /**
      * @var string

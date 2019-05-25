@@ -3,6 +3,8 @@
 namespace Omissis\AlexaSdk\Tests\Serializer\Symfony;
 
 use Generator;
+use Omissis\AlexaSdk\Model\Skill\InteractionModelSchema;
+use Omissis\AlexaSdk\Model\Skill\InteractionModelSchema\InteractionModel;
 use Omissis\AlexaSdk\Model\Skill\ManifestSchema;
 use Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest;
 use Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api;
@@ -442,12 +444,146 @@ final class SerializationProvider
         {
             // Testcase: my drupal commerce
             {
-                // TODO: skill_interaction_model__my_drupal_commerce.json
+                $serialized = Resources::getContent('skill_interaction_model__my_drupal_commerce.json');
+
+                $schema = new InteractionModelSchema(
+                    new InteractionModel(
+                        new InteractionModelSchema\InteractionModel\LanguageModel(
+                            new InteractionModel\LanguageModel\InvocationName('my drupal commerce'),
+                            [
+                                new InteractionModel\LanguageModel\Intent('AMAZON.FallbackIntent', null, ['hey drupalexa', 'drupalexa']),
+                                new InteractionModel\LanguageModel\Intent('AMAZON.CancelIntent', null, []),
+                                new InteractionModel\LanguageModel\Intent('AMAZON.HelpIntent', null, []),
+                                new InteractionModel\LanguageModel\Intent('AMAZON.StopIntent', null, []),
+                                new InteractionModel\LanguageModel\Intent('AMAZON.NavigateHomeIntent', null, []),
+                                new InteractionModel\LanguageModel\Intent(
+                                    'AddProductToCartIntent',
+                                    [new InteractionModel\LanguageModel\Intent\Slot('product_name', 'ProductName')],
+                                    [
+                                        new InteractionModel\LanguageModel\Intent\Sample('cart {product_name}'),
+                                        new InteractionModel\LanguageModel\Intent\Sample('basket {product_name}'),
+                                        new InteractionModel\LanguageModel\Intent\Sample('add {product_name}'),
+                                        new InteractionModel\LanguageModel\Intent\Sample('add {product_name} to the cart'),
+                                        new InteractionModel\LanguageModel\Intent\Sample('add {product_name} to cart'),
+                                    ]
+                                ),
+                            ],
+                            [new InteractionModel\LanguageModel\Type('ProductName', [
+                                new InteractionModel\LanguageModel\Type\Value(new InteractionModel\LanguageModel\Type\Value\Name('nothing'), new InteractionModel\LanguageModel\Type\Value\Id('0'))
+                            ])]
+                        ),
+                        new InteractionModelSchema\InteractionModel\Dialog(
+                            [new InteractionModelSchema\InteractionModel\Dialog\Intent(
+                                'AddProductToCartIntent',
+                                null,
+                                [new InteractionModel\Dialog\Intent\Slot('product_name', 'ProductName', true, false, [
+                                    'elicitation' => 'Elicit.Slot.989082703768.30792011828',
+                                ])],
+                                false,
+                                []
+                            )],
+                            'ALWAYS'
+                        ),
+                        [new InteractionModelSchema\InteractionModel\Prompt(
+                            'Elicit.Slot.989082703768.30792011828',
+                            [new InteractionModelSchema\InteractionModel\Prompt\Variation('PlainText', 'what\'s the product name?')]
+                        )]
+                    ),
+                    new InteractionModelSchema\Version('2')
+                );
+
+                yield [$serialized, $schema, Format::json()];
             }
 
             // Testcase: my space facts
             {
-                // TODO: skill_interaction_model__my_space_facts.json
+                $serialized = Resources::getContent('skill_interaction_model__my_space_facts.json');
+
+
+                $schema = new InteractionModelSchema(
+                    new InteractionModel(
+                        new InteractionModelSchema\InteractionModel\LanguageModel(
+                            new InteractionModel\LanguageModel\InvocationName('my space facts'),
+                            [
+                                new InteractionModel\LanguageModel\Intent('AMAZON.CancelIntent', null, []),
+                                new InteractionModel\LanguageModel\Intent('AMAZON.HelpIntent', null, []),
+                                new InteractionModel\LanguageModel\Intent('AMAZON.StopIntent', null, []),
+                                new InteractionModel\LanguageModel\Intent('GetNewFactIntent', [], ['Give me a fact', 'tell me a fact']),
+                                new InteractionModel\LanguageModel\Intent(
+                                    'GetTravelTime',
+                                    [
+                                        new InteractionModel\LanguageModel\Intent\Slot('DepartingPlanet', 'Planet', [
+                                            'I\'m starting from {DepartingPlanet} ',
+                                            '{DepartingPlanet} ',
+                                            'I\'m going from {DepartingPlanet} to {ArrivingPlanet} ',
+                                        ]),
+                                        new InteractionModel\LanguageModel\Intent\Slot('ArrivingPlanet', 'Planet', [
+                                            'I\'m going to {ArrivingPlanet} ',
+                                            '{ArrivingPlanet} ',
+                                        ])
+                                    ],
+                                    [
+                                        new InteractionModel\LanguageModel\Intent\Sample('calculate travel time'),
+                                        new InteractionModel\LanguageModel\Intent\Sample('how long does it take to travel from {DepartingPlanet} to {ArrivingPlanet} '),
+                                    ]
+                                ),
+                            ],
+                            [new InteractionModel\LanguageModel\Type('Planet', [
+                                new InteractionModel\LanguageModel\Type\Value(new InteractionModel\LanguageModel\Type\Value\Name('Mercury')),
+                                new InteractionModel\LanguageModel\Type\Value(new InteractionModel\LanguageModel\Type\Value\Name('Venus')),
+                                new InteractionModel\LanguageModel\Type\Value(new InteractionModel\LanguageModel\Type\Value\Name('Earth')),
+                                new InteractionModel\LanguageModel\Type\Value(new InteractionModel\LanguageModel\Type\Value\Name('Mars')),
+                                new InteractionModel\LanguageModel\Type\Value(new InteractionModel\LanguageModel\Type\Value\Name('Jupiter')),
+                                new InteractionModel\LanguageModel\Type\Value(new InteractionModel\LanguageModel\Type\Value\Name('Saturn')),
+                                new InteractionModel\LanguageModel\Type\Value(new InteractionModel\LanguageModel\Type\Value\Name('Uranus')),
+                                new InteractionModel\LanguageModel\Type\Value(new InteractionModel\LanguageModel\Type\Value\Name('Neptune')),
+                                new InteractionModel\LanguageModel\Type\Value(new InteractionModel\LanguageModel\Type\Value\Name('Pluto')),
+                            ])]
+                        ),
+                        new InteractionModelSchema\InteractionModel\Dialog(
+                            [new InteractionModelSchema\InteractionModel\Dialog\Intent(
+                                'GetTravelTime',
+                                null,
+                                [
+                                    new InteractionModel\Dialog\Intent\Slot('DepartingPlanet', 'Planet', true, false, ['elicitation' => 'Elicit.Intent-GetTravelTime.IntentSlot-DepartingPlanet'], [
+                                        new InteractionModel\Dialog\Intent\Slot\Validation('isNotInSet', 'Slot.Validation.596358663326.282490667310.1526107495625', ['the sun', 'sun', 'our sun']),
+                                        new InteractionModel\Dialog\Intent\Slot\Validation('hasEntityResolutionMatch', 'Slot.Validation.596358663326.282490667310.1366622834897'),
+                                    ]),
+                                    new InteractionModel\Dialog\Intent\Slot('ArrivingPlanet', 'Planet', true, false, ['elicitation' => 'Elicit.Intent-GetTravelTime.IntentSlot-ArrivingPlanet'])
+                                ],
+                                false,
+                                []
+                            )],
+                            'ALWAYS'
+                        ),
+                        [
+                            new InteractionModelSchema\InteractionModel\Prompt(
+                                'Elicit.Intent-GetTravelTime.IntentSlot-DepartingPlanet',
+                                [new InteractionModelSchema\InteractionModel\Prompt\Variation('PlainText', 'Which planet do you want to start from?')]
+                            ),
+                            new InteractionModelSchema\InteractionModel\Prompt(
+                                'Elicit.Intent-GetTravelTime.IntentSlot-ArrivingPlanet',
+                                [new InteractionModelSchema\InteractionModel\Prompt\Variation('PlainText', 'Which planet do you want to travel to?')]
+                            ),
+                            new InteractionModelSchema\InteractionModel\Prompt(
+                                'Slot.Validation.596358663326.282490667310.1526107495625',
+                                [
+                                    new InteractionModelSchema\InteractionModel\Prompt\Variation('PlainText', 'I can\'t answer this question about the sun, only planets. Please tell me a planet.'),
+                                    new InteractionModelSchema\InteractionModel\Prompt\Variation('PlainText', 'While the sun is the center of our solar system, it is not a planet. Please tell me a planet.'),
+                                ]
+                            ),
+                            new InteractionModelSchema\InteractionModel\Prompt(
+                                'Slot.Validation.596358663326.282490667310.1366622834897',
+                                [
+                                    new InteractionModelSchema\InteractionModel\Prompt\Variation('PlainText', '{DepartingPlanet} is not a planet. Please tell me one of the nine planets in our solar system. '),
+                                    new InteractionModelSchema\InteractionModel\Prompt\Variation('PlainText', 'I don\'t recognize {DepartingPlanet} as a planet in our solar system. Please tell me a planet.'),
+                                ]
+                            ),
+                        ]
+                    )
+                );
+
+                yield [$serialized, $schema, Format::json()];
             }
         }
     }

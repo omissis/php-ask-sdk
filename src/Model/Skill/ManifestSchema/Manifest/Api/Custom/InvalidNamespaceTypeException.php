@@ -4,7 +4,7 @@ namespace Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api\Custom;
 
 use Omissis\AlexaSdk\Model\Exception;
 
-final class InvalidNamespaceTypeException extends Exception
+/*final */class InvalidNamespaceTypeException extends Exception
 {
     /**
      * @var string

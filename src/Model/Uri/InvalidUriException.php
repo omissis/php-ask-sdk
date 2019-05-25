@@ -4,7 +4,7 @@ namespace Omissis\AlexaSdk\Model\Uri;
 
 use Omissis\AlexaSdk\Sdk\Exception;
 
-final class InvalidUriException extends Exception
+/*final */class InvalidUriException extends Exception
 {
     /**
      * @var string

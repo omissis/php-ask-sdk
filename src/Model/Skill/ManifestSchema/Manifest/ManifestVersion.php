@@ -2,7 +2,7 @@
 
 namespace Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest;
 
-final class ManifestVersion
+/*final */class ManifestVersion
 {
     /**
      * @var string

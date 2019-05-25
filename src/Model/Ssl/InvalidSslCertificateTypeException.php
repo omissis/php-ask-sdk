@@ -4,7 +4,7 @@ namespace Omissis\AlexaSdk\Model\Ssl;
 
 use Omissis\AlexaSdk\Sdk\Exception;
 
-final class InvalidSslCertificateTypeException extends Exception
+/*final */class InvalidSslCertificateTypeException extends Exception
 {
     /**
      * @var string

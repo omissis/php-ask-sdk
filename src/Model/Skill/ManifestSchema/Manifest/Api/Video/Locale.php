@@ -5,7 +5,7 @@ namespace Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api\Video;
 use Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api\Video\Locale\CatalogInformation;
 use Omissis\AlexaSdk\Model\Skill\ManifestSchema\Manifest\Api\Video\Locale\VideoProviderTargetingName;
 
-final class Locale
+/*final */class Locale
 {
     /**
      * List of names.
