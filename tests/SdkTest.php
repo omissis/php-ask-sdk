@@ -74,7 +74,7 @@ final class SdkTest extends TestCase
         );
     }
 
-    public function testItCanGetManifestSchema(): void
+    public function testItCanGetAManifestSchema(): void
     {
         $uri = self::TEST_API_BASE_URL . '/skills/' . self::TEST_SKILL_ID . '/stages/' . self::TEST_STAGE . '/manifest';
 
@@ -102,7 +102,7 @@ final class SdkTest extends TestCase
         $this->assertSame($expectedResult, $actualResult);
     }
 
-    public function testItCanGetInteractionModelSchema(): void
+    public function testItCanGetAnInteractionModelSchema(): void
     {
         $uri = self::TEST_API_BASE_URL . '/skills/' . self::TEST_SKILL_ID . '/stages/' . self::TEST_STAGE . '/interactionModel/locales/'. self::TEST_LOCALE;
 
@@ -126,6 +126,34 @@ final class SdkTest extends TestCase
             ->shouldBeCalledOnce();
 
         $actualResult = $this->sdk->getInteractionModelSchema(self::TEST_SKILL_ID, self::TEST_STAGE, self::TEST_LOCALE);
+
+        $this->assertSame($expectedResult, $actualResult);
+    }
+
+    public function testItCanUpdateAnInteractionModelSchema(): void
+    {
+        $uri = self::TEST_API_BASE_URL . '/skills/' . self::TEST_SKILL_ID . '/stages/' . self::TEST_STAGE . '/interactionModel/locales/'. self::TEST_LOCALE;
+
+        $expectedResult = '{"foo": "bar"}';
+
+        $request = $this->createRequest('PUT', $uri);
+
+        $this->httpRequestFactory
+            ->createRequest('PUT', $uri)
+            ->willReturn($request)
+            ->shouldBeCalledOnce();
+
+        $this->client
+            ->sendRequest($request)
+            ->willReturn($this->psr17Factory->createResponse())
+            ->shouldBeCalledOnce();
+
+        $this->serializer
+            ->serialize(Argument::any(), Format::json())
+            ->willReturn($expectedResult)
+            ->shouldBeCalledOnce();
+
+        $actualResult = $this->sdk->updateInteractionModelSchema(self::TEST_SKILL_ID, self::TEST_STAGE, self::TEST_LOCALE);
 
         $this->assertSame($expectedResult, $actualResult);
     }

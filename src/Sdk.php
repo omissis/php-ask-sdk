@@ -2,6 +2,7 @@
 
 namespace Omissis\AlexaSdk;
 
+use Nyholm\Psr7\Stream;
 use Omissis\AlexaSdk\Model\Skill\InteractionModelSchema;
 use Omissis\AlexaSdk\Model\Skill\ManifestSchema;
 use Omissis\AlexaSdk\Sdk\OAuthToken;
@@ -88,9 +89,39 @@ final class Sdk
         );
     }
 
-    public function createSkill(): void
+    /**
+     * @todo better specify return type
+     *
+     * @return mixed
+     */
+    public function updateInteractionModelSchema(string $skillId, string $stage, string $locale)
     {
-        $this->serializer->serialize(['todo' => 'implement'], Format::json());
+        return $this->sdkPut(
+            "$this->baseUrl/skills/$skillId/stages/$stage/interactionModel/locales/$locale",
+            "Cannot update interaction model of skill '$skillId' for stage '$stage' using locale '$locale'.",
+            Type::skillInteractionModelSchema()
+        );
+    }
+
+    /**
+     * @return mixed
+     *
+     * @throws Sdk\Exception
+     */
+    private function sdkPut(string $url, string $errorMessage, $object)
+    {
+        $serializedBody = $this->serializer->serialize([
+            'interactionModel' => $object,
+            'description' => 'managed by PHP ASK SDK',
+        ], Format::json());
+
+        try {
+            $response = $this->request('PUT', $url, $serializedBody);
+        } catch (Throwable $exception) {
+            throw new Sdk\Exception($errorMessage, 0, $exception);
+        }
+
+        return $response;
     }
 
     /**
@@ -101,7 +132,7 @@ final class Sdk
     private function sdkGet(string $url, string $errorMessage, Type $returnType)
     {
         try {
-            $response = $this->httpGet($url);
+            $response = $this->request('GET', $url);
         } catch (Throwable $exception) {
             throw new Sdk\Exception($errorMessage, 0, $exception);
         }
@@ -113,13 +144,17 @@ final class Sdk
      * @throws RuntimeException
      * @throws ClientExceptionInterface
      */
-    private function httpGet(string $url): ResponseInterface
+    private function request(string $method, string $url, ?string $body = null): ResponseInterface
     {
         $request = $this->httpRequestFactory
-            ->createRequest('GET', $url)
+            ->createRequest($method, $url)
             ->withHeader('Authorization', sprintf('Bearer %s', $this->oAuthToken->getToken()))
             ->withHeader('Accept', 'application/json')
             ->withHeader('Content-Type', 'application/json');
+
+        if ($body !== null) {
+            $request->withBody(Stream::create($body));
+        }
 
         $response = $this->httpClient->sendRequest($request);
 
