@@ -5,6 +5,7 @@ namespace Omissis\AlexaSdk\Tests;
 use Nyholm\Psr7\Factory\Psr17Factory;
 use Omissis\AlexaSdk\Model\Skill\InteractionModelSchema;
 use Omissis\AlexaSdk\Model\Skill\ManifestSchema;
+use Omissis\AlexaSdk\Model\Skill\UpdateInteractionModelSchema;
 use Omissis\AlexaSdk\Sdk;
 use Omissis\AlexaSdk\Serializer\Deserializer;
 use Omissis\AlexaSdk\Serializer\Format;
@@ -134,8 +135,6 @@ final class SdkTest extends TestCase
     {
         $uri = self::TEST_API_BASE_URL . '/skills/' . self::TEST_SKILL_ID . '/stages/' . self::TEST_STAGE . '/interactionModel/locales/'. self::TEST_LOCALE;
 
-        $expectedResult = '{"foo": "bar"}';
-
         $request = $this->createRequest('PUT', $uri);
 
         $this->httpRequestFactory
@@ -144,18 +143,20 @@ final class SdkTest extends TestCase
             ->shouldBeCalledOnce();
 
         $this->client
-            ->sendRequest($request)
+            ->sendRequest(Argument::type(RequestInterface::class))
             ->willReturn($this->psr17Factory->createResponse())
             ->shouldBeCalledOnce();
 
         $this->serializer
             ->serialize(Argument::any(), Format::json())
-            ->willReturn($expectedResult)
+            ->willReturn('{"foo": "bar"}')
             ->shouldBeCalledOnce();
 
-        $actualResult = $this->sdk->updateInteractionModelSchema(self::TEST_SKILL_ID, self::TEST_STAGE, self::TEST_LOCALE);
+        $schema = $this->prophesize(UpdateInteractionModelSchema::class)->reveal();
 
-        $this->assertSame($expectedResult, $actualResult);
+        $response = $this->sdk->updateInteractionModelSchema(self::TEST_SKILL_ID, self::TEST_STAGE, self::TEST_LOCALE, $schema);
+
+        $this->assertSame(200, $response->getStatusCode());
     }
 
     private function createRequest(string $method, string $uri): RequestInterface

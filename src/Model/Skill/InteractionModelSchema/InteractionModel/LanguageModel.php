@@ -35,6 +35,11 @@ namespace Omissis\AlexaSdk\Model\Skill\InteractionModelSchema\InteractionModel;
         return $this->invocationName;
     }
 
+    public function setInvocationName(LanguageModel\InvocationName $invocationName): void
+    {
+        $this->invocationName = $invocationName;
+    }
+
     /**
      * @return LanguageModel\Intent[]
      */

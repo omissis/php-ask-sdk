@@ -5,6 +5,7 @@ namespace Omissis\AlexaSdk;
 use Nyholm\Psr7\Stream;
 use Omissis\AlexaSdk\Model\Skill\InteractionModelSchema;
 use Omissis\AlexaSdk\Model\Skill\ManifestSchema;
+use Omissis\AlexaSdk\Model\Skill\UpdateInteractionModelSchema;
 use Omissis\AlexaSdk\Sdk\OAuthToken;
 use Omissis\AlexaSdk\Serializer\Deserializer;
 use Omissis\AlexaSdk\Serializer\Format;
@@ -70,7 +71,7 @@ final class Sdk
      */
     public function getManifestSchema(string $skillId, string $stage): ManifestSchema
     {
-        return $this->sdkGet(
+        return $this->get(
             "$this->baseUrl/skills/$skillId/stages/$stage/manifest",
             "Cannot get manifest of skill '$skillId' for stage '$stage'",
             Type::skillManifestSchema()
@@ -82,7 +83,7 @@ final class Sdk
      */
     public function getInteractionModelSchema(string $skillId, string $stage, string $locale): InteractionModelSchema
     {
-        return $this->sdkGet(
+        return $this->get(
             "$this->baseUrl/skills/$skillId/stages/$stage/interactionModel/locales/$locale",
             "Cannot get interaction model of skill '$skillId' for stage '$stage' using locale '$locale'.",
             Type::skillInteractionModelSchema()
@@ -93,13 +94,19 @@ final class Sdk
      * @todo better specify return type
      *
      * @return mixed
+     *
+     * @throws Sdk\Exception
      */
-    public function updateInteractionModelSchema(string $skillId, string $stage, string $locale)
-    {
-        return $this->sdkPut(
+    public function updateInteractionModelSchema(
+        string $skillId,
+        string $stage,
+        string $locale,
+        UpdateInteractionModelSchema $interactionModel
+    ) {
+        return $this->put(
             "$this->baseUrl/skills/$skillId/stages/$stage/interactionModel/locales/$locale",
             "Cannot update interaction model of skill '$skillId' for stage '$stage' using locale '$locale'.",
-            Type::skillInteractionModelSchema()
+            $this->serializer->serialize($interactionModel, Format::json())
         );
     }
 
@@ -108,15 +115,10 @@ final class Sdk
      *
      * @throws Sdk\Exception
      */
-    private function sdkPut(string $url, string $errorMessage, $object)
+    private function put(string $url, string $errorMessage, string $body)
     {
-        $serializedBody = $this->serializer->serialize([
-            'interactionModel' => $object,
-            'description' => 'managed by PHP ASK SDK',
-        ], Format::json());
-
         try {
-            $response = $this->request('PUT', $url, $serializedBody);
+            $response = $this->request('PUT', $url, $body);
         } catch (Throwable $exception) {
             throw new Sdk\Exception($errorMessage, 0, $exception);
         }
@@ -129,7 +131,7 @@ final class Sdk
      *
      * @throws Sdk\Exception
      */
-    private function sdkGet(string $url, string $errorMessage, Type $returnType)
+    private function get(string $url, string $errorMessage, Type $returnType)
     {
         try {
             $response = $this->request('GET', $url);
@@ -153,7 +155,7 @@ final class Sdk
             ->withHeader('Content-Type', 'application/json');
 
         if ($body !== null) {
-            $request->withBody(Stream::create($body));
+            $request = $request->withBody(Stream::create($body));
         }
 
         $response = $this->httpClient->sendRequest($request);
