@@ -32,11 +32,24 @@ namespace Omissis\AlexaSdk\Model\Skill\InteractionModelSchema\InteractionModel\L
         return $this->name;
     }
 
+    public function setName(string $name): void
+    {
+        $this->name = $name;
+    }
+
     /**
      * @return Type\Value[]
      */
     public function getValues(): array
     {
         return $this->values;
+    }
+
+    /**
+     * @param Type\Value[] $values
+     */
+    public function setValues(array $values): void
+    {
+        $this->values = $values;
     }
 }

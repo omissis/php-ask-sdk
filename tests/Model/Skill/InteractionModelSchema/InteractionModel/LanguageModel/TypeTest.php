@@ -14,4 +14,19 @@ final class TypeTest extends TestCase
         $this->assertSame('foobar', $type->getName());
         $this->assertSame([], $type->getValues());
     }
+
+    public function testItExposesMutators(): void
+    {
+        $newValues = [
+            new Type\Value(new Type\Value\Name('test'), new Type\Value\Id('1234')),
+        ];
+
+        $type = new Type('foobar', []);
+
+        $type->setName('bazquux');
+        $type->setValues($newValues);
+
+        $this->assertSame('bazquux', $type->getName());
+        $this->assertSame($newValues, $type->getValues());
+    }
 }
