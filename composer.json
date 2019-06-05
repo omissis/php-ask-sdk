@@ -27,9 +27,11 @@
     },
     "suggest": {
         "doctrine/common": "Used to parse annotations",
+        "kriswallsmith/buzz": "Used to communicate with other hosts via HTTP",
+        "nyholm/psr7": "Used to use common HTTP Implementations",
         "symfony/serializer": "Used to serialize/deserialize data",
         "symfony/property-access": "Used to access object properties",
-        "symfony/property-info": "Used to access information about object properties"
+        "symfony/property-info": "Used to access information about object properties",
     },
     "autoload": {
         "psr-4": {
