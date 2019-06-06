@@ -2,17 +2,17 @@
 
 namespace Omissis\AlexaSdk\Serializer\Symfony;
 
-use Symfony\Component\Serializer\NameConverter\AdvancedNameConverterInterface;
+use Symfony\Component\Serializer\NameConverter\NameConverterInterface;
 
 // phpcs:disable SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
-final class ConstructorParameterNameConverter implements AdvancedNameConverterInterface
+final class ConstructorParameterNameConverter implements NameConverterInterface
 {
-    /**
-     * {@inheritDoc}
-     *
-     * @return int|string
-     */
-    public function normalize($propertyName, string $class = null, string $format = null, array $context = [])
+  /**
+   * {@inheritDoc}
+   *
+   * @return int|string
+   */
+    public function normalize($propertyName, string $class = null)
     {
         if ($class === null) {
             return $propertyName;
@@ -27,10 +27,10 @@ final class ConstructorParameterNameConverter implements AdvancedNameConverterIn
         return $propertyName;
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    public function denormalize($propertyName, string $class = null, string $format = null, array $context = []): string
+  /**
+   * {@inheritDoc}
+   */
+    public function denormalize($propertyName): string
     {
         return $propertyName;
     }

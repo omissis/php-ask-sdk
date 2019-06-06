@@ -19,6 +19,12 @@ final class DialogIntentNormalizer extends ObjectNormalizer
             $normalized['prompts'] = new \stdClass();
         }
 
+        if (is_array($normalized) && isset($context['skip_null_values']) && $context['skip_null_values'] === true) {
+            return array_filter($normalized, static function ($value): bool {
+                return null !== $value;
+            });
+        }
+
         return $normalized;
     }
 

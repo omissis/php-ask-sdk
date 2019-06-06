@@ -5,7 +5,6 @@ namespace Omissis\AlexaSdk\Serializer\Symfony;
 use Omissis\AlexaSdk\Serializer\Format;
 use Omissis\AlexaSdk\Serializer\Serializer;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
-use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer as SymfonySerializer;
 
 final class SymfonySerializerAdapter implements Serializer
@@ -18,7 +17,7 @@ final class SymfonySerializerAdapter implements Serializer
     public function __construct()
     {
         $this->serializer = new SymfonySerializer(
-            [new DialogIntentNormalizer(), new HouseholdListNormalizer(), new ValueObjectNormalizer(), new ObjectNormalizer(null, new IsserNameConverter())],
+            [new DialogIntentNormalizer(), new HouseholdListNormalizer(), new ValueObjectNormalizer(), new CustomObjectNormalizer(null, new IsserNameConverter())],
             [new JsonEncoder()]
         );
     }

@@ -5,8 +5,8 @@ namespace Omissis\AlexaSdk\Serializer\Symfony;
 use Symfony\Component\Serializer\Exception\BadMethodCallException;
 use Symfony\Component\Serializer\Exception\InvalidArgumentException;
 use Symfony\Component\Serializer\Exception\NotNormalizableValueException;
-use Symfony\Component\Serializer\Normalizer\CacheableSupportsMethodInterface;
 use Symfony\Component\Serializer\Normalizer\ContextAwareDenormalizerInterface;
+use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
 use Symfony\Component\Serializer\SerializerAwareInterface;
 use Symfony\Component\Serializer\SerializerInterface;
 
@@ -15,28 +15,27 @@ use Symfony\Component\Serializer\SerializerInterface;
  *
  * @author Alexander M. Turek <me@derrabus.de>
  * @author Claudio Beatrice <claudi0.beatric3@gmail.com>
- *
- * @final
  */
-class CustomArrayDenormalizer implements ContextAwareDenormalizerInterface, SerializerAwareInterface, CacheableSupportsMethodInterface
+// phpcs:disable SlevomatCodingStandard.Functions.UnusedParameter.UnusedParameter
+class CustomArrayDenormalizer implements ContextAwareDenormalizerInterface, SerializerAwareInterface
 {
-    /**
-     * @var SerializerInterface&ContextAwareDenormalizerInterface
-     */
+  /**
+   * @var SerializerInterface&DenormalizerInterface
+   */
     private $serializer;
 
-    /**
-     * {@inheritDoc}
-     *
-     * @param mixed[] $data
-     * @param string $class
-     * @param null|string $format
-     * @param mixed[] $context
-     *
-     * @return mixed[]
-     *
-     * @throws NotNormalizableValueException
-     */
+  /**
+   * {@inheritDoc}
+   *
+   * @param mixed[] $data
+   * @param string $class
+   * @param null|string $format
+   * @param mixed[] $context
+   *
+   * @return mixed[]
+   *
+   * @throws NotNormalizableValueException
+   */
     public function denormalize($data, $class, $format = null, array $context = [])
     {
         if (null === $this->serializer) {
@@ -65,9 +64,9 @@ class CustomArrayDenormalizer implements ContextAwareDenormalizerInterface, Seri
         return $data;
     }
 
-    /**
-     * {@inheritdoc}
-     */
+  /**
+   * {@inheritdoc}
+   */
     public function supportsDenormalization($data, $type, $format = null, array $context = [])
     {
         if ('[]' !== substr($type, -2)) {
@@ -78,26 +77,19 @@ class CustomArrayDenormalizer implements ContextAwareDenormalizerInterface, Seri
             return true;
         }
 
-        return $this->serializer->supportsDenormalization($data, substr($type, 0, -2), $format, $context);
+        return $this->serializer->supportsDenormalization($data, substr($type, 0, -2), $format);
     }
 
-    /**
-     * {@inheritdoc}
-     */
+  /**
+   * {@inheritdoc}
+   */
     public function setSerializer(SerializerInterface $serializer)
     {
-        if (!$serializer instanceof ContextAwareDenormalizerInterface) {
+        if (!$serializer instanceof DenormalizerInterface) {
             throw new InvalidArgumentException('Expected a serializer that also implements DenormalizerInterface.');
         }
 
         $this->serializer = $serializer;
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function hasCacheableSupportsMethod(): bool
-    {
-        return $this->serializer instanceof CacheableSupportsMethodInterface && $this->serializer->hasCacheableSupportsMethod();
-    }
 }
+//phpcs:enable

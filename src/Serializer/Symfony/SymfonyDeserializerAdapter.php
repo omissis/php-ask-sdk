@@ -11,14 +11,13 @@ use Symfony\Component\PropertyInfo\Extractor\PhpDocExtractor;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory;
 use Symfony\Component\Serializer\Mapping\Loader\AnnotationLoader;
-use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer as SymfonySerializer;
 
 final class SymfonyDeserializerAdapter implements Deserializer
 {
-    /**
-     * @var SymfonySerializer
-     */
+  /**
+   * @var SymfonySerializer
+   */
     private $serializer;
 
     public function __construct()
@@ -27,19 +26,19 @@ final class SymfonyDeserializerAdapter implements Deserializer
 
         $this->serializer = new SymfonySerializer(
             [
-                new CustomArrayDenormalizer(),
-                new ObjectNormalizer($classMetaDataFactory, new ConstructorParameterNameConverter(), null, new PhpDocExtractor()),
+            new CustomArrayDenormalizer(),
+            new CustomObjectNormalizer($classMetaDataFactory, new ConstructorParameterNameConverter(), null, new PhpDocExtractor()),
             ],
             [new JsonEncoder()]
         );
     }
 
-    /**
-     * {@inheritDoc}
-     */
+  /**
+   * {@inheritDoc}
+   */
     public function deserialize(string $data, Format $inputFormat, Type $outputType)
     {
-        return $this->serializer->deserialize($data, (string) $outputType, (string) $inputFormat, [
+        return $this->serializer->deserialize($data, (string)$outputType, (string)$inputFormat, [
             'default_constructor_arguments' => [
                 Manifest\Events::class => ['publications' => null, 'subscriptions' => null],
             ],
