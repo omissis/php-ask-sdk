@@ -52,9 +52,9 @@ use Omissis\AlexaSdk\Model\Ssl\SslCertificateType;
      */
     public function __construct(
         Endpoint $endpoint,
-        ?array $publications,
-        ?array $subscriptions,
-        array $regions,
+        ?array $publications = null,
+        ?array $subscriptions = null,
+        array $regions = [],
         ?SslCertificateType $sslCertificateType = null
     ) {
         $this->endpoint = $endpoint;

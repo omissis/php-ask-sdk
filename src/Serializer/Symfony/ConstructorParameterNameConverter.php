@@ -32,7 +32,7 @@ final class ConstructorParameterNameConverter implements NameConverterInterface
    */
     public function denormalize($propertyName): string
     {
-        return $propertyName;
+        return (string) $propertyName;
     }
 }
 // phpcs:enable

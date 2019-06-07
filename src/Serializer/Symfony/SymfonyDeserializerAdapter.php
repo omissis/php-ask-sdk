@@ -26,8 +26,8 @@ final class SymfonyDeserializerAdapter implements Deserializer
 
         $this->serializer = new SymfonySerializer(
             [
-            new CustomArrayDenormalizer(),
-            new CustomObjectNormalizer($classMetaDataFactory, new ConstructorParameterNameConverter(), null, new PhpDocExtractor()),
+                new CustomArrayDenormalizer(),
+                new CustomObjectNormalizer($classMetaDataFactory, new ConstructorParameterNameConverter(), null, new PhpDocExtractor()),
             ],
             [new JsonEncoder()]
         );
